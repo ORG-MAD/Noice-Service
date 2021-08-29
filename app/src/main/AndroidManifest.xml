@@ -10,8 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noice_service">
         <activity
+            android:name=".CalculateReciept"
+            android:exported="true" />
+        <activity
+            android:name=".HomeCustomer"
+            android:exported="true" />
+        <activity
+            android:name=".NewDeliverRequest"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteSelectedRequest"
+            android:exported="true" />
+        <activity
+            android:name=".EditSelectedRequest"
+            android:exported="true" />
+        <activity
+            android:name=".SelectedRequestCustomer"
+            android:exported="true" />
+        <activity
+            android:name=".DeliverRequestCustomer"
+            android:exported="true" />
+        <activity
+            android:name=".DeliveryRequestHandling"
+            android:exported="true" />
+        <activity
+            android:name=".SelectedRequest"
+            android:exported="true" />
+        <activity
+            android:name=".About"
+            android:exported="true" />
+        <activity
+            android:name=".Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,5 @@
 package com.example.noice_service;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,9 +7,10 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -23,14 +20,12 @@ import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.ButtonEnum;
 import com.nightonke.boommenu.Piece.PiecePlaceEnum;
 
-public class MainActivity extends AppCompatActivity {
-
-    TextView textView;
+public class HomeCustomer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home_customer);
 
         //Noice Text Heading
         TextView textView = (TextView) findViewById(R.id.tv_heading);
@@ -49,24 +44,25 @@ public class MainActivity extends AppCompatActivity {
         HamButton.Builder builder1=new HamButton.Builder();
         HamButton.Builder builder2=new HamButton.Builder();
 
-        //Service Management Activity
-        builder.normalImageRes(R.drawable.noice_logo).normalText("Service Management")
+        builder.normalImageRes(R.drawable.noice_logo).normalText("My Profile")
                 .normalColorRes(R.color.colorYellowD)
-                .normalTextColorRes(R.color.black);
+                .normalTextColorRes(R.color.black)
+                .textSize(15);
         boomMenuButton.addBuilder(builder);
 
+        //My Profile Activity
         builder.listener(new OnBMClickListener() {
             @Override
             public void onBoomButtonClick(int index) {
                 index = 0;
                 Intent intent;
-                intent = new Intent(MainActivity.this, HomeCustomer.class);//Service Management Activity
+                intent = new Intent(HomeCustomer.this, MainActivity.class);//My Profile Activity
                 startActivity(intent);
             }
         });
 
-        //Delivery Request Handling Activity
-        builder1.normalImageRes(R.drawable.noice_logo).normalText("Delivery Request Handling")
+        //Delivery Request Activity
+        builder1.normalImageRes(R.drawable.noice_logo).normalText("Delivery Requests")
                 .normalColorRes(R.color.colorYellowD)
                 .normalTextColorRes(R.color.black);
         boomMenuButton.addBuilder(builder1);
@@ -75,13 +71,13 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 1;
                 Intent intent;
-                intent = new Intent(MainActivity.this,DeliveryRequestHandling.class);//Delivery Request Handling Activity
+                intent = new Intent(HomeCustomer.this,DeliverRequestCustomer.class);//Delivery Request Activity
                 startActivity(intent);
             }
         });
 
-        //Booking Management Activity
-        builder2.normalImageRes(R.drawable.noice_logo).normalText("Booking Management")
+        //Place Booking Activity
+        builder2.normalImageRes(R.drawable.noice_logo).normalText("Place Booking")
                 .normalColorRes(R.color.colorYellowD)
                 .normalTextColorRes(R.color.black);
         boomMenuButton.addBuilder(builder2);
@@ -90,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 2;
                 Intent intent;
-                intent = new Intent(MainActivity.this,HomeCustomer.class);
+                intent = new Intent(HomeCustomer.this,MainActivity.class);//Place Booking Activity
                 startActivity(intent);
             }
         });
