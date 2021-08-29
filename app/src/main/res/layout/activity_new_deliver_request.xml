@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="9"
+    android:background="@drawable/background_bg"
+    android:layout_height="match_parent"
+    tools:context=".NewDeliverRequest">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:theme="@style/ToolBar"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/tv_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/tv_heading"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="25dp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_generateReceipt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/tv_newDeliveryReq"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhiteD"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/tv_customerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="@string/tv_customerName"
+            android:textColor="@color/colorWhiteD"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+            //Customer Id
+
+            <TextView
+                android:id="@+id/tv_custName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_customerID"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_customerID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginRight="20sp"
+                    android:backgroundTint="@color/white"/>
+
+                //Contact Number
+
+            <TextView
+                android:id="@+id/tv_contactNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_contactNumber"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_contactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="140dp"
+                    android:layout_marginRight="20sp"
+                    android:backgroundTint="@color/white"/>
+
+                //Vehicle Name
+
+            <TextView
+                android:id="@+id/tv_vehicleName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="190dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_vehicleName"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_vehicleName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="210dp"
+                    android:layout_marginRight="20sp"
+                    android:backgroundTint="@color/white"/>
+
+                //Location Details
+
+            <TextView
+                android:id="@+id/tv_bookingDetails"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="260dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_locationDetails"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_locationDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="280dp"
+                    android:layout_marginRight="20sp"
+                    android:backgroundTint="@color/white"/>
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+
+                android:layout_marginRight="43dp"
+                android:layout_marginTop="290dp"
+                android:src="@drawable/ic_baseline_edit_location_24" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginRight="50dp"
+            android:backgroundTint="@color/buttonD"
+            android:text="@string/btn_submit"
+            android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom = "true"
+        />
+
+</LinearLayout>

@@ -7,4 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorHeader">#FFBF00</color>
+
+    //DULSHAN
+    <color name="colorPrimaryD">#3d95d0</color>
+    <color name="colorPrimaryDarkD">#489855</color>
+    <color name="colorAccentD">#D81860</color>
+    <color name="colorWhiteD">#FFFFFF</color>
+    <color name="colorYellowD">#FFF6B900</color>
+    <color name="colorRedD">#B30000</color>
+    <color name="textColorD">#000000</color>
+    <color name="headerColorD">#FFFFFF</color>
+    <color name="userRowD">#FFBF00</color>
+    <color name="buttonD">#03b10a</color>
+    <color name="iconColorD">#0857A5</color>
+    //DULSHAN
+
 </resources>
