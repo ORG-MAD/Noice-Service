@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noice_service">
         <activity
+            android:name=".booking_list_admin"
+            android:exported="true" />
+        <activity
             android:name=".CalculateReciept"
             android:exported="true" />
         <activity
@@ -66,6 +69,12 @@
         <activity
             android:name=".ViewService"
             android:exported="true" />
+        <activity android:name=".most_popular_service" />
+        <activity android:name=".view_bookings_admin" />
+        <activity android:name=".change_cancel_booking" />
+        <activity android:name=".Service" />
+        <activity android:name=".Service_Search" />
+        <activity android:name=".MyBookings" />
         <activity
             android:name=".GradientService"
             android:exported="true"
