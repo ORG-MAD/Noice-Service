@@ -43,7 +43,31 @@
             android:name=".Dashboard"
             android:exported="true" />
         <activity
+            android:name=".TotalIncome"
+            android:exported="true" />
+        <activity
+            android:name=".ServiceHome"
+            android:exported="true" />
+        <activity
+            android:name=".AddServices"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SelectedUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateService"
+            android:exported="true" />
+        <activity
+            android:name=".ServicesDetails"
+            android:exported="true" />
+        <activity
+            android:name=".ViewService"
+            android:exported="true" />
+        <activity
+            android:name=".GradientService"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -52,6 +76,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
