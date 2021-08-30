@@ -69,7 +69,7 @@ public class ServicesDetails extends AppCompatActivity implements UsersAdapter.S
         usersAdapter = new UsersAdapter(userModelList,this);
 
         recyclerView.setAdapter(usersAdapter);
-
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -86,6 +86,8 @@ public class ServicesDetails extends AppCompatActivity implements UsersAdapter.S
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.about:
                         startActivity(new Intent(getApplicationContext(), About.class));
@@ -95,7 +97,7 @@ public class ServicesDetails extends AppCompatActivity implements UsersAdapter.S
                 return false;
             }
         });
-
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
 
     }
     @Override

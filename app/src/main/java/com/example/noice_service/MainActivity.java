@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 0;
                 Intent intent;
-                intent = new Intent(MainActivity.this, HomeCustomer.class);//Service Management Activity
+                intent = new Intent(MainActivity.this, ServiceHome.class);//Service Management Activity
                 startActivity(intent);
             }
         });
@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.about:
                         startActivity(new Intent(getApplicationContext(), About.class));
