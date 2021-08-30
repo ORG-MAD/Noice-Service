@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.16875" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_booking_list_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_my_bookings.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_new_deliver_request.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_selected_user.xml" value="0.16875" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_service.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_service_home.xml" value="0.16875" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_service_search.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_services_details.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_total_income.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_update_service.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_view_service.xml" value="0.16875" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/booking_list_structure_admin.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/bookings_list_admin.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/change_cancel_form.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/row_requests.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
