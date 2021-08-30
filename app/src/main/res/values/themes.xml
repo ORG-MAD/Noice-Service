@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
         <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item> <!--custom animation style-->
     </style>
     <style name="ToolBar">
 
@@ -24,5 +25,19 @@
     <style name="EditText">
         <item name="android:colorForeground">@color/colorWhiteD</item>
     </style>
+
+    //Amantha
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item> <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+    <style name="InputBox">
+        <item name="android:colorForeground">@color/colorWhite</item>
+    </style>
+    <style name="Theme.Noice_service.NoActionBar">
+        <item name="windowActionBar">false</item> <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Noice_Service.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Noice_Service.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

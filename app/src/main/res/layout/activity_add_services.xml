@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="219dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/tv_heading"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/tv_AddService"
+        android:layout_width="378dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/tv_serviceHeading"
+        android:textColor="#FFC107"
+        android:textSize="24dp"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="71dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/et_serviceTitle" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="125dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="380dp"
+            android:layout_height="108dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Service Description"
+            android:inputType="textLongMessage|textMultiLine" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/et_price" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/choose"
+        android:layout_width="166dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="#FFC107"
+        android:clickable="true"
+        android:text="@string/btn_chooseImage"
+        android:textSize="12sp"
+        app:backgroundTint="@color/colorAccent"
+        app:cornerRadius="100dp" />
+
+    <ImageView
+        android:id="@id/image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="#DCD7D7" />
+
+    <TextView
+        android:id="@+id/tv_day"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/gradient_end"
+        android:drawableEnd="@android:drawable/arrow_down_float"
+        android:drawableRight="@android:drawable/arrow_down_float"
+        android:drawablePadding="16dp"
+        android:hint="@string/et_selectEliquid"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000" />
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="63dp" >
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="20dp"
+            android:background="#DD1212"
+            android:clickable="true"
+            android:text="@string/btn_addService"
+            app:backgroundTint="@color/GreenN"
+            app:cornerRadius="400dp" />
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:foregroundGravity="bottom"
+            app:itemBackground="@color/colorHeader"
+            app:itemIconTint="@color/black"
+            app:itemTextColor="@color/black"
+            app:menu="@menu/menu_navigation" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+
+

@@ -35,4 +35,32 @@
     <string name="btn_calcBill">Calculate Bill</string>
     <string name="tv_netAmount">Net Amount</string>
     <string name="tv_amount">Amount</string>
+
+    //AMANTHA
+    <string name="title_activity_service_home">ServiceHome</string>
+    <string name="tv_serviceHeading">Add Service</string> <string name="et_serviceTitle">Service Title :</string>
+    <string name="et_serviceDescription">Service Description :</string> <string name="et_price">Price(LKR) :</string>
+    <string name="btn_chooseImage">Choose Image</string> <string name="et_selectEliquid">Select Equipments and Liquids :</string>
+    <string name="btn_addService">Add Service</string>
+    <string name="tv_selectedServiceh">Service 1</string>
+    <string name="et_serviceTex">Service 1</string>
+    <string name="et_sericeDex">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="et_serviceEql">★ Mobil &#xA;★ Engine Tune &#xA;★ Engine wash Liquid &#xA;★ Upholstry cleaner wash</string>
+    <string name="et_priceEx">LKR1234/-</string>
+    <string name="btn_serviceDelete">Delete</string>
+    <string name="btn_serviceUpdate">Update</string>
+    <string name="tv_manageService">Manage Services</string>
+    <string name="tv_boxHeading1">View Services</string> <string name="tv_boxDescription1">Now you can view and manage added services in here</string>
+    <string name="btn_viewS">View Services</string> <string name="tv_boxHeading2">Add Services</string>
+    <string name="tv_boxDescription2">Now you can add services as you want</string> <string name="btn_addS">Add Services</string>
+    <string name="chk_mobil">Mobil</string> <string name="chk_caltex">Caltex</string> <string name="btn_clear">Clear</string>
+    <string name="btn_update">Update</string> <string name="et_serviceImage">Service image :</string> <string name="btn_uploadS">Upload</string>
+    <string name="tv_user">username</string> <string name="btn_okay">Okay</string> <string name="btn_cancel">Cancel</string>
+    <string name="tv_updateSuccess">Update Successful!</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string> <string name="second_fragment_label">Second Fragment</string><string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string> <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tv_selectMonth">Select Month to calculate the total income :</string> <string name="tv_monthlyIncome">Monthly Income</string>
+    <string name="btn_calculate">Calculate Monthly Income</string> <string name="tv_totlIncome">Your Total Income = Rs. 100 000</string>
 </resources>
