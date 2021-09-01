@@ -69,12 +69,53 @@
         <activity
             android:name=".ViewService"
             android:exported="true" />
+
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
         <activity android:name=".change_cancel_booking" />
         <activity android:name=".Service" />
         <activity android:name=".Service_Search" />
         <activity android:name=".MyBookings" />
+
+        <activity
+            android:name=".ViewBookings_Admin"
+            android:exported="true" />
+        <activity
+            android:name=".BookingList"
+            android:exported="true" />
+        <activity
+            android:name=".UpdateProfile_Customer"
+            android:exported="true" />
+        <activity
+            android:name=".Navigation_Drawer"
+            android:exported="true" />
+        <activity
+            android:name=".MyAccount"
+            android:exported="true" />
+        <activity
+            android:name=".DeleteAccount_Customer"
+            android:exported="true" />
+        <activity
+            android:name=".test"
+            android:exported="true" />
+        <activity
+            android:name=".Register_Customer3"
+            android:exported="true" />
+        <activity
+            android:name=".Register_Customer2"
+            android:exported="true" />
+        <activity
+            android:name=".Register_Customer"
+            android:exported="true" />
+        <activity
+            android:name=".Calculation"
+            android:exported="true" />
+        <activity
+            android:name=".ChangePassword"
+            android:exported="true" />
+        <activity
+            android:name=".Login_Customer"
+            android:exported="true" />
         <activity
             android:name=".GradientService"
             android:exported="true"
