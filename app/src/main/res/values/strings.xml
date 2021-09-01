@@ -36,6 +36,55 @@
     <string name="tv_netAmount">Net Amount</string>
     <string name="tv_amount">Amount</string>
 
+
+    //JANUDI
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_titleBookingList">VIEW BOOKINGS</string>
+    <string name="btn_tabview">TAB VIEW</string>
+    <string name="tv_titleChangePass">CHANGE PASSWORD</string>
+    <string name="et_oldpass">Enter Old Password</string>
+    <string name="et_newpass">Enter New Password</string>
+    <string name="et_confirmpass">Confirm Password</string>
+    <string name="btn_changepass">CHANGE PASSWORD</string>
+    <string name="tv_titleCreateAccount">CREATE NEW ACCOUNT</string>
+    <string name="btn_show">DELETE ACCOUNT</string>
+    <string name="tv_titleLogin">LOGIN</string>
+    <string name="et_username">Enter Your Username</string>
+    <string name="et_password">Enter Your Password</string>
+    <string name="tv_titleMyAccount">MY PROFILE</string>
+    <string name="btn_editProfile">EDIT PROFILE</string>
+    <string name="btn_continue">CONTINUE</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_customer">CUSTOMER INFORMATION</string>
+    <string name="btn_booking">BOOKING INFORMATION</string>
+    <string name="btn_list">LIST VIEW</string>
+    <string name="forgotPass"><u>FORGOT PASSWORD?</u></string>
+
+    //SHEHAN
+    <string name="time1">10:00 AM - 11:00 AM</string>
+    <string name="time2">11:00 AM - 12:00 PM</string>
+    <string name="car_wash">Car wash</string>
+    <string name="full_service">Full service</string>
+    <string name="Oil_change">Oil change</string>
+    <string name="car_service">Car service</string>
+    <string name="customer_name">S V Perera</string>
+    <string name="car_number">ABC 1234</string>
+    <string name="bookings_title">Bookings</string>
+    <string name="my_bookings_title">My bookings</string>
+    <string name="cancel_button">cancel</string>
+    <string name="finish_button">mark as finish</string>
+    <string name="book_button">book</string>
+    <string name="price1">Rs 500</string>
+    <string name="price2">Rs 800</string>
+    <string name="approx_time">Approx 45 mins</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</string>
+    <string name="report">Monthly report</string>
+    <string name="appoinments_no">10 appoinments</string>
+    <string name="find_report">find report</string>
+    <string name="report_description">Select month to see total appointments</string>
+
     //AMANTHA
     <string name="title_activity_service_home">ServiceHome</string>
     <string name="tv_serviceHeading">Add Service</string>
@@ -81,29 +130,5 @@
     <string name="btn_calculate">Calculate Monthly Income</string>
     <string name="tv_totlIncome">Your Total Income = Rs. 100 000</string>
 
-    //SHEHAN
-    <string name="time1">10:00 AM - 11:00 AM</string>
-    <string name="time2">11:00 AM - 12:00 PM</string>
-    <string name="car_wash">Car wash</string>
-    <string name="full_service">Full service</string>
-    <string name="Oil_change">Oil change</string>
-    <string name="car_service">Car service</string>
-    <string name="customer_name">S V Perera</string>
-    <string name="car_number">ABC 1234</string>
-    <string name="bookings_title">Bookings</string>
-    <string name="my_bookings_title">My bookings</string>
-    <string name="cancel_button">cancel</string>
-    <string name="finish_button">mark as finish</string>
-    <string name="book_button">book</string>
-    <string name="price1">Rs 500</string>
-    <string name="price2">Rs 800</string>
-    <string name="approx_time">Approx 45 mins</string>
-    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</string>
-    <string name="report">Monthly report</string>
-    <string name="appoinments_no">10 appoinments</string>
-    <string name="find_report">find report</string>
-    <string name="report_description">Select month to see total appointments</string>
 
 </resources>

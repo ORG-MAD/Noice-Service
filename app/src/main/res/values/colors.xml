@@ -22,6 +22,17 @@
     <color name="buttonD">#03b10a</color>
     <color name="iconColorD">#0857A5</color>
 
+    //JANUDI
+
+    <color name="btncolor">#03B10A</color>
+    <color name="jlightgrey">#B1B1B1</color>
+
+    //SHEHAN
+
+    <color name="smallText">#e4e6eb</color>
+    <color name="car_wash_bg">#0183ff</color>
+    <color name="transparent">#00ffffff</color>
+
     //AMANTHA
     <color name="GreenN">#03B10A</color>
     <color name="colorPrimary">#3d96d0</color>
@@ -45,10 +56,5 @@
     <color name="colorGradientCenter">#F67831</color>
     <color name="colorGradientEnd">#FF1493</color>
 
-    //Shehan
-
-    <color name="smallText">#e4e6eb</color>
-    <color name="car_wash_bg">#0183ff</color>
-    <color name="transparent">#00ffffff</color>
 
 </resources>

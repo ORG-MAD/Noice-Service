@@ -56,7 +56,7 @@ public class HomeCustomer extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 0;
                 Intent intent;
-                intent = new Intent(HomeCustomer.this, MainActivity.class);//My Profile Activity
+                intent = new Intent(HomeCustomer.this, MyAccount.class);//My Profile Activity
                 startActivity(intent);
             }
         });
