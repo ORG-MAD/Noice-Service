@@ -1,5 +1,6 @@
 package com.example.noice_service;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,7 +48,7 @@ public class MyBookingsRecyclerView extends RecyclerView.Adapter  {
         BookingViewHolder bookingViewHolder = (BookingViewHolder) holder;
 
         bookingViewHolder.booking_name.setText(myBookingsList.get(position).getBooking_name());
-        bookingViewHolder.create_time.setText(myBookingsList.get(position).getBooking_time());
+        bookingViewHolder.create_time.setText(myBookingsList.get(position).getTime_slot());
 
         bookingViewHolder.booking_parent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

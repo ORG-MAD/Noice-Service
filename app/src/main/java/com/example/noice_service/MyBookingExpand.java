@@ -1,6 +1,7 @@
 package com.example.noice_service;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,8 +23,6 @@ public class MyBookingExpand extends AppCompatActivity {
         String time_slot = getIntent().getStringExtra("time_slot");
         String car_no = getIntent().getStringExtra("car_no");
         String phone_no = getIntent().getStringExtra("phone_no");
-
-
 
         tvname.setText(name);
         tvtime_slot.setText(time_slot);

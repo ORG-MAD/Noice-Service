@@ -1,6 +1,7 @@
 package com.example.noice_service;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -68,21 +69,27 @@ public class BookingFrom extends AppCompatActivity {
                     dropdown.requestFocus();
                 } else {
                     loadingProgressBar.setVisibility(View.VISIBLE);
-                    ProcessBook(phoneNo, carNo, time_slot,s_title,s_description);
+                    ProcessBook(phoneNo, carNo, time_slot,s_title,s_description, s_price, tv_day);
                 }
             }
         });
     }
 
-    private void ProcessBook(String pNo, String cNo, String timeSlot,String s_title,String s_description){
+    private void ProcessBook(String pNo, String cNo, String timeSlot,String s_title,String s_description, String s_price, String tv_day){
 
         Date date = new Date();
         String id = bookingsDatabase.push().getKey();
-       // Toast.makeText(this,id,Toast.LENGTH_SHORT).show();
 
-        MyBookings newBooking = new MyBookings(id, s_title, s_description, date.toString(), cNo, pNo, timeSlot);
+        bookingsDatabase.child(id).child("booking_id").setValue(id);
+        bookingsDatabase.child(id).child("booking_name").setValue(s_title);
+        bookingsDatabase.child(id).child("booking_time").setValue(date.toString());
+        bookingsDatabase.child(id).child("car_no").setValue(cNo);
+        bookingsDatabase.child(id).child("details").setValue(s_description);
+        bookingsDatabase.child(id).child("phone_no").setValue(pNo);
+        bookingsDatabase.child(id).child("s_price").setValue(s_price);
+        bookingsDatabase.child(id).child("time_slot").setValue(timeSlot);
+        bookingsDatabase.child(id).child("tv_day").setValue(tv_day);
 
-        bookingsDatabase.child(id).setValue(newBooking);
         loadingProgressBar.setVisibility(View.GONE);
         Toast.makeText(this,"nice",Toast.LENGTH_SHORT).show();
     }

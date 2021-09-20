@@ -123,10 +123,10 @@
             android:name=".BookingFrom"
             android:exported="true" />
         <activity
-            android:name=".MyBookingsActivity"
+            android:name=".GradientService"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".MyBookingsActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
