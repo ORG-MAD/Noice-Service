@@ -1,69 +1,80 @@
 package com.example.noice_service;
 
-import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.StyleSpan;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
+public class MyBookings {
+    private String booking_id;
+    private String booking_name;
+    private String details;
+    private String booking_time;
+    private String car_no;
+    private String phone_no;
+    private String time_slot;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-public class MyBookings extends AppCompatActivity {
-
-    TextView textView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_bookings);
-
-        textView = (TextView) findViewById(R.id.tv_heading);
-        String text = "NOICE SERVICE";
-        SpannableString ss = new SpannableString(text);
-        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(ss);
-
-        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
-        //Initialize variables and assign them
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-
-
-        //Perform Item Selected Event Listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.about:
-                        startActivity(new Intent(getApplicationContext(), About.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
-//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+    public MyBookings() {
     }
 
-    public void view_change(View view){
-        Intent intent1 = new Intent(this, change_cancel_booking.class);
-        startActivity(intent1);
+    public String getTime_slot() {
+        return time_slot;
+    }
+
+    public void setTime_slot(String time_slot) {
+        this.time_slot = time_slot;
+    }
+
+    public MyBookings(String booking_id, String booking_name, String details, String booking_time, String car_no, String phone_no, String time_slot) {
+        this.booking_id = booking_id;
+        this.booking_name = booking_name;
+        this.details = details;
+        this.booking_time = booking_time;
+        this.car_no = car_no;
+        this.phone_no = phone_no;
+        this.time_slot = time_slot;
+    }
+
+    public String getBooking_id() {
+        return booking_id;
+    }
+
+    public void setBooking_id(String booking_id) {
+        this.booking_id = booking_id;
+    }
+
+    public String getBooking_name() {
+        return booking_name;
+    }
+
+    public void setBooking_name(String booking_name) {
+        this.booking_name = booking_name;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getBooking_time() {
+        return booking_time;
+    }
+
+    public void setBooking_time(String booking_time) {
+        this.booking_time = booking_time;
+    }
+
+    public String getCar_no() {
+        return car_no;
+    }
+
+    public void setCar_no(String car_no) {
+        this.car_no = car_no;
+    }
+
+    public String getPhone_no() {
+        return phone_no;
+    }
+
+    public void setPhone_no(String phone_no) {
+        this.phone_no = phone_no;
     }
 }

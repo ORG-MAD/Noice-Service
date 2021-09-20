@@ -75,7 +75,6 @@
         <activity android:name=".change_cancel_booking" />
         <activity android:name=".Service" />
         <activity android:name=".Service_Search" />
-        <activity android:name=".MyBookings" />
 
         <activity
             android:name=".ViewBookings_Admin"
@@ -118,6 +117,9 @@
             android:exported="true" />
         <activity
             android:name=".GradientService"
+            android:exported="true" />
+        <activity
+            android:name=".BookingFrom"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
