@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".BookingFragment2"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="219dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/tv_heading"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="@string/tv_titleBookingList"
+        android:textColor="@color/colorHeader"
+        android:textSize="30dp" />
+
+    <ImageView
+        android:id="@+id/iv_ud"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/carwash" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="230dp"
+        android:text="CAR WASHING"
+        android:textColor="@color/colorHeader"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23rd Monday August 2021 at 10.00AM"
+        android:textColor="@color/white"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_customer"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="410dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/btn_customer"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:backgroundTint="@color/btncolor" />
+
+    <Button
+        android:id="@+id/btn_booking"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/btn_booking"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:backgroundTint="@color/btncolor" />
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        android:background="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom = "true"
+        />
+
+    <Button
+        android:id="@+id/btn_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="570dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/btn_list"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:backgroundTint="@color/colorAccent" />
+
+</RelativeLayout>

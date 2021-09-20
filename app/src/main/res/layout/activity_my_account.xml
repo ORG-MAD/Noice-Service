@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyAccount"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="219dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/tv_heading"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/tv_titleMyAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="@string/tv_titleMyAccount"
+        android:textColor="@color/colorHeader"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/iv_profile"
+        android:src="@drawable/account"
+        android:layout_marginTop="140dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_fullname"
+        android:text="SAM ANDREW"
+        android:textSize="22dp"
+        android:layout_marginTop="310dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorHeader"
+        />
+
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="360dp"
+        android:text="GENDER: Male"
+        android:textColor="@color/white"
+        android:textSize="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_mobile"
+        android:text="CONTACT NUMBER: 0776153426"
+        android:textSize="22dp"
+        android:layout_marginTop="420dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/tv_address1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="480dp"
+        android:text="ADDRESS: 289/6,"
+        android:textColor="@color/white"
+        android:layout_marginLeft="34dp"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/tv_address2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="139dp"
+        android:layout_marginTop="510dp"
+        android:text="Bunt Road"
+        android:textColor="@color/white"
+        android:textSize="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_address3"
+        android:text="Battaramulla, Sri Lanka"
+        android:textSize="22dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginLeft="139dp"
+        android:textColor="@color/white"
+        />
+
+    <Button
+        android:id="@+id/btn_editProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="600dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:text="@string/btn_editProfile"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        app:backgroundTint="@color/btncolor" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom_navigation"
+        app:itemBackground="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation"
+        android:layout_alignParentBottom = "true"
+        />
+
+</RelativeLayout>
