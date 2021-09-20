@@ -69,13 +69,11 @@
         <activity
             android:name=".ViewService"
             android:exported="true" />
-
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
         <activity android:name=".change_cancel_booking" />
         <activity android:name=".Service" />
         <activity android:name=".Service_Search" />
-
         <activity
             android:name=".ViewBookings_Admin"
             android:exported="true" />
@@ -116,7 +114,7 @@
             android:name=".Login_Customer"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".services_list"
             android:exported="true" />
         <activity
             android:name=".MyBookingExpand"
@@ -126,6 +124,9 @@
             android:exported="true" />
         <activity
             android:name=".MyBookingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GradientService"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

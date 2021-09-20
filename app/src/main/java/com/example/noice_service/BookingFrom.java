@@ -27,6 +27,11 @@ public class BookingFrom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_from);
 
+        String s_title = getIntent().getStringExtra("s_title");
+        String s_price = getIntent().getStringExtra("s_price");
+        String s_description = getIntent().getStringExtra("s_description");
+        String tv_day = getIntent().getStringExtra("tv_day");
+
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
         final EditText phoneNumberEditText = findViewById(R.id.phone_number);
@@ -63,19 +68,19 @@ public class BookingFrom extends AppCompatActivity {
                     dropdown.requestFocus();
                 } else {
                     loadingProgressBar.setVisibility(View.VISIBLE);
-                    ProcessBook(phoneNo, carNo, time_slot);
+                    ProcessBook(phoneNo, carNo, time_slot,s_title,s_description);
                 }
             }
         });
     }
 
-    private void ProcessBook(String pNo, String cNo, String timeSlot){
+    private void ProcessBook(String pNo, String cNo, String timeSlot,String s_title,String s_description){
 
         Date date = new Date();
         String id = bookingsDatabase.push().getKey();
        // Toast.makeText(this,id,Toast.LENGTH_SHORT).show();
 
-        MyBookings newBooking = new MyBookings(id, "book1", "details", date.toString(), cNo, pNo, timeSlot);
+        MyBookings newBooking = new MyBookings(id, s_title, s_description, date.toString(), cNo, pNo, timeSlot);
 
         bookingsDatabase.child(id).setValue(newBooking);
         loadingProgressBar.setVisibility(View.GONE);
