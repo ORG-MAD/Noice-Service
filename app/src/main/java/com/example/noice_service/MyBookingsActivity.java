@@ -2,6 +2,7 @@ package com.example.noice_service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,9 +42,11 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
                         String car_no=ds.child("car_no").getValue(String.class);
                         String details=ds.child("details").getValue(String.class);
                         String phone_no=ds.child("phone_no").getValue(String.class);
+                        String s_price=ds.child("s_price").getValue(String.class);
                         String time_slot=ds.child("time_slot").getValue(String.class);
+                        String tv_day=ds.child("tv_day").getValue(String.class);
 
-                        retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_time,car_no,details,phone_no,time_slot));
+                        retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_time,car_no,details,phone_no,s_price,time_slot,tv_day));
                     }
 
                     MyBookingsRecyclerView myBookingsRecyclerView = new MyBookingsRecyclerView(retreivedBooking, MyBookingsActivity.this);
