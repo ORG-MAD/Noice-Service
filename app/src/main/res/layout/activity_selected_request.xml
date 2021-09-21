@@ -170,7 +170,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_tv_locationDetailstext"
+                android:id="@+id/tv_locationDetailstext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="180dp"
@@ -178,7 +178,7 @@
                 android:text="@string/tv_locationDetailsText"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 

@@ -53,15 +53,20 @@
         android:layout_marginTop="10dp"
         android:background="@color/black"
         android:padding="10dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewcustomer"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="3dp"
-            android:theme="@style/recyclerView" />
+            android:id="@+id/swipecust">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewcustomer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:theme="@style/recyclerView" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
     <RelativeLayout
