@@ -82,6 +82,7 @@ public class BookingFrom extends AppCompatActivity {
 
         bookingsDatabase.child(id).child("booking_id").setValue(id);
         bookingsDatabase.child(id).child("booking_name").setValue(s_title);
+        bookingsDatabase.child(id).child("booking_status").setValue("Booking Successful");
         bookingsDatabase.child(id).child("booking_time").setValue(date.toString());
         bookingsDatabase.child(id).child("car_no").setValue(cNo);
         bookingsDatabase.child(id).child("details").setValue(s_description);

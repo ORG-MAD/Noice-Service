@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noice_service">
         <activity
+            android:name=".BookingUpdateForm"
+            android:exported="true" />
+        <activity
+            android:name=".AdminBookingExpand"
+            android:exported="true" />
+        <activity
             android:name=".booking_list_admin"
             android:exported="true" />
         <activity
@@ -123,10 +129,13 @@
             android:name=".BookingFrom"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".MyBookingsActivity"
             android:exported="true" />
         <activity
-            android:name=".MyBookingsActivity"
+            android:name=".BookingsAdmin"
+            android:exported="true" />
+        <activity
+            android:name=".GradientService"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
