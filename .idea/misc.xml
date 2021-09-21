@@ -38,11 +38,24 @@
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/barth/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_admin_booking_expand.xml" value="0.28125" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_from.xml" value="0.25" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_list.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_list_admin.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_update_form.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_bookings_admin.xml" value="0.28125" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_my_booking_expand.xml" value="0.33" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_my_bookings.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_service.xml" value="0.28125" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_services_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/booking_row_admin.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/fragment_booking3.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/item_layout.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/list_service.xml" value="0.28125" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/my_booking_row.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/row_requests_customer.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/row_users.xml" value="0.28125" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/search_2.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/services_row.xml" value="0.33" />
       </map>

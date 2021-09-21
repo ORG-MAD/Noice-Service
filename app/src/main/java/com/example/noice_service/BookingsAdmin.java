@@ -1,13 +1,12 @@
 package com.example.noice_service;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Bundle;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,15 +17,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyBookingsActivity extends AppCompatActivity implements MyBookingClickListner{
+public class BookingsAdmin extends AppCompatActivity implements MyBookingClickListner {
 
     DatabaseReference bookingsDatabase;
     List<MyBookings> retreivedBooking = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_bookings);
-        RecyclerView mybookinglist = findViewById(R.id.my_booking_list);
+        setContentView(R.layout.activity_bookings_admin);
+        RecyclerView adminbookinglist = findViewById(R.id.admin_booking_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
@@ -36,6 +35,7 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
                 if(snapshot.exists()){
                     for(DataSnapshot ds : snapshot.getChildren()){
+
                         String booking_id=ds.child("booking_id").getValue(String.class);
                         String booking_name=ds.child("booking_name").getValue(String.class);
                         String booking_status=ds.child("booking_status").getValue(String.class);
@@ -47,12 +47,14 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
                         String time_slot=ds.child("time_slot").getValue(String.class);
                         String tv_day=ds.child("tv_day").getValue(String.class);
 
-                        retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_status,booking_time,car_no,details,phone_no,s_price,time_slot,tv_day));
+                        if (booking_status.equals("Booking Successful")){
+                            retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_status,booking_time,car_no,details,phone_no,s_price,time_slot,tv_day));
+                        }
                     }
 
-                    MyBookingsRecyclerView myBookingsRecyclerView = new MyBookingsRecyclerView(retreivedBooking, MyBookingsActivity.this);
-                    mybookinglist.setLayoutManager(new LinearLayoutManager(MyBookingsActivity.this));
-                    mybookinglist.setAdapter(myBookingsRecyclerView);
+                    AdminBookingsRecyclerView adminBookingsRecyclerView = new AdminBookingsRecyclerView(retreivedBooking, BookingsAdmin.this);
+                    adminbookinglist.setLayoutManager(new LinearLayoutManager(BookingsAdmin.this));
+                    adminbookinglist.setAdapter(adminBookingsRecyclerView);
 
                 } else {
 
@@ -68,10 +70,9 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
     }
 
     public void onClickItem(MyBookings myBooking) {
-        Intent intent=new Intent(MyBookingsActivity.this,MyBookingExpand.class);
+        Intent intent=new Intent(BookingsAdmin.this,AdminBookingExpand.class);
         intent.putExtra("booking_id",myBooking.getBooking_id());
         intent.putExtra("booking_name",myBooking.getBooking_name());
-        intent.putExtra("booking_status",myBooking.getBooking_status());
         intent.putExtra("time_slot",myBooking.getTime_slot());
         intent.putExtra("car_no",myBooking.getCar_no());
         intent.putExtra("phone_no",myBooking.getPhone_no());
