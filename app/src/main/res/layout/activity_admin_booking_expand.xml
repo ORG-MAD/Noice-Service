@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminBookingExpand">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:contentPadding="10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/mbooking_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Demo text"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/hyphen1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/mbooking_name"
+                android:padding="10dp"
+                android:text="-"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/time_slot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/hyphen1"
+                android:padding="10dp"
+                android:text="10:00AM"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/car_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hyphen1"
+                android:paddingLeft="20dp"
+                android:text="CAR - 20471"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/phone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/car_no"
+                android:paddingLeft="20dp"
+                android:text="071256842"
+                android:textSize="15sp" />
+
+
+            <Button
+                android:id="@+id/btnDeleteBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:padding="10dp"
+                android:onClick="finishBooking"
+                android:text="Finish" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

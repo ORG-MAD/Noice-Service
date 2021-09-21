@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyBookingsActivity">
+    tools:context=".services_list">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_booking_list"
+            android:id="@+id/my_service_list"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

@@ -3,15 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/NOICE BACKUPS/Noice-Service-21-09-2021DULSHAN/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jcustomer_registration.xml" value="0.20416666666666666" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jedit_profile_customer.xml" value="0.20416666666666666" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jlogin_customer.xml" value="0.20416666666666666" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jmain_interface_customer.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_booking_list.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_booking_list_admin.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_calculation.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_change_password.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_delete_account_customer.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_delete_selected_request.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_edit_selected_request.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_login_customer.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_my_bookings.xml" value="0.25416666666666665" />
@@ -19,8 +20,6 @@
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_register_customer.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_register_customer2.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_register_customer3.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_selected_request.xml" value="0.1" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_selected_request_customer.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_selected_user.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_service.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_service_home.xml" value="0.16875" />
@@ -40,11 +39,29 @@
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/fragment_booking1.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/row_requests.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/row_requests_customer.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/option_menu.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/menu/options_menu_cust.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/barth/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_admin_booking_expand.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_from.xml" value="0.25" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_list.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_list_admin.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_booking_update_form.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_bookings_admin.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_my_booking_expand.xml" value="0.33" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_my_bookings.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_service.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/activity_services_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/booking_row_admin.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/fragment_booking3.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/item_layout.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/list_service.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/my_booking_row.xml" value="0.31145833333333334" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/row_requests_customer.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/row_users.xml" value="0.28125" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/search_2.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/barth/Desktop/mad/Noice-Service/app/src/main/res/layout/services_row.xml" value="0.33" />
       </map>
     </option>
   </component>
