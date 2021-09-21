@@ -7,21 +7,20 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.HashMap;
+
 public class EditSelectedRequest extends AppCompatActivity {
-    TextView tvSreqCustomer;
-    TextView textView;
-    EditText et_customerID;
-    EditText et_contactNumber;
-    EditText et_vehicleName;
-    EditText et_locationDetails;
+    TextView viewID, viewName, viewContactNo, viewVehicleName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,26 +35,67 @@ public class EditSelectedRequest extends AppCompatActivity {
         ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(ss);
 
-        //Initialize Intent Variables
-        et_customerID = findViewById(R.id.et_customerID);
-        et_contactNumber = findViewById(R.id.et_contactNumber);
-        et_vehicleName = findViewById(R.id.et_vehicleName);
-        et_locationDetails = findViewById(R.id.et_locationDetails);
+        Button subBtn = findViewById(R.id.btn_edit);
+        Button delBtn = findViewById(R.id.btn_delete);
 
-        tvSreqCustomer = findViewById(R.id.tv_customerName);
+        final EditText customerName = findViewById(R.id.et_customerName);
+        final EditText customerID = findViewById(R.id.et_customerID);
+        final EditText contactNo = findViewById(R.id.et_contactNumber);
+        final EditText vehicleName = findViewById(R.id.et_vehicleName);
+        final EditText location = findViewById(R.id.et_locationDetails);
 
-        Intent intent = getIntent();
+        DAORequest dao = new DAORequest();
 
-        intent.getStringExtra("cID");
-        intent.getStringExtra("contactNo");
-        intent.getStringExtra("vehicleName");
-        intent.getStringExtra("locationDetails");
+        viewID = findViewById(R.id.tv_customerIDtext);
+        viewName = findViewById(R.id.tv_customerName);
+        viewContactNo = findViewById(R.id.tv_contactNumberText);
+        viewVehicleName = findViewById(R.id.tv_vehicleNameText);
 
-        if(intent.getExtras() != null){
-            ReqModelCustomer reqModelCustomer = (ReqModelCustomer) intent.getSerializableExtra("data");
-
-            tvSreqCustomer.setText(reqModelCustomer.getRequestTitle());
+        ReqModel req = (ReqModel) getIntent().getSerializableExtra("UPDATE");
+        if(req != null) {
+            viewID.setText(req.getCustomerID());
+            viewName.setText(req.getCustomerName());
+            viewContactNo.setText(req.getContactNumber());
+            viewVehicleName.setText(req.getVehicleName());
         }
+        subBtn.setOnClickListener(v-> {
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("location", location.getText().toString());
+                    dao.update(req.getKey(), hashMap).addOnSuccessListener(sucess -> {
+                        Toast.makeText(this, "Record is Updated", Toast.LENGTH_SHORT).show();
+                    }).addOnFailureListener((er -> {
+                        Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                    }));
+        });
+
+        delBtn.setOnClickListener(v-> {
+            dao.remove(req.getKey()).addOnSuccessListener(sucess -> {
+                Toast.makeText(this, "Record is Removed", Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener((er -> {
+                Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+            }));
+        });
+
+        //Initialize Intent Variables
+//        et_customerID = findViewById(R.id.et_customerID);
+//        et_contactNumber = findViewById(R.id.et_contactNumber);
+//        et_vehicleName = findViewById(R.id.et_vehicleName);
+//        et_locationDetails = findViewById(R.id.et_locationDetails);
+//
+//        tvSreqCustomer = findViewById(R.id.tv_customerName);
+//
+//        Intent intent = getIntent();
+//
+//        intent.getStringExtra("cID");
+//        intent.getStringExtra("contactNo");
+//        intent.getStringExtra("vehicleName");
+//        intent.getStringExtra("locationDetails");
+//
+//        if(intent.getExtras() != null){
+//            ReqModelCustomer reqModelCustomer = (ReqModelCustomer) intent.getSerializableExtra("data");
+//
+//            tvSreqCustomer.setText(reqModelCustomer.getRequestTitle());
+//        }
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them

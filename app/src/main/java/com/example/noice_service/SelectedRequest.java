@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SelectedRequest extends AppCompatActivity {
-    TextView tvSreq;
+    TextView tvSreq , viewID, viewName, viewContactNo, viewVehicleName, viewLocation;
+
     TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +32,42 @@ public class SelectedRequest extends AppCompatActivity {
         ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(ss);
 
-        tvSreq = findViewById(R.id.tv_customerName);
+        final EditText customerName = findViewById(R.id.et_customerName);
+        final EditText customerID = findViewById(R.id.et_customerID);
+        final EditText contactNo = findViewById(R.id.et_contactNumber);
+        final EditText vehicleName = findViewById(R.id.et_vehicleName);
+        final EditText location = findViewById(R.id.et_locationDetails);
 
-        Intent intent = getIntent();
+        DAORequest dao = new DAORequest();
+//        tvSreq = findViewById(R.id.tv_customerName);
+        viewID = findViewById(R.id.tv_customerIDtext);
+        viewName = findViewById(R.id.tv_customerName);
+        viewContactNo = findViewById(R.id.tv_contactNumberText);
+        viewVehicleName = findViewById(R.id.tv_vehicleNameText);
+        viewLocation  = findViewById(R.id.tv_locationDetailstext);
 
-        if(intent.getExtras() != null){
-            ReqModel reqModel = (ReqModel) intent.getSerializableExtra("data");
+        ReqModel req = (ReqModel) getIntent().getSerializableExtra("VIEW");
+        if(req != null) {
+            viewID.setText(req.getCustomerID());
+            viewName.setText(req.getCustomerName());
+            viewContactNo.setText(req.getContactNumber());
+            viewVehicleName.setText(req.getVehicleName());
+            viewLocation.setText(req.getLocation());
+        }
 
-            tvSreq.setText(reqModel.getCustomerName());
+//        Intent intent = getIntent();
+//
+//        if(intent.getExtras() != null){
+//            ReqModel viewReq = (ReqModel) getIntent().getSerializableExtra("VIEW");
+//            tvSreq.setText(viewReq.getCustomerName());
+//
+//            if(viewReq != null){
+//                viewID.setText(viewReq.getCustomerID());
+//                viewName.setText(viewReq.getCustomerName());
+//                viewContactNo.setText(viewReq.getContactNumber());
+//                viewVehicleName.setText(viewReq.getVehicleName());
+//                viewLocation.setText(viewReq.getLocation());
+//            }
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
             //Initialize variables and assign them
@@ -69,5 +99,5 @@ public class SelectedRequest extends AppCompatActivity {
             });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         }
-    }
+
 }

@@ -7,7 +7,10 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -59,5 +62,29 @@ public class NewDeliverRequest extends AppCompatActivity {
             }
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+
+        final EditText customerName = findViewById(R.id.et_customerName);
+        final EditText customerID = findViewById(R.id.et_customerID);
+        final EditText contactNo = findViewById(R.id.et_contactNumber);
+        final EditText vehicleName = findViewById(R.id.et_vehicleName);
+        final EditText location = findViewById(R.id.et_locationDetails);
+        Button subBtn = findViewById(R.id.btn_newReq);
+
+        DAORequest dao = new DAORequest();
+        subBtn.setOnClickListener(v->{
+            ReqModel req = new ReqModel(
+                    customerName.getText().toString(),
+                    customerID.getText().toString(),
+                    contactNo.getText().toString(),
+                    vehicleName.getText().toString(),
+                    location.getText().toString()
+            );
+
+            dao.add(req).addOnSuccessListener(sucess->{
+                Toast.makeText(this,"Record is Inserted",Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener((er->{
+                Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+            }));
+        });
     }
 }
