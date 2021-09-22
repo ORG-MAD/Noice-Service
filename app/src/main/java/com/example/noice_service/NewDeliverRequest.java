@@ -7,18 +7,32 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class NewDeliverRequest extends AppCompatActivity {
-    TextView textView;
+    EditText locationDetails;
+    ImageView locationPick;
+    int PLACE_PICKER_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +81,48 @@ public class NewDeliverRequest extends AppCompatActivity {
         final EditText customerID = findViewById(R.id.et_customerID);
         final EditText contactNo = findViewById(R.id.et_contactNumber);
         final EditText vehicleName = findViewById(R.id.et_vehicleName);
-        final EditText location = findViewById(R.id.et_locationDetails);
+
+        locationDetails = findViewById(R.id.et_locationDetails);
+
+        Places.initialize(getApplicationContext(), "AIzaSyDqANwoI65CAbZY8vurHA-OxsL_TzQGZdk");
+        locationDetails.setFocusable(false);
+        locationDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Initialize place field list
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
+                //Create intent
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+                        fieldList).build(NewDeliverRequest.this);
+                //Start activity result
+                startActivityForResult(intent, 100);
+
+            }
+        });
+
+
+//        locationDetails = findViewById(R.id.tv_locationDetails);
+//
+//        locationPick = findViewById(R.id.img_location);
+//        locationPick.setOnClickListener(new View.OnClickListener() {
+//
+//
+//            @Override
+//            public void onClick(View view) {
+//                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
+//                Intent intent;
+//                try {
+//                    intent = builder.build(NewDeliverRequest.this);
+//                    startActivityForResult(intent,PLACE_PICKER_REQUEST);
+//                } catch (GooglePlayServicesRepairableException e) {
+//                    e.printStackTrace();
+//
+//                } catch (GooglePlayServicesNotAvailableException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+
         Button subBtn = findViewById(R.id.btn_newReq);
 
         DAORequest dao = new DAORequest();
@@ -77,7 +132,7 @@ public class NewDeliverRequest extends AppCompatActivity {
                     customerID.getText().toString(),
                     contactNo.getText().toString(),
                     vehicleName.getText().toString(),
-                    location.getText().toString()
+                    locationDetails.getText().toString()
             );
 
             dao.add(req).addOnSuccessListener(sucess->{
@@ -86,5 +141,16 @@ public class NewDeliverRequest extends AppCompatActivity {
                 Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
             }));
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            locationDetails.setText(place.getAddress());
+        }else if(resultCode == AutocompleteActivity.RESULT_ERROR){
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

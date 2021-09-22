@@ -12,7 +12,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -62,5 +62,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:21.0.1'
     implementation 'com.google.firebase:firebase-database:20.0.2'
     implementation 'com.google.firebase:firebase-storage:20.0.0'
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.android.support:multidex:1.0.3'
 
 }

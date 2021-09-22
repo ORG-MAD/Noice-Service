@@ -194,8 +194,8 @@
                 android:layout_marginTop="400dp"
                 android:layout_marginRight="20sp"
                 android:backgroundTint="@color/white"
-                android:hint="@string/tv_locationDetailsText"
-                android:textColorHint="@color/colorWhiteD" />
+                android:textColorHint="@color/colorWhiteD"
+                android:textColor="@color/colorWhiteD"/>
 
 
             <Button
