@@ -9,6 +9,7 @@
         android:id="@+id/card_item"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/colorHeader"
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
@@ -18,30 +19,27 @@
 
             <TextView
                 android:id="@+id/booking_name"
-                style="@style/TextAppearance.Compat.Notification.Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:maxLines="2"
-                android:padding="10dp"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"
                 android:text="Demo Title Text"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/carno"
-                style="@style/TextAppearance.Compat.Notification.Title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_toRightOf="@+id/booking_name"
+                android:layout_below="@+id/booking_name"
                 android:maxLines="2"
-                android:padding="10dp"
-                android:text="CAR 2054"
-                android:textColor="@color/black" />
+                android:paddingLeft="25dp"
+                android:textColor="@color/black"
+                android:text="CAR 2054" />
 
             <TextView
                 android:id="@+id/create_time"
-                style="@style/TextAppearance.AppCompat.Caption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -49,7 +47,6 @@
                 android:layout_alignParentBottom="true"
                 android:padding="5dp"
                 android:text="Today - 12:00 PM"
-                android:textColor="@color/black"
                 android:textSize="12sp" />
 
         </RelativeLayout>

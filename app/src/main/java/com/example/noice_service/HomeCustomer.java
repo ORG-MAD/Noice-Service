@@ -86,7 +86,7 @@ public class HomeCustomer extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 2;
                 Intent intent;
-                intent = new Intent(HomeCustomer.this,Service_Search.class);//Place Booking Activity
+                intent = new Intent(HomeCustomer.this,services_list.class);//Place Booking Activity
                 startActivity(intent);
             }
         });
