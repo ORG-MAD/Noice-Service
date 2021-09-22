@@ -35,7 +35,7 @@ public class ServiceHome extends AppCompatActivity {
         viewS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(ServiceHome.this,ServicesDetails.class);
+                Intent intent=new Intent(ServiceHome.this,Services_Admin.class);
                 startActivity(intent);
             }
         });

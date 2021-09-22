@@ -4,6 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_about.xml" value="0.3609375" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_calculation.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_home_customer.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_services_admin.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/activity_services_list.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/add_service.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/content_service_admin.xml" value="0.3609375" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/dialogcontent.xml" value="0.3609375" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/fragment_first.xml" value="0.3609375" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/fragment_second.xml" value="0.3609375" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/my_booking_row.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/row_users.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/services_row.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/layout/singlerow.xml" value="0.22760416666666666" />
+        <entry key="..\:/MADProject/6/Noice-Service/app/src/main/res/menu/searchmenu.xml" value="0.3609375" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jcustomer_registration.xml" value="0.20416666666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jedit_profile_customer.xml" value="0.20416666666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jlogin_customer.xml" value="0.20416666666666666" />
