@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 2;
                 Intent intent;
-                intent = new Intent(MainActivity.this,HomeCustomer.class);
+                intent = new Intent(MainActivity.this,BookingsAdmin.class);
                 startActivity(intent);
             }
         });

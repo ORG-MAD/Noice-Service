@@ -57,8 +57,8 @@ public class BookingUpdateForm extends AppCompatActivity {
 
             Toast.makeText(BookingUpdateForm.this,"Details Changed Successfully!",Toast.LENGTH_SHORT).show();
 
-//                Intent intent=new Intent(BookingUpdateForm.this,MyBookingsActivity.class);
-//                startActivity(intent);
+            Intent intent=new Intent(BookingUpdateForm.this,MyBookingsActivity.class);
+            startActivity(intent);
             }
 
     }

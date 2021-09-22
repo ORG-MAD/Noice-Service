@@ -145,10 +145,10 @@
             android:name=".BookingFrom"
             android:exported="true" />
         <activity
-            android:name=".MyBookingsActivity"
+            android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
-            android:name=".BookingsAdmin"
+            android:name=".MyBookingsActivity"
             android:exported="true" />
         <activity
             android:name=".GradientService"
