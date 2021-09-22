@@ -91,12 +91,6 @@
         <activity
             android:name=".ViewService"
             android:exported="true" />
-        <activity
-            android:name=".Services_Admin"
-            android:exported="true" />
-        <activity
-            android:name=".addService"
-            android:exported="true" />
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
         <activity android:name=".change_cancel_booking" />
@@ -151,10 +145,10 @@
             android:name=".BookingFrom"
             android:exported="true" />
         <activity
-            android:name=".BookingsAdmin"
+            android:name=".MyBookingsActivity"
             android:exported="true" />
         <activity
-            android:name=".MyBookingsActivity"
+            android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
             android:name=".GradientService"

@@ -7,20 +7,31 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class EditSelectedRequest extends AppCompatActivity {
     TextView viewID, viewName, viewContactNo, viewVehicleName;
+    EditText location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +53,24 @@ public class EditSelectedRequest extends AppCompatActivity {
         final EditText customerID = findViewById(R.id.et_customerID);
         final EditText contactNo = findViewById(R.id.et_contactNumber);
         final EditText vehicleName = findViewById(R.id.et_vehicleName);
-        final EditText location = findViewById(R.id.et_locationDetails);
+
+        location = findViewById(R.id.et_locationDetails);
+
+        Places.initialize(getApplicationContext(), "AIzaSyDqANwoI65CAbZY8vurHA-OxsL_TzQGZdk");
+        location.setFocusable(false);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Initialize place field list
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
+                //Create intent
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+                        fieldList).build(EditSelectedRequest.this);
+                //Start activity result
+                startActivityForResult(intent, 100);
+
+            }
+        });
 
         DAORequest dao = new DAORequest();
 
@@ -126,5 +154,16 @@ public class EditSelectedRequest extends AppCompatActivity {
             }
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 100 && resultCode == RESULT_OK){
+            Place place = Autocomplete.getPlaceFromIntent(data);
+            location.setText(place.getAddress());
+        }else if(resultCode == AutocompleteActivity.RESULT_ERROR){
+            Status status = Autocomplete.getStatusFromIntent(data);
+            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

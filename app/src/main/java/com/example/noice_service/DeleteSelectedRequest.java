@@ -18,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.HashMap;
-
 public class DeleteSelectedRequest extends AppCompatActivity {
     TextView viewID, viewName, viewContactNo, viewVehicleName, viewLocation;
 
