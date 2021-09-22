@@ -7,7 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -59,6 +63,36 @@ public class services_list extends AppCompatActivity implements ServiceListClick
             }
         });
 
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Initialize variables and assign them
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set Home Selected
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        //Perform Item Selected Event Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeCustomer.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.about:
+                        startActivity(new Intent(getApplicationContext(), About.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+
     }
 
 
@@ -69,6 +103,11 @@ public class services_list extends AppCompatActivity implements ServiceListClick
         intent.putExtra("s_price",servicesModel.getS_price());
         intent.putExtra("s_description",servicesModel.getS_description());
         intent.putExtra("tv_day",servicesModel.getTv_day());
+        startActivity(intent);
+    }
+
+    public void seeMyBookings(View view){
+        Intent intent=new Intent(services_list.this,MyBookingsActivity.class);
         startActivity(intent);
     }
 }

@@ -25,7 +25,7 @@ public class MyBookingsRecyclerView extends RecyclerView.Adapter  {
 
     public class BookingViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView booking_name, create_time;
+        public TextView booking_name, create_time, status;
         public RelativeLayout booking_parent;
         public CardView card_item;
 
@@ -36,6 +36,7 @@ public class MyBookingsRecyclerView extends RecyclerView.Adapter  {
             create_time = itemView.findViewById(R.id.create_time);
             booking_parent = itemView.findViewById(R.id.booking_parent);
             card_item = itemView.findViewById(R.id.card_item);
+            status = itemView.findViewById(R.id.status);
         }
     }
 
@@ -49,6 +50,7 @@ public class MyBookingsRecyclerView extends RecyclerView.Adapter  {
 
         bookingViewHolder.booking_name.setText(myBookingsList.get(position).getBooking_name());
         bookingViewHolder.create_time.setText(myBookingsList.get(position).getTime_slot());
+        bookingViewHolder.status.setText(myBookingsList.get(position).getBooking_status());
 
         bookingViewHolder.booking_parent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

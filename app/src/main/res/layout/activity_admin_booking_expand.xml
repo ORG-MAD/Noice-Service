@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:cardBackgroundColor="@color/black"
         app:contentPadding="10dp"
         >
 
@@ -22,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Demo text"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <TextView
@@ -29,6 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/mbooking_name"
+                android:textColor="@color/colorWhite"
                 android:padding="10dp"
                 android:text="-"
                 android:textSize="25sp" />
@@ -40,6 +43,7 @@
                 android:layout_toRightOf="@+id/hyphen1"
                 android:padding="10dp"
                 android:text="10:00AM"
+                android:textColor="@color/colorWhite"
                 android:textSize="25sp" />
 
             <TextView
@@ -49,6 +53,7 @@
                 android:layout_below="@+id/hyphen1"
                 android:paddingLeft="20dp"
                 android:text="CAR - 20471"
+                android:textColor="@color/colorWhite"
                 android:textSize="15sp" />
 
             <TextView
@@ -58,6 +63,7 @@
                 android:layout_below="@+id/car_no"
                 android:paddingLeft="20dp"
                 android:text="071256842"
+                android:textColor="@color/colorWhite"
                 android:textSize="15sp" />
 
 
@@ -68,12 +74,23 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:padding="10dp"
+                android:layout_marginBottom="50dp"
                 android:onClick="finishBooking"
+                android:padding="10dp"
                 android:text="Finish" />
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation" />
 
 </RelativeLayout>

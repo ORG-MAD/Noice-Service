@@ -7,10 +7,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_item"
+        app:cardBackgroundColor="@color/colorHeader"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="80dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,14 +19,27 @@
 
             <TextView
                 android:id="@+id/booking_name"
-                style="@style/TextAppearance.Compat.Notification.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:maxLines="2"
-                android:padding="10dp"
+                android:padding="11dp"
                 android:text="Demo Title Text"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/status"
+                style="@style/TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:paddingBottom="10dp"
+                android:text="Today - 12:00 PM"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
 
             <TextView
                 android:id="@+id/create_time"
@@ -35,7 +49,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:padding="5dp"
+                android:paddingBottom="10dp"
+                android:layout_marginRight="10dp"
                 android:text="Today - 12:00 PM"
                 android:textColor="@color/black"
                 android:textSize="12sp" />
