@@ -43,23 +43,115 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mbooking_name"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="15dp"
+                android:text="Details"
+                android:textSize="17sp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/includes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/details"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="INCLUDES"
+                android:textSize="17sp"></TextView>
+
+            <TextView
+                android:id="@+id/tv_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/details"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/includes"
+                android:text="tv_day"
+                android:textSize="17sp"></TextView>
+
+            <TextView
+                android:id="@+id/carno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_day"
+                android:paddingLeft="20dp"
+                android:text="CAR NO"
+                android:textSize="15sp" />
+
+            <TextView
                 android:id="@+id/car_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/hyphen1"
+                android:layout_below="@+id/tv_day"
+                android:layout_toRightOf="@+id/phoneno"
                 android:paddingLeft="20dp"
                 android:text="CAR - 20471"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/phoneno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/car_no"
+                android:paddingLeft="20dp"
+                android:text="CONTACT NO"
+                android:textSize="15sp" />
+
 
             <TextView
                 android:id="@+id/phone_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/car_no"
+                android:layout_toRightOf="@+id/phoneno"
                 android:paddingLeft="20dp"
                 android:text="071256842"
                 android:textSize="15sp" />
 
+            <TextView
+                android:id="@+id/status1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_no"
+                android:paddingLeft="10dp"
+                android:text="STATUS"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_no"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/status1"
+                android:paddingLeft="10dp"
+                android:text="STATUS"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnDeleteBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/btnUpdateBooking"
+                android:onClick="deleteBooking"
+
+                android:text="Delete" />
 
             <Button
                 android:id="@+id/btnUpdateBooking"
@@ -68,11 +160,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginEnd="-3dp"
-                android:layout_marginRight="-3dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginBottom="0dp"
                 android:onClick="changeDetails"
-                android:padding="10dp"
                 android:text="Change details" />
 
 

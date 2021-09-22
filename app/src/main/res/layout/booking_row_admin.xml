@@ -10,7 +10,7 @@
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp">
+        android:layout_height="80dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,12 +19,24 @@
             <TextView
                 android:id="@+id/booking_name"
                 style="@style/TextAppearance.Compat.Notification.Title"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:maxLines="2"
                 android:padding="10dp"
                 android:text="Demo Title Text"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/carno"
+                style="@style/TextAppearance.Compat.Notification.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_toRightOf="@+id/booking_name"
+                android:maxLines="2"
+                android:padding="10dp"
+                android:text="CAR 2054"
                 android:textColor="@color/black" />
 
             <TextView
