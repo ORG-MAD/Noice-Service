@@ -19,8 +19,8 @@ public class RequestAdapterCustomer extends RecyclerView.Adapter<RecyclerView.Vi
     public RequestAdapterCustomer(Context ctx){
         this.context = ctx;
     }
-    public void setItems(ArrayList<ReqModel> emp){
-        list.addAll(emp);
+    public void setItems(ArrayList<ReqModel> req){
+        list.addAll(req);
     }
 
     @NonNull
