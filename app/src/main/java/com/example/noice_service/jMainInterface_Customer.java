@@ -1,5 +1,7 @@
 package com.example.noice_service;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,16 +22,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class jMainInterface_Customer extends AppCompatActivity {
 
     TextView tv_Name;
-    Button btn_myaccount, btn_logout;
+    Button btn_myaccount, btn_logout, btn_deleteAcc;
     FirebaseAuth mAuth;
+    ProgressDialog progressDialog;
 
     private CircleImageView profile_image;
     private DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +48,20 @@ public class jMainInterface_Customer extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
         btn_logout = findViewById(R.id.btn_logout);
+        btn_deleteAcc = findViewById(R.id.btn_deleteAcc);
         profile_image = findViewById(R.id.profilepic);
 
 
         btn_myaccount.setOnClickListener((v)->{
             Intent profile = new Intent(jMainInterface_Customer.this, jEditProfile_Customer.class);
             startActivity(profile);
+        });
+
+        btn_deleteAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteUser();
+            }
         });
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +73,28 @@ public class jMainInterface_Customer extends AppCompatActivity {
         });
 
         getUserInfo();
+    }
+
+    private void deleteUser() {
+        FirebaseDatabase.getInstance().getReference().child("User").child(FirebaseAuth
+                .getInstance().getCurrentUser().getUid()).setValue(null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                        FirebaseAuth.getInstance().getCurrentUser().delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    progressDialog.dismiss();
+                                    Intent intent = new Intent(jMainInterface_Customer.this, J_CustomerRegistration.class);
+                                    startActivity(intent);
+                                }
+                            }
+                        });
+                    }
+                });
     }
 
     private void SignOutUser() {

@@ -1,16 +1,18 @@
 package com.example.noice_service;
 
 public class User {
-    private String name, password, email, phone;
+    private String name, password, email, phone, DOB, Country;
 
     public User() {
     }
 
-    public User(String name, String password, String email, String phone) {
+    public User(String name, String password, String email, String phone, String DOB, String Country) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
+        this.DOB = DOB;
+        this.Country = Country;
     }
 
     public String getName() {
@@ -43,5 +45,21 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
+    }
+
+    public String getCountry() {
+        return Country;
+    }
+
+    public void setCountry(String country) {
+        Country = country;
     }
 }

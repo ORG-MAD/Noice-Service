@@ -57,7 +57,7 @@ public class EditSelectedRequest extends AppCompatActivity {
         //Initialize Validation style
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         //Validating status field
-        awesomeValidation.addValidation(this, R.id.et_statusText, "[a-zA-Z]{0,10}$", R.string.invalid_status);
+        awesomeValidation.addValidation(this, R.id.et_statusText, "[a-zA-Z]{0,10}$", R.string.invalid_statusD);
 
         //Get data from the Intent
         ReqModel req = (ReqModel) getIntent().getSerializableExtra("UPDATE");

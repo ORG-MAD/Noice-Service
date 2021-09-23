@@ -36,11 +36,11 @@
     <string name="tv_netAmount">Net Amount</string>
     <string name="tv_amount">Amount</string>
     <string name="tv_statusText">status</string>
-    <string name="invalid_name">"Please enter a valid name "</string>
-    <string name="invalid_number">Enter a valid contact number</string>
-    <string name="invalid_email">Enter a valid Email</string>
-    <string name="invalid_vehicleName">Enter a valid name</string>
-    <string name="invalid_status">Enter a valid status</string>
+    <string name="invalid_nameD">"Please enter a valid name "</string>
+    <string name="invalid_numberD">Enter a valid contact number</string>
+    <string name="invalid_emailD">Enter a valid Email</string>
+    <string name="invalid_vehicleNameD">Enter a valid name</string>
+    <string name="invalid_statusD">Enter a valid status</string>
     <string name="tv_customerEmail">Email :</string>
     <string name="btn_email">Email</string>
     <string name="tv_statusT">Change Status</string>
@@ -137,5 +137,10 @@
     <string name="tv_monthlyIncome">Monthly Income</string>
     <string name="btn_calculate">Calculate Monthly Income</string>
     <string name="tv_totlIncome">Your Total Income = Rs. 100 000</string>
+    <string name="invalid_name">Please enter your name</string>
+    <string name="invalid_mobile">Please enter a valid phone number</string>
+    <string name="invalid_email">Email format is invalid</string>
+    <string name="invalid_bday">Please enter your birthday</string>
+    <string name="invalid_password">The password should have minimum 8 characters, atleast 1 alphabet, number and special character</string>
 
 </resources>

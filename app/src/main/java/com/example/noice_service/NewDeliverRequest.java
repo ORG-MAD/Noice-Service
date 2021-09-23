@@ -65,13 +65,13 @@ public class NewDeliverRequest extends AppCompatActivity {
         //Initialize Validation style
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         //Validating name field
-        awesomeValidation.addValidation(this, R.id.et_customerName, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
+        awesomeValidation.addValidation(this, R.id.et_customerName, RegexTemplate.NOT_EMPTY, R.string.invalid_nameD);
         //Validating email field
-        awesomeValidation.addValidation(this, R.id.et_customerEmail, Patterns.EMAIL_ADDRESS, R.string.invalid_email);
+        awesomeValidation.addValidation(this, R.id.et_customerEmail, Patterns.EMAIL_ADDRESS, R.string.invalid_emailD);
         //Validating contact no field
-        awesomeValidation.addValidation(this, R.id.et_contactNumber, "[0-9]{10}$", R.string.invalid_number);
+        awesomeValidation.addValidation(this, R.id.et_contactNumber, "[0-9]{10}$", R.string.invalid_numberD);
         //Validating Vehicle field
-        awesomeValidation.addValidation(this, R.id.et_vehicleName, RegexTemplate.NOT_EMPTY, R.string.invalid_vehicleName);
+        awesomeValidation.addValidation(this, R.id.et_vehicleName, RegexTemplate.NOT_EMPTY, R.string.invalid_vehicleNameD);
 
 
         //Setting the location
