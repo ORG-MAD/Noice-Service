@@ -41,21 +41,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_Country"
-            android:hint="Select Your Country"
-            android:padding="12dp"
-            android:gravity="center_vertical"
-            android:drawableEnd="@drawable/ic_arrow"
-            android:drawableRight="@drawable/ic_arrow"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginTop="150dp"
-            android:layout_marginLeft="10dp"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="22dp"/>
+    <TextView
+        android:id="@+id/tv_Country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="150dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableEnd="@drawable/ic_arrow"
+        android:drawableRight="@drawable/ic_arrow"
+        android:gravity="center_vertical"
+        android:hint="Select Your Country"
+        android:padding="12dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="22dp" />
 
     <EditText
         android:id="@+id/et_phone"
