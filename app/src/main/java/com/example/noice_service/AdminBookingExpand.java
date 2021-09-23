@@ -1,13 +1,15 @@
 package com.example.noice_service;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,6 +38,36 @@ public class AdminBookingExpand extends AppCompatActivity {
         tvtime_slot.setText(time_slot);
         tvcar_no.setText(car_no);
         tvphone_no.setText(phone_no);
+
+        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Initialize variables and assign them
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set Home Selected
+
+
+        //Perform Item Selected Event Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.about:
+                        startActivity(new Intent(getApplicationContext(), About.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
 
     public void finishBooking(View view){

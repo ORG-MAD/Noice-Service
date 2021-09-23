@@ -23,7 +23,7 @@ public class AdminBookingsRecyclerView extends RecyclerView.Adapter {
 
     public class BookingViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView booking_name, create_time;
+        public TextView booking_name, create_time,car_no;
         public RelativeLayout admin_booking_parent;
         public CardView card_item;
 
@@ -32,6 +32,7 @@ public class AdminBookingsRecyclerView extends RecyclerView.Adapter {
 
             booking_name = itemView.findViewById(R.id.booking_name);
             create_time = itemView.findViewById(R.id.create_time);
+            car_no = itemView.findViewById(R.id.carno);
             admin_booking_parent = itemView.findViewById(R.id.admin_booking_parent);
             card_item = itemView.findViewById(R.id.card_item);
         }
@@ -47,6 +48,7 @@ public class AdminBookingsRecyclerView extends RecyclerView.Adapter {
 
         bookingViewHolder.booking_name.setText(adminBookingsList.get(position).getBooking_name());
         bookingViewHolder.create_time.setText(adminBookingsList.get(position).getTime_slot());
+        bookingViewHolder.car_no.setText(adminBookingsList.get(position).getCar_no());
 
         bookingViewHolder.admin_booking_parent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

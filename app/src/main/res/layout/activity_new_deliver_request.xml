@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:weightSum="9"
-    android:background="@drawable/background_bg"
+    android:background="@drawable/newrequestbg"
     android:layout_height="match_parent"
     tools:context=".NewDeliverRequest">
 
@@ -35,8 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        //Screen Title
         <TextView
-            android:id="@+id/tv_generateReceipt"
+            android:id="@+id/tv_newDeliveryReq"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -52,56 +53,69 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:layout_marginTop="10dp"
-        android:background="@color/black"
         android:padding="10dp">
-
-
-        <TextView
-            android:id="@+id/tv_customerName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:gravity="center"
-            android:text="@string/tv_customerName"
-            android:textColor="@color/colorWhiteD"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
-            //Customer Id
+            android:layout_marginTop="10dp">
 
+            //Customer name title
             <TextView
                 android:id="@+id/tv_custName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center_horizontal"
-                android:text="@string/tv_customerID"
+                android:text="@string/tv_custName"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et_customerID"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="70dp"
-                    android:layout_marginRight="20sp"
-                    android:backgroundTint="@color/white"/>
+            //Customer name input
+            <EditText
+                android:id="@+id/et_customerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20sp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorWhiteD" />
 
-                //Contact Number
+            //Customer Email Title
+            <TextView
+                android:id="@+id/tv_customerEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_customerEmail"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
+            //Customer Email input
+            <EditText
+                android:id="@+id/et_customerEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginRight="20sp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorWhiteD" />
+
+            //Contact Number Title
             <TextView
                 android:id="@+id/tv_contactNumber"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
+                android:layout_marginTop="165dp"
                 android:gravity="center_horizontal"
                 android:text="@string/tv_contactNumber"
                 android:textAlignment="center"
@@ -109,23 +123,25 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et_contactNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="140dp"
-                    android:layout_marginRight="20sp"
-                    android:backgroundTint="@color/white"/>
+            //Contatct number input
+            <EditText
+                android:id="@+id/et_contactNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="195dp"
+                android:layout_marginRight="20sp"
+                android:inputType="number"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorWhiteD" />
 
-                //Vehicle Name
-
+            //Vehicle Name Title
             <TextView
                 android:id="@+id/tv_vehicleName"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="190dp"
+                android:layout_marginTop="240dp"
                 android:gravity="center_horizontal"
                 android:text="@string/tv_vehicleName"
                 android:textAlignment="center"
@@ -133,23 +149,24 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et_vehicleName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="210dp"
-                    android:layout_marginRight="20sp"
-                    android:backgroundTint="@color/white"/>
+            //Vehicle name input
+            <EditText
+                android:id="@+id/et_vehicleName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="270dp"
+                android:layout_marginRight="20sp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorWhiteD" />
 
-                //Location Details
-
+            //Location Details Title
             <TextView
-                android:id="@+id/tv_bookingDetails"
+                android:id="@+id/tv_locationDetails"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="320dp"
                 android:gravity="center_horizontal"
                 android:text="@string/tv_locationDetails"
                 android:textAlignment="center"
@@ -157,34 +174,35 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et_locationDetails"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="280dp"
-                    android:layout_marginRight="20sp"
-                    android:backgroundTint="@color/white"/>
+            //Location details input
+            <EditText
+                android:id="@+id/et_locationDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginRight="20sp"
+                android:backgroundTint="@color/white"
+                android:textColor="@color/colorWhiteD" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/img_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-
-                android:layout_marginRight="43dp"
-                android:layout_marginTop="290dp"
+                android:layout_marginTop="355dp"
+                android:layout_marginRight="35dp"
                 android:src="@drawable/ic_baseline_edit_location_24" />
         </RelativeLayout>
 
-
+        //Submit button
         <Button
-            android:id="@+id/btn_edit"
+            android:id="@+id/btn_newReq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="400dp"
+            android:layout_marginTop="460dp"
             android:layout_marginRight="50dp"
             android:backgroundTint="@color/buttonD"
             android:text="@string/btn_submit"

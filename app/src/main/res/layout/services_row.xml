@@ -9,7 +9,9 @@
         android:id="@+id/card_item"
         android:layout_width="match_parent"
         android:layout_height="80dp"
+        app:cardBackgroundColor="@color/colorHeader"
         app:cardCornerRadius="10dp"
+
         app:cardUseCompatPadding="true">
 
         <RelativeLayout

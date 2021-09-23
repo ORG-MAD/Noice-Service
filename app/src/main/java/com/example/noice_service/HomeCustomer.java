@@ -71,7 +71,7 @@ public class HomeCustomer extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 1;
                 Intent intent;
-                intent = new Intent(HomeCustomer.this,DeliverRequestCustomer.class);//Delivery Request Activity
+                intent = new Intent(HomeCustomer.this,NewDeliverRequest.class);//Delivery Request Activity
                 startActivity(intent);
             }
         });
@@ -86,7 +86,7 @@ public class HomeCustomer extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 2;
                 Intent intent;
-                intent = new Intent(HomeCustomer.this,Service_Search.class);//Place Booking Activity
+                intent = new Intent(HomeCustomer.this,services_list.class);//Place Booking Activity
                 startActivity(intent);
             }
         });

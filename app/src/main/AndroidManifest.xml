@@ -20,7 +20,7 @@
             android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity
-            android:name=".jLogin_Customer"
+            android:name=".GradientService"
             android:exported="true" />
         <activity
             android:name=".J_CustomerRegistration"
@@ -44,22 +44,10 @@
             android:name=".NewDeliverRequest"
             android:exported="true" />
         <activity
-            android:name=".DeleteSelectedRequest"
-            android:exported="true" />
-        <activity
             android:name=".EditSelectedRequest"
             android:exported="true" />
         <activity
-            android:name=".SelectedRequestCustomer"
-            android:exported="true" />
-        <activity
             android:name=".DeliverRequestCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".DeliveryRequestHandling"
-            android:exported="true" />
-        <activity
-            android:name=".SelectedRequest"
             android:exported="true" />
         <activity
             android:name=".About"
@@ -90,6 +78,12 @@
             android:exported="true" />
         <activity
             android:name=".ViewService"
+            android:exported="true" />
+        <activity
+            android:name=".Services_Admin"
+            android:exported="true" />
+        <activity
+            android:name=".addService"
             android:exported="true" />
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
@@ -151,7 +145,7 @@
             android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".jLogin_Customer"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
