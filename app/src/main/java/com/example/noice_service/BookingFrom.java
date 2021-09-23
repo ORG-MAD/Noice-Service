@@ -1,5 +1,6 @@
 package com.example.noice_service;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,12 +34,15 @@ public class BookingFrom extends AppCompatActivity {
         String s_description = getIntent().getStringExtra("s_description");
         String tv_day = getIntent().getStringExtra("tv_day");
 
+
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
         final EditText phoneNumberEditText = findViewById(R.id.phone_number);
         final EditText carNumberEditText = findViewById(R.id.car_number);
         final Button bookConfirm = findViewById(R.id.book_confirm);
         loadingProgressBar = findViewById(R.id.loading);
+        TextView heading = findViewById(R.id.heading_);
+        heading.setText(s_title);
 
         Spinner dropdown = findViewById(R.id.time_slot);
         String[] items = new String[]{"Select time", "08:00 AM","09:00 AM", "10:00 AM", "11:00 PM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM" };
@@ -92,6 +96,9 @@ public class BookingFrom extends AppCompatActivity {
         bookingsDatabase.child(id).child("tv_day").setValue(tv_day);
 
         loadingProgressBar.setVisibility(View.GONE);
-        Toast.makeText(this,"nice",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Booking success",Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, services_list.class);
+        startActivity(intent);
     }
 }
