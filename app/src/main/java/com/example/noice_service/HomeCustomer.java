@@ -71,7 +71,7 @@ public class HomeCustomer extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 1;
                 Intent intent;
-                intent = new Intent(HomeCustomer.this,DeliverRequestCustomer.class);//Delivery Request Activity
+                intent = new Intent(HomeCustomer.this,NewDeliverRequest.class);//Delivery Request Activity
                 startActivity(intent);
             }
         });

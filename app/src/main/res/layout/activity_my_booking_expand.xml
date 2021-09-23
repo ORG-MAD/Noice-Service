@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bookingbg"
     tools:context=".MyBookingExpand">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:contentPadding="10dp"
-        app:cardBackgroundColor="@color/black"
+        app:cardBackgroundColor="@color/transparent"
         >
 
         <RelativeLayout
@@ -162,10 +163,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="60dp"
                 android:layout_toLeftOf="@+id/btnUpdateBooking"
                 android:onClick="deleteBooking"
-                android:layout_marginBottom="60dp"
-                android:text="Delete" />
+                android:text="Delete"
+                app:backgroundTint="@color/buttonD" />
 
             <Button
                 android:id="@+id/btnUpdateBooking"
@@ -176,6 +178,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="10dp"
                 android:layout_marginBottom="60dp"
+                app:backgroundTint="@color/buttonD"
                 android:onClick="changeDetails"
                 android:text="Change details" />
 

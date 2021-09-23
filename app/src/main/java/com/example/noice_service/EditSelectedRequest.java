@@ -2,6 +2,7 @@ package com.example.noice_service;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -14,24 +15,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.widget.Autocomplete;
-import com.google.android.libraries.places.widget.AutocompleteActivity;
-import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class EditSelectedRequest extends AppCompatActivity {
-    TextView viewID, viewName, viewContactNo, viewVehicleName;
-    EditText location;
+    TextView viewEmail, viewName, viewContactNo, viewVehicleName, viewLocation, viewStatusD;;
+    EditText status;
+    Button subBtn, delBtn;
+    DAORequest dao = new DAORequest();
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,91 +43,74 @@ public class EditSelectedRequest extends AppCompatActivity {
         ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(ss);
 
-        Button subBtn = findViewById(R.id.btn_edit);
-        Button delBtn = findViewById(R.id.btn_delete);
-
-        final EditText customerName = findViewById(R.id.et_customerName);
-        final EditText customerID = findViewById(R.id.et_customerID);
-        final EditText contactNo = findViewById(R.id.et_contactNumber);
-        final EditText vehicleName = findViewById(R.id.et_vehicleName);
-
-        location = findViewById(R.id.et_locationDetails);
-
-        Places.initialize(getApplicationContext(), "AIzaSyDqANwoI65CAbZY8vurHA-OxsL_TzQGZdk");
-        location.setFocusable(false);
-        location.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Initialize place field list
-                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
-                //Create intent
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
-                        fieldList).build(EditSelectedRequest.this);
-                //Start activity result
-                startActivityForResult(intent, 100);
-
-            }
-        });
-
-        DAORequest dao = new DAORequest();
-
-        viewID = findViewById(R.id.tv_customerIDtext);
+        //Assign Variables
+        viewEmail = findViewById(R.id.tv_customerEmailtext);
         viewName = findViewById(R.id.tv_customerName);
         viewContactNo = findViewById(R.id.tv_contactNumberText);
         viewVehicleName = findViewById(R.id.tv_vehicleNameText);
+        viewLocation = findViewById(R.id.tv_locationDetailstext);
+        viewStatusD = findViewById(R.id.tv_statusText);
+        status = findViewById(R.id.et_statusText);
+        subBtn = findViewById(R.id.btn_edit);
+        delBtn = findViewById(R.id.btn_delete);
 
+        //Initialize Validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //Validating status field
+        awesomeValidation.addValidation(this, R.id.et_statusText, "[a-zA-Z]{0,10}$", R.string.invalid_status);
+
+        //Get data from the Intent
         ReqModel req = (ReqModel) getIntent().getSerializableExtra("UPDATE");
+
+        //Set the values obtained form the intent
         if(req != null) {
-            viewID.setText(req.getCustomerID());
+            viewEmail.setText(req.getCustomerEmail());
             viewName.setText(req.getCustomerName());
             viewContactNo.setText(req.getContactNumber());
             viewVehicleName.setText(req.getVehicleName());
+            viewLocation.setText(req.getLocation());
+            viewStatusD.setText(req.getStatus());
         }
+
+        //Updates the record and navigates back to the delivery request screen
         subBtn.setOnClickListener(v-> {
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put("location", location.getText().toString());
-                    dao.update(req.getKey(), hashMap).addOnSuccessListener(sucess -> {
-                        Toast.makeText(this, "Record is Updated", Toast.LENGTH_SHORT).show();
-                    }).addOnFailureListener((er -> {
-                        Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-                    }));
+            if (awesomeValidation.validate()) {
+                //On Success
+                Toast.makeText(getApplicationContext(), "Validated Successfully", Toast.LENGTH_SHORT).show();
+
+                HashMap<String, Object> hashMap = new HashMap<>();
+                hashMap.put("status", status.getText().toString());
+
+                //Update Function
+                dao.update(req.getKey(), hashMap).addOnSuccessListener(sucess -> {
+                    Toast.makeText(this, "Record is Updated", Toast.LENGTH_SHORT).show();
+                    Intent intent;
+                    intent = new Intent(EditSelectedRequest.this, DeliverRequestCustomer.class);
+                    startActivity(intent);
+                }).addOnFailureListener((er -> {
+                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                }));
+            }else{
+                Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
+            }
         });
 
+        //Deletes the record and navigates back to the delivery request screen
         delBtn.setOnClickListener(v-> {
-            dao.remove(req.getKey()).addOnSuccessListener(sucess -> {
-                Toast.makeText(this, "Record is Removed", Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener((er -> {
-                Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
-            }));
+                //Delete Function
+                dao.remove(req.getKey()).addOnSuccessListener(sucess -> {
+                    Toast.makeText(this, "Record is Removed", Toast.LENGTH_SHORT).show();
+                    Intent intent;
+                    intent = new Intent(EditSelectedRequest.this, DeliverRequestCustomer.class);
+                    startActivity(intent);
+                }).addOnFailureListener((er -> {
+                    Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
+                }));
         });
-
-        //Initialize Intent Variables
-//        et_customerID = findViewById(R.id.et_customerID);
-//        et_contactNumber = findViewById(R.id.et_contactNumber);
-//        et_vehicleName = findViewById(R.id.et_vehicleName);
-//        et_locationDetails = findViewById(R.id.et_locationDetails);
-//
-//        tvSreqCustomer = findViewById(R.id.tv_customerName);
-//
-//        Intent intent = getIntent();
-//
-//        intent.getStringExtra("cID");
-//        intent.getStringExtra("contactNo");
-//        intent.getStringExtra("vehicleName");
-//        intent.getStringExtra("locationDetails");
-//
-//        if(intent.getExtras() != null){
-//            ReqModelCustomer reqModelCustomer = (ReqModelCustomer) intent.getSerializableExtra("data");
-//
-//            tvSreqCustomer.setText(reqModelCustomer.getRequestTitle());
-//        }
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-
 
         //Perform Item Selected Event Listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -155,15 +135,17 @@ public class EditSelectedRequest extends AppCompatActivity {
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 100 && resultCode == RESULT_OK){
-            Place place = Autocomplete.getPlaceFromIntent(data);
-            location.setText(place.getAddress());
-        }else if(resultCode == AutocompleteActivity.RESULT_ERROR){
-            Status status = Autocomplete.getStatusFromIntent(data);
-            Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
-        }
+
+    //Send email function
+    public void sendmail(View view) {
+        String[] TO_EMAILS = {"dulshanperera03@gmail.com"};
+
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, TO_EMAILS);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Confirmation");
+        intent.putExtra(Intent.EXTRA_TEXT, "Thank you for using Noice Service mobile app");
+
+        startActivity(Intent.createChooser(intent, "Choose your email client"));
     }
 }

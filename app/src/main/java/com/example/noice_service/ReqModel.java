@@ -9,14 +9,23 @@ public class ReqModel implements Serializable {
 
     @Exclude
     private String key;
-
     private String customerName;
-    private String customerID;
+    private String customerEmail;
     private String contactNumber;
     private String vehicleName;
     private String location;
+    private String status;
 
     public ReqModel(){};
+
+    public ReqModel(String customerName, String customerEmail, String contactNumber, String vehicleName, String location, String status) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.contactNumber = contactNumber;
+        this.vehicleName = vehicleName;
+        this.location = location;
+        this.status = status;
+    }
 
     public String getCustomerName() {
         return customerName;
@@ -26,12 +35,12 @@ public class ReqModel implements Serializable {
         this.customerName = customerName;
     }
 
-    public String getCustomerID() {
-        return customerID;
+    public String getCustomerEmail() {
+        return customerEmail;
     }
 
-    public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
     }
 
     public String getContactNumber() {
@@ -58,14 +67,6 @@ public class ReqModel implements Serializable {
         this.location = location;
     }
 
-    public ReqModel(String customerName, String customerID, String contactNumber, String vehicleName, String location) {
-        this.customerName = customerName;
-        this.customerID = customerID;
-        this.contactNumber = contactNumber;
-        this.vehicleName = vehicleName;
-        this.location = location;
-    }
-
     public String getKey() {
         return key;
     }
@@ -74,15 +75,11 @@ public class ReqModel implements Serializable {
         this.key = key;
     }
 
-//    public ReqModel(String customerName) {
-//        this.customerName = customerName;
-//    }
-//
-//    public String getCustomerName() {
-//        return customerName;
-//    }
-//
-//    public void setCustomerName(String customerName) {
-//        this.customerName = customerName;
-//    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
