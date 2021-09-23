@@ -44,22 +44,10 @@
             android:name=".NewDeliverRequest"
             android:exported="true" />
         <activity
-            android:name=".DeleteSelectedRequest"
-            android:exported="true" />
-        <activity
             android:name=".EditSelectedRequest"
             android:exported="true" />
         <activity
-            android:name=".SelectedRequestCustomer"
-            android:exported="true" />
-        <activity
             android:name=".DeliverRequestCustomer"
-            android:exported="true" />
-        <activity
-            android:name=".DeliveryRequestHandling"
-            android:exported="true" />
-        <activity
-            android:name=".SelectedRequest"
             android:exported="true" />
         <activity
             android:name=".About"

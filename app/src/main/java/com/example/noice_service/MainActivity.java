@@ -1,9 +1,5 @@
 package com.example.noice_service;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -11,9 +7,10 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nightonke.boommenu.BoomButtons.ButtonPlaceEnum;
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 1;
                 Intent intent;
-                intent = new Intent(MainActivity.this,DeliveryRequestHandling.class);//Delivery Request Handling Activity
+                intent = new Intent(MainActivity.this,DeliverRequestCustomer.class);//Delivery Request Handling Activity
                 startActivity(intent);
             }
         });
@@ -90,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 2;
                 Intent intent;
-                intent = new Intent(MainActivity.this,BookingsAdmin.class);
+                intent = new Intent(MainActivity.this,HomeCustomer.class);
+//                intent = new Intent(MainActivity.this,BookingsAdmin.class);
                 startActivity(intent);
             }
         });

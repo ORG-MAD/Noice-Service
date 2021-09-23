@@ -6,11 +6,11 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
+import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +18,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.common.api.Status;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -30,9 +33,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class NewDeliverRequest extends AppCompatActivity {
-    EditText locationDetails;
-    ImageView locationPick;
+    EditText locationDetails,customerName, customerEmail, contactNo, vehicleName;
+    Button subBtn;
+    String status = "Pending";
+    DAORequest dao = new DAORequest();
     int PLACE_PICKER_REQUEST = 1;
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +53,71 @@ public class NewDeliverRequest extends AppCompatActivity {
         ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         textView.setText(ss);
 
-//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Assign Variables
+        customerName = findViewById(R.id.et_customerName);
+        customerEmail = findViewById(R.id.et_customerEmail);
+        contactNo = findViewById(R.id.et_contactNumber);
+        vehicleName = findViewById(R.id.et_vehicleName);
+        locationDetails = findViewById(R.id.et_locationDetails);
+        subBtn = findViewById(R.id.btn_newReq);
+
+
+        //Initialize Validation style
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        //Validating name field
+        awesomeValidation.addValidation(this, R.id.et_customerName, RegexTemplate.NOT_EMPTY, R.string.invalid_name);
+        //Validating email field
+        awesomeValidation.addValidation(this, R.id.et_customerEmail, Patterns.EMAIL_ADDRESS, R.string.invalid_email);
+        //Validating contact no field
+        awesomeValidation.addValidation(this, R.id.et_contactNumber, "[0-9]{10}$", R.string.invalid_number);
+        //Validating Vehicle field
+        awesomeValidation.addValidation(this, R.id.et_vehicleName, RegexTemplate.NOT_EMPTY, R.string.invalid_vehicleName);
+
+
+        //Setting the location
+        Places.initialize(getApplicationContext(), "AIzaSyDqANwoI65CAbZY8vurHA-OxsL_TzQGZdk");
+        locationDetails.setFocusable(false);
+        locationDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Initialize place field list
+                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
+                //Create intent
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
+                        fieldList).build(NewDeliverRequest.this);
+                //Start activity result
+                startActivityForResult(intent, 100);
+            }
+        });
+
+        subBtn.setOnClickListener(v->{
+            if (awesomeValidation.validate()) {
+                ReqModel req = new ReqModel(
+                        customerName.getText().toString(),
+                        customerEmail.getText().toString(),
+                        contactNo.getText().toString(),
+                        vehicleName.getText().toString(),
+                        locationDetails.getText().toString(),
+                        status
+                );
+                dao.add(req).addOnSuccessListener(sucess->{
+                    Toast.makeText(this,"Record is Inserted",Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener((er->{
+                    Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
+                }));
+                //On Success
+                Toast.makeText(getApplicationContext(), "Validated Successfully", Toast.LENGTH_SHORT).show();
+                //Navigate back to the Home Screen
+                Intent intent;
+                intent = new Intent(NewDeliverRequest.this,HomeCustomer.class);
+                startActivity(intent);
+            }else{
+                Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION------------------------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-
-
         //Perform Item Selected Event Listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -75,73 +139,9 @@ public class NewDeliverRequest extends AppCompatActivity {
                 return false;
             }
         });
-//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
-
-        final EditText customerName = findViewById(R.id.et_customerName);
-        final EditText customerID = findViewById(R.id.et_customerID);
-        final EditText contactNo = findViewById(R.id.et_contactNumber);
-        final EditText vehicleName = findViewById(R.id.et_vehicleName);
-
-        locationDetails = findViewById(R.id.et_locationDetails);
-
-        Places.initialize(getApplicationContext(), "AIzaSyDqANwoI65CAbZY8vurHA-OxsL_TzQGZdk");
-        locationDetails.setFocusable(false);
-        locationDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Initialize place field list
-                List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
-                //Create intent
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
-                        fieldList).build(NewDeliverRequest.this);
-                //Start activity result
-                startActivityForResult(intent, 100);
-
-            }
-        });
-
-
-//        locationDetails = findViewById(R.id.tv_locationDetails);
-//
-//        locationPick = findViewById(R.id.img_location);
-//        locationPick.setOnClickListener(new View.OnClickListener() {
-//
-//
-//            @Override
-//            public void onClick(View view) {
-//                PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-//                Intent intent;
-//                try {
-//                    intent = builder.build(NewDeliverRequest.this);
-//                    startActivityForResult(intent,PLACE_PICKER_REQUEST);
-//                } catch (GooglePlayServicesRepairableException e) {
-//                    e.printStackTrace();
-//
-//                } catch (GooglePlayServicesNotAvailableException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-
-        Button subBtn = findViewById(R.id.btn_newReq);
-
-        DAORequest dao = new DAORequest();
-        subBtn.setOnClickListener(v->{
-            ReqModel req = new ReqModel(
-                    customerName.getText().toString(),
-                    customerID.getText().toString(),
-                    contactNo.getText().toString(),
-                    vehicleName.getText().toString(),
-                    locationDetails.getText().toString()
-            );
-
-            dao.add(req).addOnSuccessListener(sucess->{
-                Toast.makeText(this,"Record is Inserted",Toast.LENGTH_SHORT).show();
-            }).addOnFailureListener((er->{
-                Toast.makeText(this, ""+er.getMessage(), Toast.LENGTH_SHORT).show();
-            }));
-        });
+//-------------------------------------------------------Bottom App BAR FUNCTION------------------------------------------------------
     }
+    //Location Picker
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
         super.onActivityResult(requestCode, resultCode, data);

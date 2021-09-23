@@ -35,8 +35,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        //Screen Title
         <TextView
-            android:id="@+id/tv_generateReceipt"
+            android:id="@+id/tv_newDeliveryReq"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -57,9 +58,9 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            >
+            android:layout_marginTop="10dp">
 
+            //Customer name title
             <TextView
                 android:id="@+id/tv_custName"
                 android:layout_width="fill_parent"
@@ -72,6 +73,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            //Customer name input
             <EditText
                 android:id="@+id/et_customerName"
                 android:layout_width="match_parent"
@@ -83,22 +85,22 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/colorWhiteD" />
 
-            //Customer Id
-
+            //Customer Email Title
             <TextView
-                android:id="@+id/tv_customerIDtext"
+                android:id="@+id/tv_customerEmail"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="90dp"
                 android:gravity="center_horizontal"
-                android:text="@string/tv_customerID"
+                android:text="@string/tv_customerEmail"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            //Customer Email input
             <EditText
-                android:id="@+id/et_customerID"
+                android:id="@+id/et_customerEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -108,8 +110,7 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/colorWhiteD" />
 
-            //Contact Number
-
+            //Contact Number Title
             <TextView
                 android:id="@+id/tv_contactNumber"
                 android:layout_width="fill_parent"
@@ -122,6 +123,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            //Contatct number input
             <EditText
                 android:id="@+id/et_contactNumber"
                 android:layout_width="match_parent"
@@ -130,11 +132,11 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="195dp"
                 android:layout_marginRight="20sp"
+                android:inputType="number"
                 android:backgroundTint="@color/white"
                 android:textColor="@color/colorWhiteD" />
 
-            //Vehicle Name
-
+            //Vehicle Name Title
             <TextView
                 android:id="@+id/tv_vehicleName"
                 android:layout_width="fill_parent"
@@ -147,6 +149,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            //Vehicle name input
             <EditText
                 android:id="@+id/et_vehicleName"
                 android:layout_width="match_parent"
@@ -158,10 +161,9 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/colorWhiteD" />
 
-            //Location Details
-
+            //Location Details Title
             <TextView
-                android:id="@+id/tv_bookingDetails"
+                android:id="@+id/tv_locationDetails"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="320dp"
@@ -172,6 +174,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            //Location details input
             <EditText
                 android:id="@+id/et_locationDetails"
                 android:layout_width="match_parent"
@@ -189,10 +192,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="355dp"
-                android:layout_marginRight="43dp"
+                android:layout_marginRight="35dp"
                 android:src="@drawable/ic_baseline_edit_location_24" />
         </RelativeLayout>
 
+        //Submit button
         <Button
             android:id="@+id/btn_newReq"
             android:layout_width="match_parent"

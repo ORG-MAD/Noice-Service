@@ -13,6 +13,7 @@
             android:layout_height="50dp"
             android:background="@drawable/req_bg">
 
+            //Name prefix
             <TextView
                 android:id="@+id/tv_reqPrefix"
                 android:layout_width="wrap_content"
@@ -24,6 +25,7 @@
 
         </RelativeLayout>
 
+        //Customer Name
         <TextView
             android:id="@+id/tv_reqCustomerName"
             android:layout_width="wrap_content"
@@ -34,8 +36,10 @@
             android:paddingLeft="18dp"
             android:text="Customer Name"
             android:textColor="@color/headerColorD"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
+        //TextOption to navigate to screens
         <TextView
             android:id="@+id/txt_option"
             android:layout_width="20dp"
@@ -49,6 +53,5 @@
             android:textSize="20sp" />
 
     </RelativeLayout>
-
 
 </LinearLayout>
