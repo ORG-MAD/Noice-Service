@@ -74,15 +74,13 @@
         android:textColorHint="@color/colorTransparentWhite" />
 
     <EditText
-        android:id="@+id/add_img"
-        android:layout_width="300dp"
+        android:id="@+id/add_totalTime"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/smallText"
-        android:hint="Profile Image URL"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorTransparentWhite"
-        android:textSize="20sp" />
+        android:hint="Total Hours"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
 
     <Button
         android:id="@+id/add_submit"

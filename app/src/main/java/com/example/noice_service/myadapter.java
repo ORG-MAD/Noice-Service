@@ -43,7 +43,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
         holder.description.setText(SVCmodel.getDescription());
         holder.price.setText(SVCmodel.getPrice());
         holder.equ.setText(SVCmodel.getEqu());
-        holder.img.setText(SVCmodel.getImgurl());
+        holder.img.setText(SVCmodel.getTotalTime());
 //       Glide.with(holder.img.getContext()).load(SVCmodel.getImgurl()).into(holder.img);
 
         holder.edit.setOnClickListener(new View.OnClickListener() {
@@ -55,14 +55,14 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
                         .create();
 
                 View myview=dialogPlus.getHolderView();
-                final EditText imgurl=myview.findViewById(R.id.uimgurl);
+                final EditText totalTime=myview.findViewById(R.id.uimgurl);
                 final EditText title=myview.findViewById(R.id.utitle);
                 final EditText description=myview.findViewById(R.id.udescription);
                 final EditText price=myview.findViewById(R.id.uprice);
                 final EditText equ =myview.findViewById(R.id.uequ);
                 Button submit=myview.findViewById(R.id.usubmit);
 
-                imgurl.setText(SVCmodel.getImgurl());
+                totalTime.setText(SVCmodel.getTotalTime());
                 title.setText(SVCmodel.getTitle());
                 description.setText(SVCmodel.getDescription());
                 price.setText(SVCmodel.getPrice());
@@ -74,7 +74,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
                     @Override
                     public void onClick(View view) {
                         Map<String,Object> map=new HashMap<>();
-                        map.put("imgurl",imgurl.getText().toString());
+                        map.put("totalTime",totalTime.getText().toString());
                         map.put("title",title.getText().toString());
                         map.put("description",description.getText().toString());
                         map.put("price",price.getText().toString());
@@ -107,7 +107,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(holder.img.getContext());
                 builder.setTitle("Delete Service");
-                builder.setMessage("Are you Sure to delete?");
+                builder.setMessage("Are you Sure to want delete this service?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
