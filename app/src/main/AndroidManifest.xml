@@ -83,7 +83,7 @@
             android:name=".Services_Admin"
             android:exported="true" />
         <activity
-            android:name=".addService"
+            android:name=".GradientService"
             android:exported="true" />
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
@@ -145,7 +145,7 @@
             android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".addService"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

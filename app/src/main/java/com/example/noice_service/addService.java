@@ -6,12 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,6 +35,8 @@ public class addService extends AppCompatActivity
     String[] eqArray = {"Mobil", "Caltex", "Valvoline™ Full Synthetic Grease"
             ,"Valvoline™ General Purpose Grease","Engine Tune",
             "Engine wash Liquid","Upholstry cleaner wash"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,6 +48,7 @@ public class addService extends AppCompatActivity
         price=(EditText)findViewById(R.id.add_price);
         imgurl=(EditText)findViewById(R.id.add_img);
         equ=(EditText) findViewById(R.id.add_equ);
+
 
         back=(Button)findViewById(R.id.add_back);
         back.setOnClickListener(new View.OnClickListener() {
