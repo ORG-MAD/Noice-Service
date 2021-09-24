@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -49,7 +50,7 @@ public class J_CustomerRegistration extends AppCompatActivity {
     EditText et_email;
     EditText et_date;
     Button btn_register;
-
+    TextView tv_regdate;
     TextView tv_Country;
     ArrayList<String> arrayList;
     Dialog dialog;
@@ -75,10 +76,10 @@ public class J_CustomerRegistration extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         et_phoneNo = findViewById(R.id.et_phoneNo);
         et_date = findViewById(R.id.et_date);
+        tv_regdate = findViewById(R.id.tv_regdate);
         btn_register = findViewById(R.id.btn_register);
 
         loadingBar = new ProgressDialog(this);
-
 
         //Initialize validation styles
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
@@ -93,6 +94,11 @@ public class J_CustomerRegistration extends AppCompatActivity {
         et_password = findViewById(R.id.et_password);
         btn_register = findViewById(R.id.btn_register);
 
+        long date = System.currentTimeMillis();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = sdf.format(date);
+        tv_regdate.setText(dateString);
 
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,6 +252,7 @@ public class J_CustomerRegistration extends AppCompatActivity {
                         user.setPhone(et_phoneNo.getText().toString());
                         user.setDOB(et_date.getText().toString());
                         user.setCountry(tv_Country.getText().toString());
+                        user.setRegDate(tv_regdate.getText().toString());
 
                         userRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

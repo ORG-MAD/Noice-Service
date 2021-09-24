@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/editreqbg"
     tools:context=".services_list">
 
     <TextView
@@ -28,19 +28,14 @@
         android:text="bookings" />
 
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_service_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        app:cardBackgroundColor="@color/black">
+        android:layout_marginTop="100dp"
+        android:padding="10dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_service_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp" />
 
-    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -51,5 +46,4 @@
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:menu="@menu/menu_navigation" />
-
 </RelativeLayout>

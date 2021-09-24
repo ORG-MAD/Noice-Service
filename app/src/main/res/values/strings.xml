@@ -101,6 +101,22 @@
     <string name="find_report">find report</string>
     <string name="report_description">Select month to see total appointments</string>
 
+    <string name="heading_s">Heading</string>
+    <string name="totalTime_s">5 Hours</string>
+    <string name="description_s">This is description</string>
+    <string name="includes_s">Includes</string>
+    <string name="price_s">1000</string>
+    <string name="price_label_s">Rs</string>
+    <string name="approx_time_label_s">Will take approximately</string>
+    <string name="form_fill_s">Request Service</string>
+    <string name="cus_number_label">Customers Phone</string>
+    <string name="cus_number">011789456</string>
+    <string name="car_no_label">Car Number</string>
+    <string name="car_no">CAR 1015</string>
+    <string name="Bookings">BOOKINGS</string>
+
+
+
     //AMANTHA
     <string name="title_activity_service_home">ServiceHome</string>
     <string name="tv_serviceHeading">Add Service</string>
@@ -134,6 +150,13 @@
     <string name="btn_okay">Okay</string>
     <string name="btn_cancel">Cancel</string>
     <string name="tv_updateSuccess">Update Successful!</string>
+    //Amantha validations
+    <string name="empty_title">Please enter the title!</string>
+    <string name="empty_description">Please enter the Description!</string>
+    <string name="empty_price">Please enter the price!</string>
+    <string name="empty_equ">Please enter the resources!</string>
+    <string name="invalid_pricerange">Please enter price range between 500-15000</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -150,5 +173,6 @@
     <string name="invalid_email">Email format is invalid</string>
     <string name="invalid_bday">Please enter your birthday</string>
     <string name="invalid_password">The password should have minimum 8 characters, atleast 1 alphabet, number and special character</string>
+
 
 </resources>

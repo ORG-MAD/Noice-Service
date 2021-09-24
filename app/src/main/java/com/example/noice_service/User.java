@@ -1,18 +1,19 @@
 package com.example.noice_service;
 
 public class User {
-    private String name, password, email, phone, DOB, Country;
+    private String name, password, email, phone, DOB, Country, regDate;
 
     public User() {
     }
 
-    public User(String name, String password, String email, String phone, String DOB, String Country) {
+    public User(String name, String password, String email, String phone, String DOB, String Country, String regDate) {
         this.name = name;
         this.password = password;
         this.email = email;
         this.phone = phone;
         this.DOB = DOB;
         this.Country = Country;
+        this.regDate = regDate;
     }
 
     public String getName() {
@@ -55,11 +56,17 @@ public class User {
         this.DOB = DOB;
     }
 
-    public String getCountry() {
-        return Country;
-    }
+    public String getCountry() { return Country; }
 
     public void setCountry(String country) {
         Country = country;
+    }
+
+    public String getRegDate() {
+        return regDate;
+    }
+
+    public void setRegDate(String regDate) {
+        this.regDate = regDate;
     }
 }

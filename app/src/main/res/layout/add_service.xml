@@ -1,89 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/addsvcbg"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".addService">
 
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="219dp"
+        android:layout_height="39dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="@string/tv_heading"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/add_title"
-        android:textSize="20sp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:backgroundTint="@color/smallText"
         android:hint="Service Title"
-        android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:textSize="20sp" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/add_description"
-        android:textSize="20sp"
-        android:hint="Service Description"
-        android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
-
-    <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/add_price"
-        android:textSize="20sp"
-        android:hint="Price(LKR)"
-        android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
+        android:layout_marginBottom="43dp"
+        android:backgroundTint="@color/smallText"
+        android:hint="Service Description"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:textSize="20sp" />
 
-<!--    <EditText-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/add_equ"-->
-<!--        android:textSize="20sp"-->
-<!--        android:hint="Equipments"-->
-<!--        android:layout_marginBottom="15dp"-->
-<!--        android:textColor="#000"/>-->
+    <EditText
+        android:id="@+id/add_price"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="49dp"
+        android:backgroundTint="@color/smallText"
+        android:hint="Price(LKR)"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/add_equ"
-        android:layout_width="380dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="@color/smallText"
         android:drawableEnd="@android:drawable/arrow_down_float"
         android:drawableRight="@android:drawable/arrow_down_float"
         android:drawablePadding="16dp"
-        android:hint="Select Equipment"
+        android:hint="Select Resources using"
         android:padding="12dp"
-        android:textColor="#000000"
-        android:textColorHint="#000000" />
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorTransparentWhite" />
 
     <EditText
-        android:layout_width="300dp"
+        android:id="@+id/add_totalTime"
+        android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:id="@+id/add_img"
-        android:textSize="20sp"
-        android:hint="Profile Image URL"
-        android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
+        android:background="@android:drawable/btn_dropdown"
+        android:hint="Total Hours"
+        android:spinnerMode="dropdown" />
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
         android:id="@+id/add_submit"
-        android:textSize="20sp"
-        android:text="Add to Firebase"/>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/add_back"
+        android:layout_marginBottom="15dp"
+        android:text="Add Service"
         android:textSize="20sp"
-        android:text="Back"/>
+        app:backgroundTint="@color/btncolor" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/adminbottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="70dp"
+        app:itemBackground="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="674dp" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

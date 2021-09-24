@@ -1,88 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="wrap_content"
+    android:background="@drawable/bguppp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Update Content Panel"
-        android:background="@color/colorPrimary"
-        android:textSize="25sp"
+        android:layout_height="30dp"
+        android:background="@color/colorRedD"
         android:gravity="center"
-        android:textColor="#fff"/>
+        android:text="Update Service"
+        android:textColor="#fff"
+        android:textSize="20sp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Image URL"
-        android:id="@+id/uimgurl"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Title"
         android:id="@+id/utitle"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+        android:backgroundTint="@color/smallText"
+        android:hint="Title"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Description"
         android:id="@+id/udescription"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+        android:backgroundTint="@color/smallText"
+        android:hint="Description"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Price(LKR)"
         android:id="@+id/uprice"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
+        android:backgroundTint="@color/smallText"
+        android:hint="Price(LKR)"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/uequ"
-        android:textSize="20sp"
-        android:hint="Equipments"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginBottom="15dp"
-        android:textColor="#000"/>
+        android:backgroundTint="@color/smallText"
+        android:hint="Equipments"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/utv_day"-->
-<!--        android:layout_width="380dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginLeft="10dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:drawableEnd="@android:drawable/arrow_down_float"-->
-<!--        android:drawableRight="@android:drawable/arrow_down_float"-->
-<!--        android:drawablePadding="16dp"-->
-<!--        android:hint="Select Equipment"-->
-<!--        android:padding="12dp"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textColorHint="#000000" />-->
+    <EditText
+        android:id="@+id/uimgurl"
+        android:layout_width="900px"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/smallText"
+        android:hint="Image URL"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp" />
+
 
     <Button
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Update"
         android:id="@+id/usubmit"
-        android:background="@color/colorPrimary"
-        android:textColor="#fff"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="20sp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        />
+        android:background="@color/colorPrimary"
+        android:text="Update"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:backgroundTint="@color/colorRedD" />
 
 </LinearLayout>

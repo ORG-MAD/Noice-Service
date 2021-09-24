@@ -2,17 +2,17 @@ package com.example.noice_service;
 
 public class SVCmodel
 {
-  String title,description,price,imgurl,equ;
+  String title,description,price,totalTime,equ;
     SVCmodel()
     {
 
     }
-    public SVCmodel(String title, String description, String price, String equ, String imgurl) {
+    public SVCmodel(String title, String description, String price, String equ, String totalTime) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.equ=equ;
-        this.imgurl = imgurl;
+        this.totalTime = totalTime;
     }
 
     public String getTitle() {
@@ -46,51 +46,12 @@ public class SVCmodel
     public void setEqu(String equ) {
         this.equ = equ;
     }
-//    public String getTv_day() {
-//        return tv_day;
-//    }
-//
-//    public void setTv_day(String tv_day) {
-//        this.tv_day = tv_day;
-//    }
 
-    public String getImgurl() {
-        return imgurl;
+    public String getTotalTime() {
+        return totalTime;
     }
 
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
+    public void setTotalTime(String totalTime) {
+        this.totalTime = totalTime;
     }
-
-    //    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public String getCourse() {
-//        return course;
-//    }
-//
-//    public void setCourse(String course) {
-//        this.course = course;
-//    }
-//
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getPurl() {
-//        return purl;
-//    }
-//
-//    public void setPurl(String purl) {
-//        this.purl = purl;
-//    }
 }
