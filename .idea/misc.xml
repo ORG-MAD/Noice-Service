@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/drawable/button_bg_rounded_corners.xml" value="0.2169230769230769" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/drawable/ic_arrow.xml" value="0.2046875" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/drawable/ic_baseline_edit_location_alt_24.xml" value="0.2046875" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_bookings_admin.xml" value="0.18854166666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jcustomer_registration.xml" value="0.25" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jedit_profile_customer.xml" value="0.20416666666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jlogin_customer.xml" value="0.25" />
-        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jmain_interface_customer.xml" value="0.20416666666666666" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_jmain_interface_customer.xml" value="0.22" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_login_customer.xml" value="0.18854166666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_register_customer.xml" value="0.20416666666666666" />
         <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_register_customer2.xml" value="0.20416666666666666" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/activity_services_list.xml" value="0.1" />
+        <entry key="..\:/NOICE_SERVICE/Noice-Service/app/src/main/res/layout/half_circle.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_add_services.xml" value="0.16875" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_booking_list.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/Dulshan Perera/AndroidStudioProjects/Noice-Service/app/src/main/res/layout/activity_booking_list_admin.xml" value="0.25416666666666665" />
