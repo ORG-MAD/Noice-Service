@@ -89,6 +89,8 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
         intent.putExtra("phone_no",myBooking.getPhone_no());
         intent.putExtra("details",myBooking.getDetails());
         intent.putExtra("includes",myBooking.getTv_day());
+        intent.putExtra("s_price",myBooking.getS_price());
+        intent.putExtra("user_email",user_email);
         startActivity(intent);
     }
 

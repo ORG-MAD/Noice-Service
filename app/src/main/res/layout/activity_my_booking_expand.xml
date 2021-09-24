@@ -169,6 +169,20 @@
                 android:text="Delete"
                 app:backgroundTint="@color/buttonD" />
 
+            //ViewReciept Button
+
+            <Button
+                android:id="@+id/btn_placeReq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="110dp"
+                android:onClick="placeRequest"
+                android:text="Place Request"
+                app:backgroundTint="@color/buttonD" />
+
+
             <Button
                 android:id="@+id/btnUpdateBooking"
                 android:layout_width="wrap_content"

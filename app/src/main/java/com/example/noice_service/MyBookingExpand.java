@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MyBookingExpand extends AppCompatActivity {
 
@@ -23,12 +28,18 @@ public class MyBookingExpand extends AppCompatActivity {
     String details;
     String includes;
     String status;
+    String sPrice;
     DatabaseReference bookingReference;
+    DatabaseReference UserDatabaseReference;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_booking_expand);
+
+        mAuth = FirebaseAuth.getInstance();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
 
         TextView tvname = findViewById(R.id.mbooking_name);
         TextView tvtime_slot = findViewById(R.id.time_slot);
@@ -47,6 +58,7 @@ public class MyBookingExpand extends AppCompatActivity {
         details = getIntent().getStringExtra("details");
         includes = getIntent().getStringExtra("includes");
         status = getIntent().getStringExtra("booking_status");
+        sPrice = getIntent().getStringExtra("s_price");
 
         tvname.setText(name);
         tvtime_slot.setText(time_slot);
@@ -84,4 +96,17 @@ public class MyBookingExpand extends AppCompatActivity {
             Toast.makeText(MyBookingExpand.this, "Service is not finished yet!",Toast.LENGTH_SHORT).show();
         }
     }
+
+    //Place Delivery Request
+    public void placeRequest(View view){
+        if (booking_status.equals("Booking Successful")){
+            Intent intent=new Intent(MyBookingExpand.this,NewDeliverRequest.class);
+            intent.putExtra("booking_id",id);
+            intent.putExtra("s_price",sPrice);
+            startActivity(intent);
+        } else {
+            Toast.makeText(MyBookingExpand.this, "Service has been already finished!",Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

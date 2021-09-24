@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -28,22 +29,36 @@ import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class NewDeliverRequest extends AppCompatActivity {
-    EditText locationDetails,customerName, customerEmail, contactNo, vehicleName;
+    EditText locationDetails,customerName, contactNo, vehicleName, customerEmail;
     Button subBtn;
-    String status = "Pending";
+    String status = "Pending", sPrice, bookingID, user_email;
     DAORequest dao = new DAORequest();
-    int PLACE_PICKER_REQUEST = 1;
     AwesomeValidation awesomeValidation;
+    DatabaseReference UserDatabaseReference;
+    FirebaseAuth mAuth;
+    int PLACE_PICKER_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_deliver_request);
+
+        mAuth = FirebaseAuth.getInstance();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+
+        getUserEmail();
 
         //Noice Text Heading
         TextView textView = (TextView) findViewById(R.id.tv_heading);
@@ -61,15 +76,24 @@ public class NewDeliverRequest extends AppCompatActivity {
         locationDetails = findViewById(R.id.et_locationDetails);
         subBtn = findViewById(R.id.btn_newReq);
 
+        customerEmail.setText(user_email);
+
+        //Get data from intent
+        bookingID = getIntent().getStringExtra("booking_id");
+        sPrice = getIntent().getStringExtra("s_price");
 
         //Initialize Validation style
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
         //Validating name field
         awesomeValidation.addValidation(this, R.id.et_customerName, RegexTemplate.NOT_EMPTY, R.string.invalid_nameD);
+
         //Validating email field
         awesomeValidation.addValidation(this, R.id.et_customerEmail, Patterns.EMAIL_ADDRESS, R.string.invalid_emailD);
+
         //Validating contact no field
         awesomeValidation.addValidation(this, R.id.et_contactNumber, "[0-9]{10}$", R.string.invalid_numberD);
+        
         //Validating Vehicle field
         awesomeValidation.addValidation(this, R.id.et_vehicleName, RegexTemplate.NOT_EMPTY, R.string.invalid_vehicleNameD);
 
@@ -97,7 +121,9 @@ public class NewDeliverRequest extends AppCompatActivity {
                         contactNo.getText().toString(),
                         vehicleName.getText().toString(),
                         locationDetails.getText().toString(),
-                        status
+                        status,
+                        sPrice,
+                        bookingID
                 );
                 dao.add(req).addOnSuccessListener(sucess->{
                     Toast.makeText(this,"Record is Inserted",Toast.LENGTH_SHORT).show();
@@ -153,4 +179,20 @@ public class NewDeliverRequest extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),status.getStatusMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    //useremail
+    private void getUserEmail() {
+        UserDatabaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    user_email = snapshot.child("email").getValue().toString();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+
 }
