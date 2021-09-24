@@ -75,10 +75,10 @@
 
     <EditText
         android:id="@+id/add_totalTime"
-        android:layout_width="match_parent"
+        android:layout_width="500px"
         android:layout_height="wrap_content"
-        android:hint="Total Hours"
         android:background="@android:drawable/btn_dropdown"
+        android:hint="Total Hours"
         android:spinnerMode="dropdown" />
 
 
