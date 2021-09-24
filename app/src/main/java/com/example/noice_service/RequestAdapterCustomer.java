@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RequestAdapterCustomer extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    //Initializing variables
     private Context context;
     ArrayList<ReqModel> list = new ArrayList<>();
 
