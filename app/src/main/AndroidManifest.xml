@@ -20,7 +20,7 @@
             android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity
-            android:name=".jLogin_Customer"
+            android:name=".GradientService"
             android:exported="true" />
         <activity
             android:name=".J_CustomerRegistration"
@@ -145,7 +145,7 @@
             android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".jLogin_Customer"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

@@ -64,9 +64,10 @@
         android:layout_height="110dp"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="330dp"
+        android:alpha="0.6"
+        android:onClick="openServices"
         android:background="@drawable/button_bg_rounded_corners"
         android:text="BOOK SERVICES"
-        android:alpha="0.6"
         android:textColor="@color/white"
         android:textSize="23dp"
         app:backgroundTint="@color/black" />
