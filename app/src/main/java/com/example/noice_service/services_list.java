@@ -32,7 +32,7 @@ public class services_list extends AppCompatActivity implements ServiceListClick
         setContentView(R.layout.activity_services_list);
         RecyclerView serviceList = findViewById(R.id.my_service_list);
 
-        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Service_Admin");
+        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("services");
 
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -40,10 +40,11 @@ public class services_list extends AppCompatActivity implements ServiceListClick
 
                 if(snapshot.exists()){
                     for(DataSnapshot ds : snapshot.getChildren()){
-                        String s_price=ds.child("s_price").getValue(String.class);
-                        String s_title=ds.child("s_title").getValue(String.class);
-                        String s_description=ds.child("s_description").getValue(String.class);
-                        String tv_day=ds.child("tv_day").getValue(String.class);
+                        String s_description=ds.child("description").getValue(String.class);
+                        String tv_day=ds.child("equ").getValue(String.class);
+                        String imgurl=ds.child("imgurl").getValue(String.class);
+                        String s_price=ds.child("price").getValue(String.class);
+                        String s_title=ds.child("title").getValue(String.class);
 
                         servicesModels.add(new ServicesModel(s_title,s_price,tv_day,s_description));
                     }
