@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,9 @@ public class jLogin_Customer extends AppCompatActivity {
     private FirebaseAuth mAuth;
     ProgressDialog loadingBar;
 
+    TextView tv_no;
+    int counter = 3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,9 @@ public class jLogin_Customer extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register);
         mAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
+
+        tv_no = (TextView) findViewById(R.id.tv_no);
+        tv_no.setVisibility(View.GONE);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +108,14 @@ public class jLogin_Customer extends AppCompatActivity {
                     }
                 }
             });
+
+            tv_no.setVisibility(View.VISIBLE);
+            counter--;
+            tv_no.setText(Integer.toString(counter));
+
+            if(counter == 0){
+                btn_login.setEnabled(false);
+            }
         }
     }
 }

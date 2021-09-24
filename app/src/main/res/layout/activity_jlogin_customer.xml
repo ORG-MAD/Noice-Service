@@ -90,12 +90,42 @@
         android:textColorHint="@color/white"
         android:textSize="22dp" />
 
+    <TextView
+        android:id="@+id/tv_attempts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="370dp"
+        android:gravity="center_horizontal"
+        android:text="Number Of Attempts Left: "
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tv_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="290dp"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="370dp"
+        android:layout_toEndOf="@+id/tv_attempts"
+        android:layout_toRightOf="@+id/tv_attempts"
+        android:text="No Text "
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
     <Button
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="460dp"
         android:background="@drawable/button_bg_rounded_corners"
         android:gravity="center"
         android:paddingLeft="40dp"
