@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/home_btn_bg"
+        android:layout_height="233dp"
+        android:background="@drawable/singlebg"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img1"
+                android:id="@+id/im"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Service Title"
-                    android:textColor="#000"
+                    android:textColor="@color/colorHeader"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Service description"
-                    android:textColor="#000"
+                    android:textColor="@color/colorWhiteD"
                     android:textSize="18sp" />
 
 
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Service Price"
-                    android:textColor="#000"
+                    android:textColor="@color/colorWhiteD"
                     android:textSize="18sp" />
 
                 <TextView
@@ -69,7 +69,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Equipments Used"
-                    android:textColor="#000"
+                    android:textColor="@color/colorWhiteD"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/img1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="This is Equipments Used"
+                    android:textColor="@color/colorWhiteD"
                     android:textSize="18sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -85,13 +94,15 @@
                 android:id="@+id/editicon"
                 android:layout_width="193dp"
                 android:layout_height="40dp"
-                android:src="@drawable/edit" />
+                android:layout_marginTop="40px"
+                android:src="@drawable/editsvc" />
 
             <ImageView
                 android:id="@+id/deleteicon"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:src="@drawable/delete" />
+                android:layout_marginTop="40px"
+                android:src="@drawable/cancelsvc" />
         </LinearLayout>
     </LinearLayout>
 
