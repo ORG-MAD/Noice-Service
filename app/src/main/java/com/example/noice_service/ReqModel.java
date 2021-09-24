@@ -15,17 +15,21 @@ public class ReqModel implements Serializable {
     private String vehicleName;
     private String location;
     private String status;
+    private String s_price;
+    private String booking_ID;
 
     //Constructors
     public ReqModel(){};
 
-    public ReqModel(String customerName, String customerEmail, String contactNumber, String vehicleName, String location, String status) {
+    public ReqModel(String customerName, String customerEmail, String contactNumber, String vehicleName, String location, String status, String s_price, String booking_ID) {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.contactNumber = contactNumber;
         this.vehicleName = vehicleName;
         this.location = location;
         this.status = status;
+        this.s_price = s_price;
+        this.booking_ID = booking_ID;
     }
 
     //Getters and Setters for the private variables
@@ -84,4 +88,12 @@ public class ReqModel implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getS_price() { return s_price; }
+
+    public void setS_price(String s_price) { this.s_price = s_price; }
+
+    public String getBooking_ID() { return booking_ID; }
+
+    public void setBooking_ID(String booking_ID) { this.booking_ID = booking_ID; }
 }

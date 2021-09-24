@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:weightSum="9"
-    android:background="@drawable/background_bg"
+    android:background="@drawable/calculatreceiptbg"
     android:layout_height="match_parent"
-    tools:context=".NewDeliverRequest">
+    tools:context=".CalculateReciept">
 
     <LinearLayout
         android:layout_weight="1"
@@ -34,6 +34,12 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/jlightgrey" />
 
         <TextView
             android:id="@+id/tv_generateReceipt"
@@ -52,14 +58,15 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:layout_weight="8"
-        android:background="@color/black"
         android:padding="10dp">
 
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            //Customer Id
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            //Customer Name
 
             <TextView
                 android:id="@+id/tv_custName"
@@ -71,56 +78,61 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_customerID"
+            <TextView
+                android:id="@+id/tv_customerName"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="170dp"
-                android:backgroundTint="@color/white" />
-
-            //Contact Number
-
-            <TextView
-                android:id="@+id/tv_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="@string/tv_date"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/tv_customerNameReceipt"
                 android:textColor="@color/colorWhiteD"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
+
+            //Email
 
             <TextView
-                android:id="@+id/date_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
-                android:layout_marginTop="50dp"
-                android:text="dd/mm/yyyy"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/show_dialog"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="90dp"
-                android:text="date" />
-
-            //Vehicle Name
-            //Location Details
-
-            <TextView
-                android:id="@+id/tv_bookingDetails"
+                android:id="@+id/tv_customerEmail"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="150dp"
-                android:gravity="center_horizontal"
-                android:text="@string/tv_additionalServices"
-                android:textAlignment="center"
+                android:layout_marginTop="55dp"
+                android:text="@string/tv_customerEmail"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_customerEmailtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/tv_customerEmailReceipt"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_currentPrice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="135dp"
+                android:gravity="center_horizontal"
+                android:text="@string/tv_currentPrice"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhiteD"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="400px"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="165dp"
+                android:background="@color/colorTransparentWhite" />
+
+
 
             <TextView
                 android:id="@+id/tv_basePrice"
@@ -132,93 +144,70 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/et_basePrice"
+            <TextView
+                android:id="@+id/tv_basePriceText"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="180dp"
-                android:backgroundTint="@color/white" />
-
-            <TextView
-                android:id="@+id/tv_additionalServices"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="240dp"
-                android:text="@string/tv_additionalServices"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="185dp"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-
-            <CheckBox
-                android:id="@+id/checkBox"
-                android:layout_width="116dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="280dp"
-                android:text="@string/checkBox"
-                android:textColor="@color/white" />
-
-            <CheckBox
-                android:id="@+id/checkBox1"
-                android:layout_width="116dp"
-                android:layout_height="24dp"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="280dp"
-                android:text="@string/checkBox1"
-                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/tv_deliveryFee"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="320dp"
+                android:layout_marginTop="250dp"
                 android:text="@string/tv_deliveryFee"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/et_basePricetext"
+                android:id="@+id/et_delFee"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
-                android:layout_marginTop="300dp"
-                android:backgroundTint="@color/white" />
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="245dp"
+                android:backgroundTint="@color/white"
+                android:inputType="number"
+                android:textColor="@color/colorWhiteD"
+                android:textColorHint="@color/colorWhiteD" />
 
             <Button
-                android:id="@+id/btn_calcBill"
+                android:id="@+id/btn_emailR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
-                android:layout_marginTop="360dp"
+                android:layout_marginTop="385dp"
                 android:layout_marginRight="50dp"
                 android:backgroundTint="@color/buttonD"
-                android:text="@string/btn_submit"
+                android:onClick="sendmail"
+                android:text="@string/btn_emailR"
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/tv_netAmount"
+                android:id="@+id/tv_netAmountTitle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="420dp"
-                android:gravity="center_horizontal"
+                android:layout_marginTop="320dp"
                 android:text="@string/tv_netAmount"
-                android:textAlignment="center"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_amount"
+                android:id="@+id/tv_netAmount"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="460dp"
+                android:layout_marginTop="320dp"
                 android:gravity="center_horizontal"
-                android:text="@string/tv_amount"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhiteD"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
         </RelativeLayout>
 
 

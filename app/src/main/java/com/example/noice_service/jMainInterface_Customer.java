@@ -130,4 +130,10 @@ public class jMainInterface_Customer extends AppCompatActivity {
         Intent intent = new Intent(jMainInterface_Customer.this, services_list.class);
         startActivity(intent);
     }
+
+    //Place Requests
+    public void placeRequests(View view){
+        Intent intent = new Intent(jMainInterface_Customer.this, MyBookingsActivity.class);
+        startActivity(intent);
+    }
 }
