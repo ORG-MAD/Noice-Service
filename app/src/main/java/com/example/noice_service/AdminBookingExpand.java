@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
@@ -17,22 +18,34 @@ public class AdminBookingExpand extends AppCompatActivity {
 
     DatabaseReference bookingReference;
     String id;
+    String name;
+    String time_slot;
+    String car_no;
+    String phone_no;
+    String price;
+    String bookingTime;
+    TextView tvname;
+    TextView tvtime_slot;
+    TextView tvcar_no;
+    TextView tvphone_no;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_booking_expand);
 
-        TextView tvname = findViewById(R.id.mbooking_name);
-        TextView tvtime_slot = findViewById(R.id.time_slot);
-        TextView tvcar_no = findViewById(R.id.car_no);
-        TextView tvphone_no = findViewById(R.id.phone_no);
+        tvname = findViewById(R.id.mbooking_name);
+        tvtime_slot = findViewById(R.id.time_slot);
+        tvcar_no = findViewById(R.id.car_no);
+        tvphone_no = findViewById(R.id.phone_no);
 
         id = getIntent().getStringExtra("booking_id");
-        String name = getIntent().getStringExtra("booking_name");
-        String time_slot = getIntent().getStringExtra("time_slot");
-        String car_no = getIntent().getStringExtra("car_no");
-        String phone_no = getIntent().getStringExtra("phone_no");
+        name = getIntent().getStringExtra("booking_name");
+        time_slot = getIntent().getStringExtra("time_slot");
+        car_no = getIntent().getStringExtra("car_no");
+        phone_no = getIntent().getStringExtra("phone_no");
+        price = getIntent().getStringExtra("price");
+        bookingTime = getIntent().getStringExtra("bookingTime");
 
         tvname.setText(name);
         tvtime_slot.setText(time_slot);
@@ -72,10 +85,17 @@ public class AdminBookingExpand extends AppCompatActivity {
 
     public void finishBooking(View view){
         bookingReference = FirebaseDatabase.getInstance().getReference("Bookings");
-        //bookingReference.child(id).removeValue();
-        //bookingReference.child(id).child("booking_name").setValue("halooo");
         bookingReference.child(id).child("booking_status").setValue("Finished");
+        saveFinishedBookings();
+        Toast.makeText(AdminBookingExpand.this, "Booking marked as Finish", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(AdminBookingExpand.this,BookingsAdmin.class);
         startActivity(intent);
+    }
+
+    public void saveFinishedBookings(){
+        bookingReference = FirebaseDatabase.getInstance().getReference("Finished_Bookings");
+        bookingReference.child(id).child("booking_name").setValue(name);
+        bookingReference.child(id).child("s_price").setValue(price);
+        bookingReference.child(id).child("booking_time").setValue(bookingTime);
     }
 }

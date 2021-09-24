@@ -41,7 +41,7 @@ public class AdminBookingReport extends AppCompatActivity {
         super.onStart();
 
         total_ = 0;
-        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
+        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Finished_Bookings");
         services = new ArrayList<>();
 
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
@@ -52,11 +52,8 @@ public class AdminBookingReport extends AppCompatActivity {
                     for(DataSnapshot ds : snapshot.getChildren()){
 
                         String booking_name=ds.child("booking_name").getValue(String.class);
-                        String booking_status=ds.child("booking_status").getValue(String.class);
                         String booking_time=ds.child("booking_time").getValue(String.class);
                         String s_price=ds.child("s_price").getValue(String.class);
-
-                        if (booking_status.equals("Booking Successful")){
 
                             boolean serviceExists = false;
                             for(ServiceReportModel service : services)
@@ -73,7 +70,6 @@ public class AdminBookingReport extends AppCompatActivity {
 
 
                             }
-                        }
                     }
                     tv_total.setText(Integer.toString(total_) + ".00");
                     AdminBookingReportRecyclerView adminBookingsReportRecyclerView = new AdminBookingReportRecyclerView(services);

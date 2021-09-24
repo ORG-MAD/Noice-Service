@@ -32,16 +32,31 @@ public class BookingFrom extends AppCompatActivity {
     DatabaseReference UserDatabaseReference;
     FirebaseAuth mAuth;
     String user_email;
+    EditText phoneNumberEditText;
+    EditText carNumberEditText;
+    Button bookConfirm;
+    TextView heading;
+    TextView description;
+    TextView includes;
+    TextView approxTime;
+    TextView price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_from);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         String s_title = getIntent().getStringExtra("s_title");
         String s_price = getIntent().getStringExtra("s_price");
         String s_description = getIntent().getStringExtra("s_description");
         String tv_day = getIntent().getStringExtra("tv_day");
+        String totalTime = getIntent().getStringExtra("totalTime");
 
         mAuth = FirebaseAuth.getInstance();
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
@@ -49,19 +64,27 @@ public class BookingFrom extends AppCompatActivity {
 
         getUserEmail();
 
-        final EditText phoneNumberEditText = findViewById(R.id.phone_number);
-        final EditText carNumberEditText = findViewById(R.id.car_number);
-        final Button bookConfirm = findViewById(R.id.book_confirm);
+        phoneNumberEditText = findViewById(R.id.phone_number);
+        carNumberEditText = findViewById(R.id.car_number);
+        bookConfirm = findViewById(R.id.book_confirm);
         loadingProgressBar = findViewById(R.id.loading);
-        TextView heading = findViewById(R.id.heading_);
+        heading = findViewById(R.id.heading_);
+        description = findViewById(R.id.description);
+        includes = findViewById(R.id.includes);
+        approxTime = findViewById(R.id.approxTime);
+        price = findViewById(R.id.price);
+
         heading.setText(s_title);
+        description.setText(s_description);
+        includes.setText(tv_day);
+        approxTime.setText(totalTime);
+        price.setText(s_price);
 
         Spinner dropdown = findViewById(R.id.time_slot);
         String[] items = new String[]{"Select time", "08:00 AM","09:00 AM", "10:00 AM", "11:00 PM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM" };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
 
         dropdown.setAdapter(adapter);
-
 
         bookConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +114,7 @@ public class BookingFrom extends AppCompatActivity {
         });
     }
 
-    private void ProcessBook(String pNo, String cNo, String timeSlot,String s_title,String s_description, String s_price, String tv_day){
+    private void ProcessBook(String pNo, String cNo, String timeSlot, String s_title, String s_description, String s_price, String tv_day){
 
         Date date = new Date();
         String id = bookingsDatabase.push().getKey();

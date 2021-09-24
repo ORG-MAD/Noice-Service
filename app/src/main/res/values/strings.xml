@@ -93,6 +93,22 @@
     <string name="find_report">find report</string>
     <string name="report_description">Select month to see total appointments</string>
 
+    <string name="heading_s">Heading</string>
+    <string name="totalTime_s">5 Hours</string>
+    <string name="description_s">This is description</string>
+    <string name="includes_s">Includes</string>
+    <string name="price_s">1000</string>
+    <string name="price_label_s">Rs</string>
+    <string name="approx_time_label_s">Will take approximately</string>
+    <string name="form_fill_s">Request Service</string>
+    <string name="cus_number_label">Customers Phone</string>
+    <string name="cus_number">011789456</string>
+    <string name="car_no_label">Car Number</string>
+    <string name="car_no">CAR 1015</string>
+    <string name="Bookings">BOOKINGS</string>
+
+
+
     //AMANTHA
     <string name="title_activity_service_home">ServiceHome</string>
     <string name="tv_serviceHeading">Add Service</string>

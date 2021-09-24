@@ -26,19 +26,24 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
     DatabaseReference UserDatabaseReference;
     FirebaseAuth mAuth;
     String user_email;
+    RecyclerView mybookinglist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
-        RecyclerView mybookinglist = findViewById(R.id.my_booking_list);
+        mybookinglist = findViewById(R.id.my_booking_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
         mAuth = FirebaseAuth.getInstance();
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
 
         getUserEmail();
+        loadData();
 
+    }
+
+    public void loadData(){
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,7 +81,6 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
             }
         });
-
     }
 
     public void onClickItem(MyBookings myBooking) {
