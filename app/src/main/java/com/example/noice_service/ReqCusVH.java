@@ -11,6 +11,8 @@ public class ReqCusVH extends RecyclerView.ViewHolder{
 
     public ReqCusVH(@NonNull View itemView) {
         super(itemView);
+
+        //Initialize Variables
         tv_reqPrefix = itemView.findViewById(R.id.tv_reqPrefix);
         tv_reqCustomerName = itemView.findViewById(R.id.tv_reqCustomerName);
         txt_option = itemView.findViewById(R.id.txt_option);

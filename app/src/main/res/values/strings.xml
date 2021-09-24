@@ -126,6 +126,13 @@
     <string name="btn_okay">Okay</string>
     <string name="btn_cancel">Cancel</string>
     <string name="tv_updateSuccess">Update Successful!</string>
+    //Amantha validations
+    <string name="empty_title">Please enter the title!</string>
+    <string name="empty_description">Please enter the Description!</string>
+    <string name="empty_price">Please enter the price!</string>
+    <string name="empty_equ">Please enter the resources!</string>
+    <string name="invalid_pricerange">Please enter price range between 500-15000</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

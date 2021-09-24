@@ -96,6 +96,7 @@ public class DeliverRequestCustomer extends AppCompatActivity {
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
+
     //Loads the data to the recycler view
     private void loadData() {
         swipeRefreshLayout.setRefreshing(true);

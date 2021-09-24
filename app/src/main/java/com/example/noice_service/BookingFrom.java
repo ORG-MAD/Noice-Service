@@ -12,10 +12,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.Date;
 
@@ -23,6 +29,9 @@ public class BookingFrom extends AppCompatActivity {
 
     DatabaseReference bookingsDatabase;
     ProgressBar loadingProgressBar;
+    DatabaseReference UserDatabaseReference;
+    FirebaseAuth mAuth;
+    String user_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +43,11 @@ public class BookingFrom extends AppCompatActivity {
         String s_description = getIntent().getStringExtra("s_description");
         String tv_day = getIntent().getStringExtra("tv_day");
 
-
+        mAuth = FirebaseAuth.getInstance();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
+
+        getUserEmail();
 
         final EditText phoneNumberEditText = findViewById(R.id.phone_number);
         final EditText carNumberEditText = findViewById(R.id.car_number);
@@ -94,6 +106,7 @@ public class BookingFrom extends AppCompatActivity {
         bookingsDatabase.child(id).child("s_price").setValue(s_price);
         bookingsDatabase.child(id).child("time_slot").setValue(timeSlot);
         bookingsDatabase.child(id).child("tv_day").setValue(tv_day);
+        bookingsDatabase.child(id).child("user_email").setValue(user_email);
 
         loadingProgressBar.setVisibility(View.GONE);
         Toast.makeText(this,"Booking success",Toast.LENGTH_SHORT).show();
@@ -101,4 +114,28 @@ public class BookingFrom extends AppCompatActivity {
         Intent intent = new Intent(this, services_list.class);
         startActivity(intent);
     }
+
+    private void getUserEmail() {
+        UserDatabaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    user_email = snapshot.child("email").getValue().toString();
+                } else {
+                    Toast.makeText(BookingFrom.this,"Please login",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookingFrom.this, jLogin_Customer.class);
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 }

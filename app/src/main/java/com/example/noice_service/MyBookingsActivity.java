@@ -2,12 +2,14 @@ package com.example.noice_service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +23,10 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
     DatabaseReference bookingsDatabase;
     List<MyBookings> retreivedBooking = new ArrayList<>();
+    DatabaseReference UserDatabaseReference;
+    FirebaseAuth mAuth;
+    String user_email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,10 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
         RecyclerView mybookinglist = findViewById(R.id.my_booking_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
+        mAuth = FirebaseAuth.getInstance();
+        UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
+
+        getUserEmail();
 
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -45,8 +55,11 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
                         String s_price=ds.child("s_price").getValue(String.class);
                         String time_slot=ds.child("time_slot").getValue(String.class);
                         String tv_day=ds.child("tv_day").getValue(String.class);
+                        String email=ds.child("user_email").getValue(String.class);
 
-                        retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_status,booking_time,car_no,details,phone_no,s_price,time_slot,tv_day));
+                        if (user_email.equals(email)){
+                            retreivedBooking.add(new MyBookings(booking_id,booking_name,booking_status,booking_time,car_no,details,phone_no,s_price,time_slot,tv_day));
+                        }
                     }
 
                     MyBookingsRecyclerView myBookingsRecyclerView = new MyBookingsRecyclerView(retreivedBooking, MyBookingsActivity.this);
@@ -77,6 +90,29 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
         intent.putExtra("details",myBooking.getDetails());
         intent.putExtra("includes",myBooking.getTv_day());
         startActivity(intent);
+    }
+
+    private void getUserEmail() {
+        UserDatabaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists() && snapshot.getChildrenCount() > 0) {
+                    user_email = snapshot.child("email").getValue().toString();
+                } else {
+                    Toast.makeText(MyBookingsActivity.this,"Please login",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MyBookingsActivity.this, jLogin_Customer.class);
+                    startActivity(intent);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
 }

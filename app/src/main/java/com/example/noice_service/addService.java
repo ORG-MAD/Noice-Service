@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,16 +25,20 @@ import java.util.HashMap;
 import java.util.Map;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import com.google.common.collect.Range;
+
 public class addService extends AppCompatActivity
 {
-   EditText title,description,price,imgurl,equ;
-   Button submit,back;
+    EditText title,description,price,imgurl,equ;
+    Button submit,back;
     boolean[] selectedEquipment;
     ArrayList<Integer> eqList = new ArrayList<>();
     String[] eqArray = {"Mobil", "Caltex", "Valvoline™ Full Synthetic Grease"
             ,"Valvoline™ General Purpose Grease","Engine Tune",
             "Engine wash Liquid","Upholstry cleaner wash"};
 
+    //Validation object
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,21 +52,23 @@ public class addService extends AppCompatActivity
         imgurl=(EditText)findViewById(R.id.add_img);
         equ=(EditText) findViewById(R.id.add_equ);
 
+        //Initialize validation styles
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
 
-        back=(Button)findViewById(R.id.add_back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                finish();
-            }
-        });
+        //Add validation for name
+        awesomeValidation.addValidation(this, R.id.add_title, RegexTemplate.NOT_EMPTY, R.string.empty_title);
+        awesomeValidation.addValidation(this, R.id.add_description, RegexTemplate.NOT_EMPTY, R.string.empty_description);
+        awesomeValidation.addValidation(this, R.id.add_price, RegexTemplate.NOT_EMPTY, R.string.empty_price);
+        awesomeValidation.addValidation(this, R.id.add_price, Range.closed(500, 15000), R.string.invalid_pricerange);
+        awesomeValidation.addValidation(this, R.id.add_equ, RegexTemplate.NOT_EMPTY, R.string.empty_equ);
 
         submit=(Button)findViewById(R.id.add_submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                processinsert();
+                if(awesomeValidation.validate()){
+                    processinsert();
+                }
             }
         });
         //quipment select
@@ -79,7 +84,7 @@ public class addService extends AppCompatActivity
                         addService.this
                 );
                 //Set title
-                builder.setTitle("Select Equipments");
+                builder.setTitle("Select Resources");
 
                 //set dialog non cancelable
                 builder.setCancelable(false);

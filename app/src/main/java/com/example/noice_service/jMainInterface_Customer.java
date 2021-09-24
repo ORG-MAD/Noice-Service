@@ -126,5 +126,8 @@ public class jMainInterface_Customer extends AppCompatActivity {
         });
     }
 
-
+    public void openServices(View view){
+        Intent intent = new Intent(jMainInterface_Customer.this, services_list.class);
+        startActivity(intent);
+    }
 }
