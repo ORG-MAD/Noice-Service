@@ -83,8 +83,7 @@ public class NewDeliverRequest extends AppCompatActivity {
                 //Initialize place field list
                 List<Place.Field> fieldList = Arrays.asList(Place.Field.ADDRESS,Place.Field.LAT_LNG, Place.Field.NAME);
                 //Create intent
-                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY,
-                        fieldList).build(NewDeliverRequest.this);
+                Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fieldList).build(NewDeliverRequest.this);
                 //Start activity result
                 startActivityForResult(intent, 100);
             }
@@ -115,6 +114,7 @@ public class NewDeliverRequest extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
             }
         });
+
 //-------------------------------------------------------Bottom App BAR FUNCTION------------------------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

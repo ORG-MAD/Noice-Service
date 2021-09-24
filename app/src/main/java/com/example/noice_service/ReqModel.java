@@ -16,6 +16,7 @@ public class ReqModel implements Serializable {
     private String location;
     private String status;
 
+    //Constructors
     public ReqModel(){};
 
     public ReqModel(String customerName, String customerEmail, String contactNumber, String vehicleName, String location, String status) {
@@ -27,6 +28,7 @@ public class ReqModel implements Serializable {
         this.status = status;
     }
 
+    //Getters and Setters for the private variables
     public String getCustomerName() {
         return customerName;
     }

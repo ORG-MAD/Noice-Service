@@ -72,6 +72,7 @@ public class EditSelectedRequest extends AppCompatActivity {
             viewStatusD.setText(req.getStatus());
         }
 
+
         //Updates the record and navigates back to the delivery request screen
         subBtn.setOnClickListener(v-> {
             if (awesomeValidation.validate()) {
@@ -95,6 +96,7 @@ public class EditSelectedRequest extends AppCompatActivity {
             }
         });
 
+
         //Deletes the record and navigates back to the delivery request screen
         delBtn.setOnClickListener(v-> {
                 //Delete Function
@@ -107,6 +109,7 @@ public class EditSelectedRequest extends AppCompatActivity {
                     Toast.makeText(this, "" + er.getMessage(), Toast.LENGTH_SHORT).show();
                 }));
         });
+
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
@@ -138,7 +141,7 @@ public class EditSelectedRequest extends AppCompatActivity {
 
     //Send email function
     public void sendmail(View view) {
-        String[] TO_EMAILS = {"dulshanperera03@gmail.com"};
+        String[] TO_EMAILS = {"noice@gmail.com"};
 
         Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setData(Uri.parse("mailto:"));
@@ -149,3 +152,4 @@ public class EditSelectedRequest extends AppCompatActivity {
         startActivity(Intent.createChooser(intent, "Choose your email client"));
     }
 }
+
