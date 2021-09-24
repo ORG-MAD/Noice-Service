@@ -124,7 +124,9 @@ public class BookingFrom extends AppCompatActivity {
                 if(snapshot.exists() && snapshot.getChildrenCount() > 0) {
                     user_email = snapshot.child("email").getValue().toString();
                 } else {
-
+                    Toast.makeText(BookingFrom.this,"Please login",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookingFrom.this, jLogin_Customer.class);
+                    startActivity(intent);
                 }
 
             }
@@ -136,25 +138,4 @@ public class BookingFrom extends AppCompatActivity {
         });
     }
 
-    private void getUserInfo() {
-        databaseReference.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists() && snapshot.getChildrenCount() > 0){
-                    String name = snapshot.child("name").getValue().toString();
-                    tv_Name.setText(name);
-
-                    if(snapshot.hasChild("image")){
-                        String image = snapshot.child("image").getValue().toString();
-                        Picasso.get().load(image).into(profile_image);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 }
