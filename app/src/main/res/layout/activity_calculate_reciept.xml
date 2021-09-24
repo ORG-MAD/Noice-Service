@@ -34,6 +34,12 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="40dp"
+            android:background="@color/jlightgrey" />
 
         <TextView
             android:id="@+id/tv_generateReceipt"
@@ -61,6 +67,7 @@
             android:layout_marginTop="30dp">
 
             //Customer Name
+
             <TextView
                 android:id="@+id/tv_custName"
                 android:layout_width="fill_parent"
@@ -96,7 +103,7 @@
 
             <TextView
                 android:id="@+id/tv_customerEmailtext"
-                android:layout_width="190dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="55dp"
@@ -109,13 +116,23 @@
                 android:id="@+id/tv_currentPrice"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="135dp"
                 android:gravity="center_horizontal"
                 android:text="@string/tv_currentPrice"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhiteD"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="400px"
+                android:layout_height="1dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="165dp"
+                android:background="@color/colorTransparentWhite" />
+
+
 
             <TextView
                 android:id="@+id/tv_basePrice"
