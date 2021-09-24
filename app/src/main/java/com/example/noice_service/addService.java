@@ -29,13 +29,20 @@ import com.google.common.collect.Range;
 
 public class addService extends AppCompatActivity
 {
-    EditText title,description,price,imgurl,equ;
+    EditText title,description,price,totalTime,equ;
     Button submit,back;
     boolean[] selectedEquipment;
     ArrayList<Integer> eqList = new ArrayList<>();
     String[] eqArray = {"Mobil", "Caltex", "Valvoline™ Full Synthetic Grease"
             ,"Valvoline™ General Purpose Grease","Engine Tune",
             "Engine wash Liquid","Upholstry cleaner wash"};
+
+    boolean[] selectedTime;
+    ArrayList<Integer> timeList = new ArrayList<>();
+    String[] timeArray = {"30 Minutes", "1 Hour", "1 Hour 30 Minutes"
+            ,"2 Hours","3 Hours",
+            "Engine wash Liquid","Upholstry cleaner wash"};
+
 
     //Validation object
     AwesomeValidation awesomeValidation;
@@ -49,7 +56,7 @@ public class addService extends AppCompatActivity
         title=(EditText)findViewById(R.id.add_title);
         description=(EditText)findViewById(R.id.add_description);
         price=(EditText)findViewById(R.id.add_price);
-        imgurl=(EditText)findViewById(R.id.add_img);
+        totalTime=(EditText)findViewById(R.id.add_totalTime);
         equ=(EditText) findViewById(R.id.add_equ);
 
         //Initialize validation styles
@@ -71,7 +78,91 @@ public class addService extends AppCompatActivity
                 }
             }
         });
-        //quipment select
+
+        //equipment select
+        equ= findViewById(R.id.add_equ);
+
+        //initialize selected equipments
+        selectedTime=new boolean[timeArray.length];
+        totalTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //initialize alert dialog box
+                AlertDialog.Builder builder = new AlertDialog.Builder(
+                        addService.this
+                );
+                //Set title
+                builder.setTitle("Select Resources");
+
+                //set dialog non cancelable
+                builder.setCancelable(false);
+
+                builder.setMultiChoiceItems(timeArray, selectedTime, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i, boolean b) {
+                        if (b){
+                            //checkbox selected, Add position in equipment list
+                            timeList.add(i);
+                            //Sort equipment list
+                            Collections.sort(timeList);
+                        }
+                        else {
+                            //checkbox unselected, Remove position from equipment list
+                            timeList.remove(i);
+                        }
+                    }
+                });
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //Initialize string builder
+                        StringBuilder stringBuilder= new StringBuilder();
+                        //loop
+                        for(int j=0; j<timeList.size(); j++){
+                            //Concat array value
+                            stringBuilder.append(timeArray[timeList.get(j)]);
+                            //check condition
+                            if(j!= timeList.size()-1){
+                                //when j value is not equal to equipment list size -1
+                                stringBuilder.append(", ");
+                            }
+                        }
+                        //set text on text view
+                        totalTime.setText(stringBuilder.toString());
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //dismiss dialog
+                        dialogInterface.dismiss();
+
+                    }
+                });
+                builder.setNeutralButton("Clear All", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //use for loop
+                        for(int j=0; j<selectedEquipment.length; j++ ){
+                            //Remove all selection
+                            selectedTime[j]=false;
+                            //clear equipment list
+                            timeList.clear();
+                            //clear text view value
+                            totalTime.setText("");
+                        }
+
+                    }
+                });
+                //show dialog
+                builder.show();
+
+            }
+        });
+
+
+        //equipment select
         equ= findViewById(R.id.add_equ);
 
         //initialize selected equipments
@@ -161,7 +252,7 @@ public class addService extends AppCompatActivity
         map.put("description",description.getText().toString());
         map.put("price",price.getText().toString());
         map.put("equ",equ.getText().toString());
-        map.put("imgurl",imgurl.getText().toString());
+        map.put("totalTime",totalTime.getText().toString());
         FirebaseDatabase.getInstance().getReference().child("services").push()
                 .setValue(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -170,7 +261,7 @@ public class addService extends AppCompatActivity
                         title.setText("");
                         description.setText("");
                         price.setText("");
-                        imgurl.setText("");
+                        totalTime.setText("");
                         equ.setText("");
                         Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
                     }
