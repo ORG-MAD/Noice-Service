@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".jMainInterface_Customer"
-    android:background="@color/black">
+    android:background="@drawable/bgmydashboard">
 
     <TextView
         android:id="@+id/tv_heading"
@@ -25,67 +25,105 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilepic"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:src="@drawable/profilepic"
         app:civ_border_color="@color/white"
-        app:civ_border_width="2dp" />
+        app:civ_border_width="2dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/tv_Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="200dp"
         android:layout_marginTop="270dp"
-        android:foregroundGravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/btn_deleteAcc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="470dp"
+        android:id="@+id/btn_myaccount"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="330dp"
+        android:alpha="0.6"
         android:background="@drawable/button_bg_rounded_corners"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="DELETE ACCOUNT"
-        android:textColor="@color/black"
+        android:text="MY ACCOUNT"
+        android:textColor="@color/white"
         android:textSize="23dp"
-        app:backgroundTint="@color/btncolor" />
+        app:backgroundTint="@color/black"
+        android:textStyle="bold"/>
 
     <Button
-        android:id="@+id/btn_myaccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="530dp"
+        android:id="@+id/services"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="330dp"
         android:background="@drawable/button_bg_rounded_corners"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="MY ACCOUNT"
-        android:textColor="@color/black"
+        android:text="BOOK SERVICES"
+        android:alpha="0.6"
+        android:textColor="@color/white"
         android:textSize="23dp"
-        app:backgroundTint="@color/btncolor" />
+        app:backgroundTint="@color/black" />
+
+    <Button
+        android:id="@+id/home"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:text="HOME PAGE"
+        android:alpha="0.6"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        app:backgroundTint="@color/black" />
+
+    <Button
+        android:id="@+id/deliver"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:text="PLACE DELIVERY"
+        android:alpha="0.6"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        app:backgroundTint="@color/black" />
+
+    <Button
+        android:id="@+id/btn_deleteAcc"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="590dp"
+        android:alpha="0.6"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:text="DELETE ACCOUNT"
+        android:textColor="@color/white"
+        android:textSize="23dp"
+        app:backgroundTint="@color/black"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="610dp"
+        android:layout_width="160dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="590dp"
         android:background="@drawable/button_bg_rounded_corners"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
         android:text="LOGOUT"
-        android:textColor="@color/black"
+        android:alpha="0.6"
+        android:textColor="@color/white"
         android:textSize="23dp"
-        app:backgroundTint="@color/btncolor" />
+        app:backgroundTint="@color/black" />
+
+
 
 </RelativeLayout>
