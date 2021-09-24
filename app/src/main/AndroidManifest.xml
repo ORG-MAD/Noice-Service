@@ -23,7 +23,7 @@
             android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity
-            android:name=".jLogin_Customer"
+            android:name=".addService"
             android:exported="true" />
         <activity
             android:name=".J_CustomerRegistration"
@@ -86,7 +86,7 @@
             android:name=".Services_Admin"
             android:exported="true" />
         <activity
-            android:name=".addService"
+            android:name=".GradientService"
             android:exported="true" />
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
@@ -148,7 +148,7 @@
             android:name=".BookingsAdmin"
             android:exported="true" />
         <activity
-            android:name=".GradientService"
+            android:name=".jLogin_Customer"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

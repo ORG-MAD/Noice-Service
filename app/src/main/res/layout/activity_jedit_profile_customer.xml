@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="230dp"
-        android:text="CHANGE PROFILE"
+        android:text="MY PROFILE"
         android:textColor="@color/colorHeader"
-        android:textSize="20dp"
+        android:textSize="23dp"
         android:textStyle="bold" />
 
     <EditText
@@ -37,7 +37,7 @@
         android:textColor="@color/white"
         android:hint="Enter Full Name"
         android:layout_marginTop="300dp"
-        android:layout_marginLeft="130dp"/>
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,13 +47,13 @@
         android:textColor="@color/white"
         android:hint="Enter Phone Number"
         android:layout_marginTop="360dp"
-        android:layout_marginLeft="130dp"/>
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:id="@+id/et_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="420dp"
         android:hint="Enter Email Address"
         android:textColor="@color/white"
@@ -67,27 +67,13 @@
         android:textColor="@color/white"
         android:hint="Enter Password"
         android:layout_marginTop="480dp"
-        android:layout_marginLeft="130dp"/>
-
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
-        android:layout_marginLeft="45dp"
-        android:background="@drawable/button_bg_rounded_corners"
-        android:text="RESET PASSWORD"
-        android:textColor="@color/black"
-        android:textSize="23dp"
-        android:paddingLeft="34dp"
-        android:paddingRight="34dp"
-        app:backgroundTint="@color/btncolor" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/btn_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="610dp"
+        android:layout_marginTop="540dp"
         android:layout_marginLeft="45dp"
         android:background="@drawable/button_bg_rounded_corners"
         android:text="CLOSE"
@@ -101,7 +87,7 @@
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="610dp"
+        android:layout_marginTop="540dp"
         android:layout_marginLeft="220dp"
         android:background="@drawable/button_bg_rounded_corners"
         android:paddingLeft="40dp"
@@ -111,6 +97,30 @@
         android:textSize="23dp"
         app:backgroundTint="@color/btncolor" />
 
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="610dp"
+        android:layout_marginLeft="45dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:text="RESET PASSWORD"
+        android:textColor="@color/black"
+        android:textSize="23dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        app:backgroundTint="@color/btncolor"
+        android:layout_centerHorizontal="true"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorHeader"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
+        app:menu="@menu/menu_navigation" />
 
 
 </RelativeLayout>
