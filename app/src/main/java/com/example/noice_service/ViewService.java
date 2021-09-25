@@ -51,7 +51,7 @@ public class ViewService extends AppCompatActivity {
                 CreateAlertDialoge();
             }
         });
-        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 

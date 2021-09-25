@@ -88,7 +88,7 @@ public class jMainInterface_Customer extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(jMainInterface_Customer.this, "Deleted Successfully!", Toast.LENGTH_SHORT).show();
                 deleteUser();
-                Intent intent = new Intent(jMainInterface_Customer.this, J_CustomerRegistration.class);
+                Intent intent = new Intent(jMainInterface_Customer.this, jLogin_Customer.class);
                 startActivity(intent);
             }
         });

@@ -40,7 +40,7 @@ public class GradientService extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(GradientService.this,jLogin_Customer.class);
+                Intent intent = new Intent(GradientService.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }

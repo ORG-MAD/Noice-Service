@@ -49,7 +49,6 @@ public class jLogin_Admin extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         btn_register = findViewById(R.id.btn_register);
-        btn_customer = findViewById(R.id.btn_customerPortal);
         mAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
 
@@ -75,13 +74,6 @@ public class jLogin_Admin extends AppCompatActivity {
             }
         });
 
-        btn_customer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(jLogin_Admin.this, jLogin_Customer.class);
-                startActivity(intent);
-            }
-        });
     }
 
     private void SignIn(String email, String password) {
@@ -106,7 +98,7 @@ public class jLogin_Admin extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         GlobVar_Customer.currentUser = snapshot.getValue(User.class);
-                                        Intent home = new Intent(jLogin_Admin.this, jMainInterface_Admin.class);
+                                        Intent home = new Intent(jLogin_Admin.this, Admin_Dashboard.class);
                                         startActivity(home);
                                         Toast.makeText(jLogin_Admin.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
                                         finish();
@@ -117,7 +109,7 @@ public class jLogin_Admin extends AppCompatActivity {
 
                                     }
                                 });
-                        Intent home = new Intent(jLogin_Admin.this, jMainInterface_Admin.class);
+                        Intent home = new Intent(jLogin_Admin.this, Admin_Dashboard.class);
                         startActivity(home);
                         finish();
                     }

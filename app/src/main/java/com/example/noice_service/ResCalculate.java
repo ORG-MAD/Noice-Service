@@ -79,20 +79,17 @@ public class ResCalculate extends AppCompatActivity
         adapter=new Resource_Calculation(options);
         recview.setAdapter(adapter);
 
-        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-
 
         //Perform Item Selected Event Listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
-                    case R.id.admin_dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:

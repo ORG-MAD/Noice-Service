@@ -29,7 +29,6 @@ import com.google.firebase.database.ValueEventListener;
 public class jLogin_Customer extends AppCompatActivity {
     Button btn_login;
     Button btn_register;
-    Button btn_adminPortal;
     EditText et_email, et_password;
 
     private FirebaseAuth mAuth;
@@ -50,7 +49,6 @@ public class jLogin_Customer extends AppCompatActivity {
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         btn_register = findViewById(R.id.btn_register);
-        btn_adminPortal = findViewById(R.id.btn_adminPortal);
         mAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
 
@@ -76,18 +74,10 @@ public class jLogin_Customer extends AppCompatActivity {
             }
         });
 
-        btn_adminPortal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(jLogin_Customer.this, jLogin_Admin.class);
-                startActivity(intent);
-            }
-        });
-
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent register = new Intent(jLogin_Customer.this, jLogin_Customer.class);
+                Intent register = new Intent(jLogin_Customer.this, J_CustomerRegistration.class);
                 startActivity(register);
             }
         });

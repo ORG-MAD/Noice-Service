@@ -48,12 +48,9 @@ public class ServiceHome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-        bottomNavigationView.setSelectedItemId(R.id.home);
 
         //Perform Item Selected Event Listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -61,7 +58,7 @@ public class ServiceHome extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:

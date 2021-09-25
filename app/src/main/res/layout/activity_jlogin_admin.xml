@@ -135,20 +135,6 @@
         android:textSize="23dp"
         app:backgroundTint="@color/btncolor" />
 
-    <Button
-        android:id="@+id/btn_customerPortal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="540dp"
-        android:background="@drawable/button_bg_rounded_corners"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="CUSTOMER PORTAL"
-        android:textColor="@color/black"
-        android:textSize="19dp"
-        app:backgroundTint="@color/btncolor" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

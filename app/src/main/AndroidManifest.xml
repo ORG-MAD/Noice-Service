@@ -20,6 +20,9 @@
             android:name=".AdminBookingReport"
             android:exported="true" />
         <activity
+            android:name=".Admin_Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".jEditProfile_Customer"
             android:exported="true" />
         <activity

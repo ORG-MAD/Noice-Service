@@ -5,14 +5,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -70,6 +73,33 @@ public class CalculateReciept extends AppCompatActivity {
         };
         viewPrice.addTextChangedListener(textWatcher);
         delFee.addTextChangedListener(textWatcher);
+
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Initialize variables and assign them
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Perform Item Selected Event Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.about:
+                        startActivity(new Intent(getApplicationContext(), About.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
 
     //Send email function
