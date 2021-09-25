@@ -155,7 +155,9 @@
     <string name="empty_description">Please enter the Description!</string>
     <string name="empty_price">Please enter the price!</string>
     <string name="empty_equ">Please enter the resources!</string>
+    <string name="empty_totalTime">Please Select the time!</string>
     <string name="invalid_pricerange">Please enter price range between 500-15000</string>
+    <string name="invalid_titleA">Do not use any special characters!</string>
 
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
