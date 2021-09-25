@@ -64,7 +64,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_marginTop="30dp"
+            android:padding="5dp">
 
             //Customer Name
 
@@ -87,7 +88,8 @@
                 android:backgroundTint="@color/white"
                 android:text="@string/tv_customerNameReceipt"
                 android:textColor="@color/colorWhiteD"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             //Email
 
@@ -105,12 +107,13 @@
                 android:id="@+id/tv_customerEmailtext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="65dp"
                 android:layout_marginTop="55dp"
                 android:backgroundTint="@color/white"
                 android:text="@string/tv_customerEmailReceipt"
                 android:textColor="@color/colorWhiteD"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_currentPrice"
@@ -131,7 +134,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="165dp"
                 android:background="@color/colorTransparentWhite" />
-
 
 
             <TextView

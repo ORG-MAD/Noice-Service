@@ -31,7 +31,7 @@ public class EditSelectedRequest extends AppCompatActivity {
     Button subBtn, delBtn;
     DAORequest dao = new DAORequest();
     AwesomeValidation awesomeValidation;
-    String email, name, price, bID;
+    String email, name, price, bID, statusT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,7 @@ public class EditSelectedRequest extends AppCompatActivity {
             name = req.getCustomerName();
             price = req.getS_price();
             bID = req.getBooking_ID();
+            statusT = req.getStatus();
             viewEmail.setText(req.getCustomerEmail());
             viewName.setText(req.getCustomerName());
             viewContactNo.setText(req.getContactNumber());
@@ -148,12 +149,16 @@ public class EditSelectedRequest extends AppCompatActivity {
     }
     //Place Delivery Request
     public void reciept(View view){
-            Intent intent=new Intent(EditSelectedRequest.this,CalculateReciept.class);
-            intent.putExtra("s_price",price);
-            intent.putExtra("user_email",email);
-            intent.putExtra("cus_name",name);
-            intent.putExtra("booking_id",bID);
+        if(statusT.equals("Approved")) {
+            Intent intent = new Intent(EditSelectedRequest.this, CalculateReciept.class);
+            intent.putExtra("s_price", price);
+            intent.putExtra("user_email", email);
+            intent.putExtra("cus_name", name);
+            intent.putExtra("booking_id", bID);
             startActivity(intent);
+        }else{
+            Toast.makeText(this, "Set the status to Approved First!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

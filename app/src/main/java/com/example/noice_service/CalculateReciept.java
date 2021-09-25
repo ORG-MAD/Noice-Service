@@ -55,7 +55,6 @@ public class CalculateReciept extends AppCompatActivity {
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
-
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(!viewPrice.getText().toString().equals("") && !delFee.getText().toString().equals("")){
@@ -64,7 +63,6 @@ public class CalculateReciept extends AppCompatActivity {
                     netAmount.setText(String.valueOf(temp1 + temp2));
                 }
             }
-
             @Override
             public void afterTextChanged(Editable editable) {
 
