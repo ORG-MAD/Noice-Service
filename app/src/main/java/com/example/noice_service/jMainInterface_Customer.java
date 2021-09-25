@@ -2,13 +2,16 @@ package com.example.noice_service;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -60,9 +63,11 @@ public class jMainInterface_Customer extends AppCompatActivity {
         btn_deleteAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteUser();
+//                deleteUser();
+                CreateAlertDialoge();
             }
         });
+        
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +78,28 @@ public class jMainInterface_Customer extends AppCompatActivity {
         });
 
         getUserInfo();
+    }
+
+    private void CreateAlertDialoge() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure to delete your Account Permanently?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(jMainInterface_Customer.this, "Deleted Successfully!", Toast.LENGTH_SHORT).show();
+                deleteUser();
+                Intent intent = new Intent(jMainInterface_Customer.this, J_CustomerRegistration.class);
+                startActivity(intent);
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(jMainInterface_Customer.this, "Account delete process cancelled!", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.create();
+        builder.show();
     }
 
     private void deleteUser() {
@@ -86,11 +113,6 @@ public class jMainInterface_Customer extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                if(task.isSuccessful()){
-                                    progressDialog.dismiss();
-                                    Intent intent = new Intent(jMainInterface_Customer.this, J_CustomerRegistration.class);
-                                    startActivity(intent);
-                                }
                             }
                         });
                     }
