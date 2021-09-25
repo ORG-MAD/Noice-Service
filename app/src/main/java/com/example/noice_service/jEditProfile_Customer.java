@@ -54,6 +54,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -262,7 +263,7 @@ public class jEditProfile_Customer extends AppCompatActivity {
 
             final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
             passwordResetDialog.setTitle("Reset Password?");
-            passwordResetDialog.setMessage("Enter new password > 6 characters long");
+            passwordResetDialog.setMessage("The password should have minimum 8 characters, atleast 1 alphabet, number and special character");
             passwordResetDialog.setView(resetPassword);
 
             passwordResetDialog.setPositiveButton("Yes", (dialog, which) -> {
@@ -300,8 +301,6 @@ public class jEditProfile_Customer extends AppCompatActivity {
             userMap.put("dob", et_date.getText().toString());
             userMap.put("country", tv_Country.getText().toString());
 
-
-
             databaseReference.child(mAuth.getCurrentUser().getUid()).updateChildren(userMap);
 
             uploadProfileImage();
@@ -323,7 +322,6 @@ public class jEditProfile_Customer extends AppCompatActivity {
                     et_phone.setText(phone);
                     et_date.setText(dob);
                     tv_Country.setText(country);
-                    tv_regdate.setText(regDate);
 //
 //                    SimpleDateFormat format = new SimpleDateFormat("dd, MM, yyyy");
 //                    try {
@@ -337,10 +335,15 @@ public class jEditProfile_Customer extends AppCompatActivity {
 //                    long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
 //                    tv_days.setText(daysDiff);
 
+                    Date c = Calendar.getInstance().getTime();
+                    System.out.println("Current time => " + c);
+
+                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    String formattedDate = df.format(c);
 
                     try {
                         String CurrentDate= regDate;
-                        String FinalDate= "26/09/2019";
+                        String FinalDate= formattedDate;
                         Date date1;
                         Date date2;
                         SimpleDateFormat dates = new SimpleDateFormat("dd/MM/yyyy");
@@ -349,7 +352,14 @@ public class jEditProfile_Customer extends AppCompatActivity {
                         long difference = Math.abs(date1.getTime() - date2.getTime());
                         long differenceDates = difference / (24 * 60 * 60 * 1000);
                         String dayDifference = Long.toString(differenceDates);
-                        tv_days.setText(dayDifference + " days");
+
+                        if(Integer.parseInt(dayDifference)<365){
+                            int NoDays = 365 - Integer.parseInt(dayDifference);
+                            tv_days.setText("You will become a local customer in " + NoDays + " days");
+                        }
+                        else if(Integer.parseInt(dayDifference)>365) {
+                            tv_days.setText("You are recognised as a loyal customer and you are awarded a monthly discount of 10%");
+                        }
                     } catch (Exception exception) {
                         exception.printStackTrace();
                     }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".jEditProfile_Customer"
-    android:background="@color/black">
+    android:background="@drawable/bgmyprofile">
     
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="150dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="220dp"
-        android:text="MY PROFILE"
+        android:text="EDIT PROFILE PICTURE"
         android:textColor="@color/colorHeader"
         android:textSize="23dp"
         android:textStyle="bold" />
@@ -130,70 +130,58 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_regdate"
+        android:id="@+id/tv_days"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="470dp"
         android:background="@color/black"
-        android:backgroundTint="@color/black"
-        android:drawableStart="@drawable/ic_country"
-        android:drawableLeft="@drawable/ic_email"
+        android:backgroundTint="@color/transparent"
         android:drawablePadding="56dp"
         android:gravity="center_vertical"
         android:padding="0dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColorHint="@color/colorHeader"
         android:textSize="22dp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_days"
+        android:id="@+id/tv_regdate"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="4dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/black"
-        android:backgroundTint="@color/black"
-        android:drawableStart="@drawable/ic_country"
-        android:drawableLeft="@drawable/ic_email"
-        android:drawablePadding="56dp"
+        android:layout_marginTop="470dp"
+        android:background="@color/transparent"
         android:gravity="center_vertical"
         android:padding="0dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="@color/headerColor"
         android:textSize="22dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/btn_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="540dp"
-        android:layout_marginLeft="45dp"
         android:background="@drawable/button_bg_rounded_corners"
-        android:text="CLOSE"
+        android:drawableTop="@drawable/ic_close"
         android:textColor="@color/black"
-        android:textSize="23dp"
-        android:paddingLeft="34dp"
-        android:paddingRight="34dp"
-        app:backgroundTint="@color/btncolor" />
+        app:backgroundTint="@color/colorHeader" />
 
     <Button
         android:id="@+id/btn_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="540dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginLeft="220dp"
+        android:layout_marginTop="540dp"
         android:background="@drawable/button_bg_rounded_corners"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        android:text="SAVE"
+        android:drawableTop="@drawable/ic_save"
         android:textColor="@color/black"
         android:textSize="23dp"
-        app:backgroundTint="@color/btncolor" />
+        app:backgroundTint="@color/colorHeader" />
 
     <Button
         android:id="@+id/btn_reset"
@@ -205,8 +193,6 @@
         android:text="RESET PASSWORD"
         android:textColor="@color/black"
         android:textSize="23dp"
-        android:paddingLeft="48dp"
-        android:paddingRight="48dp"
         app:backgroundTint="@color/btncolor"
         android:layout_centerHorizontal="true"/>
 

@@ -90,6 +90,7 @@ public class J_CustomerRegistration extends AppCompatActivity {
         awesomeValidation.addValidation(this, R.id.et_email, Patterns.EMAIL_ADDRESS, R.string.invalid_email);
         awesomeValidation.addValidation(this, R.id.et_date, RegexTemplate.NOT_EMPTY, R.string.invalid_bday);
         awesomeValidation.addValidation(this, R.id.et_password, "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$", R.string.invalid_password);
+        awesomeValidation.addValidation(this, R.id.tv_Country, RegexTemplate.NOT_EMPTY, R.string.invalid_country);
 
         et_password = findViewById(R.id.et_password);
         btn_register = findViewById(R.id.btn_register);
