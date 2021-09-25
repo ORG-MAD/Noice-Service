@@ -48,6 +48,7 @@ public class MyBookingExpand extends AppCompatActivity {
         TextView etdetails = findViewById(R.id.details);
         TextView etincludes = findViewById(R.id.tv_day);
         TextView etstatus = findViewById(R.id.status);
+        TextView tvfee = findViewById(R.id.fee);
 
         id = getIntent().getStringExtra("booking_id");
         booking_status = getIntent().getStringExtra("booking_status");
@@ -67,6 +68,7 @@ public class MyBookingExpand extends AppCompatActivity {
         etdetails.setText(details);
         etincludes.setText(includes);
         etstatus.setText(status);
+        tvfee.setText(sPrice);
 
     }
 
@@ -107,6 +109,11 @@ public class MyBookingExpand extends AppCompatActivity {
         } else {
             Toast.makeText(MyBookingExpand.this, "Service has been already finished!",Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void goBackMyBookings(View view){
+        Intent intent = new Intent(MyBookingExpand.this, MyBookingsActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.noice_service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -119,6 +120,11 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
             }
         });
+    }
+
+    public void goBackServiceList(View view){
+        Intent intent = new Intent(MyBookingsActivity.this, services_list.class);
+        startActivity(intent);
     }
 
 }

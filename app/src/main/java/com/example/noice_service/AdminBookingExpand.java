@@ -28,6 +28,8 @@ public class AdminBookingExpand extends AppCompatActivity {
     TextView tvtime_slot;
     TextView tvcar_no;
     TextView tvphone_no;
+    TextView book_date;
+    TextView book_fee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class AdminBookingExpand extends AppCompatActivity {
         tvtime_slot = findViewById(R.id.time_slot);
         tvcar_no = findViewById(R.id.car_no);
         tvphone_no = findViewById(R.id.phone_no);
+        book_date = findViewById(R.id.booking_date);
+        book_fee = findViewById(R.id.price);
 
         id = getIntent().getStringExtra("booking_id");
         name = getIntent().getStringExtra("booking_name");
@@ -51,6 +55,8 @@ public class AdminBookingExpand extends AppCompatActivity {
         tvtime_slot.setText(time_slot);
         tvcar_no.setText(car_no);
         tvphone_no.setText(phone_no);
+        book_date.setText(getDate(bookingTime));
+        book_fee.setText(price);
 
         //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
@@ -97,5 +103,19 @@ public class AdminBookingExpand extends AppCompatActivity {
         bookingReference.child(id).child("booking_name").setValue(name);
         bookingReference.child(id).child("s_price").setValue(price);
         bookingReference.child(id).child("booking_time").setValue(bookingTime);
+    }
+
+    public void goBackAdminBookings(View view){
+        Intent intent=new Intent(AdminBookingExpand.this, BookingsAdmin.class);
+        startActivity(intent);
+    }
+
+    public static String getDate(String str){
+        int index = str.indexOf(' ');
+        index = str.indexOf(' ', index + 1);
+        index = str.indexOf(' ', index + 1);
+
+        String result = str.substring(0, index);
+        return result;
     }
 }
