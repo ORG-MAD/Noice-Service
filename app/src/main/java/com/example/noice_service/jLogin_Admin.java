@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,10 +25,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class jLogin_Customer extends AppCompatActivity {
+public class jLogin_Admin extends AppCompatActivity {
     Button btn_login;
     Button btn_register;
-    Button btn_adminPortal;
+    Button btn_customer;
     EditText et_email, et_password;
 
     private FirebaseAuth mAuth;
@@ -44,13 +43,13 @@ public class jLogin_Customer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jlogin_customer);
+        setContentView(R.layout.activity_jlogin_admin);
 
         btn_login = findViewById(R.id.btn_login);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
         btn_register = findViewById(R.id.btn_register);
-        btn_adminPortal = findViewById(R.id.btn_adminPortal);
+        btn_customer = findViewById(R.id.btn_customerPortal);
         mAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
 
@@ -76,19 +75,11 @@ public class jLogin_Customer extends AppCompatActivity {
             }
         });
 
-        btn_adminPortal.setOnClickListener(new View.OnClickListener() {
+        btn_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(jLogin_Customer.this, jLogin_Admin.class);
+                Intent intent = new Intent(jLogin_Admin.this, jLogin_Customer.class);
                 startActivity(intent);
-            }
-        });
-
-        btn_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent register = new Intent(jLogin_Customer.this, jLogin_Customer.class);
-                startActivity(register);
             }
         });
     }
@@ -115,9 +106,9 @@ public class jLogin_Customer extends AppCompatActivity {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                                         GlobVar_Customer.currentUser = snapshot.getValue(User.class);
-                                        Intent home = new Intent(jLogin_Customer.this, jMainInterface_Customer.class);
+                                        Intent home = new Intent(jLogin_Admin.this, jMainInterface_Admin.class);
                                         startActivity(home);
-                                        Toast.makeText(jLogin_Customer.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(jLogin_Admin.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
                                         finish();
                                     }
 
@@ -126,12 +117,12 @@ public class jLogin_Customer extends AppCompatActivity {
 
                                     }
                                 });
-                        Intent home = new Intent(jLogin_Customer.this, jMainInterface_Customer.class);
+                        Intent home = new Intent(jLogin_Admin.this, jMainInterface_Admin.class);
                         startActivity(home);
                         finish();
                     }
                     else {
-                        Toast.makeText(jLogin_Customer.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(jLogin_Admin.this, "Login failed!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
