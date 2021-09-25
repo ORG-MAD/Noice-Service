@@ -32,10 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
         android:backgroundTint="@color/smallText"
-        android:hint="Service Title"
+        android:hint="Service Title *"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorTransparentWhite"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        />
 
     <EditText
         android:id="@+id/add_description"
@@ -43,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="43dp"
         android:backgroundTint="@color/smallText"
-        android:hint="Service Description"
+        android:hint="Service Description *"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorTransparentWhite"
         android:textSize="20sp" />
@@ -54,10 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="49dp"
         android:backgroundTint="@color/smallText"
-        android:hint="Price(LKR)"
+        android:hint="Price(LKR) *"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorTransparentWhite"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:digits="0123456789"
+        />
 
     <EditText
         android:id="@+id/add_equ"
@@ -68,7 +71,7 @@
         android:drawableEnd="@android:drawable/arrow_down_float"
         android:drawableRight="@android:drawable/arrow_down_float"
         android:drawablePadding="16dp"
-        android:hint="Select Resources using"
+        android:hint="Select Resources using *"
         android:padding="12dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorTransparentWhite" />
@@ -78,7 +81,7 @@
         android:layout_width="500px"
         android:layout_height="wrap_content"
         android:background="@android:drawable/btn_dropdown"
-        android:hint="Total Hours"
+        android:hint="Total Hours *"
         android:spinnerMode="dropdown" />
 
 

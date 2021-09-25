@@ -49,13 +49,13 @@ public class Services_Admin extends AppCompatActivity
         adapter=new myadapter(options);
         recview.setAdapter(adapter);
 
-        fb=(FloatingActionButton)findViewById(R.id.fadd);
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), addService.class));
-            }
-        });
+//        fb=(FloatingActionButton)findViewById(R.id.fadd);
+//        fb.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), addService.class));
+//            }
+//        });
 
     }
 

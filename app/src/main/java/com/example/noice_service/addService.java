@@ -41,7 +41,7 @@ public class addService extends AppCompatActivity
     ArrayList<Integer> timeList = new ArrayList<>();
     String[] timeArray = {"30 Minutes", "1 Hour", "1 Hour 30 Minutes"
             ,"2 Hours","3 Hours",
-            "Engine wash Liquid","Upholstry cleaner wash"};
+            "5 Hours","+5 Hours", "Full Day"};
 
 
     //Validation object
@@ -68,6 +68,8 @@ public class addService extends AppCompatActivity
         awesomeValidation.addValidation(this, R.id.add_price, RegexTemplate.NOT_EMPTY, R.string.empty_price);
         awesomeValidation.addValidation(this, R.id.add_price, Range.closed(500, 15000), R.string.invalid_pricerange);
         awesomeValidation.addValidation(this, R.id.add_equ, RegexTemplate.NOT_EMPTY, R.string.empty_equ);
+        awesomeValidation.addValidation(this, R.id.add_totalTime, RegexTemplate.NOT_EMPTY, R.string.empty_totalTime);
+        awesomeValidation.addValidation(this, R.id.add_title, "[a-zA-Z]{0,10}$", R.string.invalid_titleA);
 
         submit=(Button)findViewById(R.id.add_submit);
         submit.setOnClickListener(new View.OnClickListener() {

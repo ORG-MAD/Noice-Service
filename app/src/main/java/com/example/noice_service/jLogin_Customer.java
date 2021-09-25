@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,6 +37,9 @@ public class jLogin_Customer extends AppCompatActivity {
     TextView tv_no;
     int counter = 3;
 
+    //Validation object
+    AwesomeValidation awesomeValidation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +55,22 @@ public class jLogin_Customer extends AppCompatActivity {
         tv_no = (TextView) findViewById(R.id.tv_no);
         tv_no.setVisibility(View.GONE);
 
+        //Initialize validation styles
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+
+        //Add validation for name
+        awesomeValidation.addValidation(this, R.id.et_email, RegexTemplate.NOT_EMPTY, R.string.empty_email);
+        awesomeValidation.addValidation(this, R.id.et_password, RegexTemplate.NOT_EMPTY, R.string.empty_password);
+
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = et_email.getText().toString();
-                String password = et_password.getText().toString();
-                SignIn(email, password);
+                if(awesomeValidation.validate()){
+                    String email = et_email.getText().toString();
+                    String password = et_password.getText().toString();
+                    SignIn(email, password);
+                }
             }
         });
 
