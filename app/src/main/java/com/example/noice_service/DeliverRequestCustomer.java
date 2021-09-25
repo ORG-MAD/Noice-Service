@@ -77,9 +77,9 @@ public class DeliverRequestCustomer extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
+                switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:

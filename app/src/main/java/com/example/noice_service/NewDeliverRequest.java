@@ -134,7 +134,7 @@ public class NewDeliverRequest extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Validated Successfully", Toast.LENGTH_SHORT).show();
                 //Navigate back to the Home Screen
                 Intent intent;
-                intent = new Intent(NewDeliverRequest.this,HomeCustomer.class);
+                intent = new Intent(NewDeliverRequest.this,jMainInterface_Customer.class);
                 startActivity(intent);
             }else{
                 Toast.makeText(getApplicationContext(), "Validation Failed", Toast.LENGTH_SHORT).show();
@@ -150,7 +150,7 @@ public class NewDeliverRequest extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        startActivity(new Intent(getApplicationContext(), jMainInterface_Customer.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:

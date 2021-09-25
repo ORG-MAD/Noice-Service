@@ -7,6 +7,8 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,18 +20,11 @@ public class Admin_Dashboard extends AppCompatActivity {
 
     TextView textView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_dashboard);
-
-        //Noice Text Heading
-        textView = (TextView) findViewById(R.id.tv_heading);
-        String text = "NOICE SERVICE";
-        SpannableString ss = new SpannableString(text);
-        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(ss);
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
@@ -58,5 +53,29 @@ public class Admin_Dashboard extends AppCompatActivity {
             }
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+    }
+
+    //Navigates to Services
+    public void services(View view) {
+        Intent intent = new Intent(Admin_Dashboard.this, ServiceHome.class);
+        startActivity(intent);
+    }
+
+    //Navigates to Customer Requests
+    public void custReq(View view) {
+        Intent intent = new Intent(Admin_Dashboard.this, DeliverRequestCustomer.class);
+        startActivity(intent);
+    }
+
+    //Navigates to Monthly Report
+    public void monthlyReport(View view) {
+        Intent intent = new Intent(Admin_Dashboard.this, ResCalculate.class);
+        startActivity(intent);
+    }
+
+    //Navigates to Total Income
+    public void totalIncome(View view) {
+        Intent intent = new Intent(Admin_Dashboard.this, ResCalculate.class);
+        startActivity(intent);
     }
 }

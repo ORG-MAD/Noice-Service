@@ -20,6 +20,9 @@
             android:name=".AdminBookingReport"
             android:exported="true" />
         <activity
+            android:name=".Admin_Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".jEditProfile_Customer"
             android:exported="true" />
         <activity
@@ -91,6 +94,10 @@
         <activity
             android:name=".jLogin_Customer"
             android:exported="true" />
+        <activity
+            android:name=".jLogin_Admin"
+            android:exported="true" />
+
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />
         <activity android:name=".change_cancel_booking" />

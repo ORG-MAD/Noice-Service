@@ -56,7 +56,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="70dp"
             android:gravity="center"
-            android:text="@string/tv_adminHomeTitle"
+            android:text="Home"
             android:textColor="@color/colorWhiteD"
             android:textSize="15dp" />
     </LinearLayout>
