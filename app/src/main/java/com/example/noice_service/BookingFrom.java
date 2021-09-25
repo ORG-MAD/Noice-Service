@@ -103,7 +103,10 @@ public class BookingFrom extends AppCompatActivity {
                 }else if(carNo.isEmpty()){
                     carNumberEditText.setError("Please enter Car Number");
                     carNumberEditText.requestFocus();
-                } else if(time_slot.equals("Select time")) {
+                }else if(!checkCarNo(carNo)){
+                    phoneNumberEditText.setError("Please enter like 'ABC 0000' or 'KV 0000'");
+                    phoneNumberEditText.requestFocus();
+                }else if(time_slot.equals("Select time")) {
                     ((TextView)dropdown.getSelectedView()).setError("Please Select time");
                     dropdown.requestFocus();
                 } else {
@@ -151,7 +154,6 @@ public class BookingFrom extends AppCompatActivity {
                     Intent intent = new Intent(BookingFrom.this, jLogin_Customer.class);
                     startActivity(intent);
                 }
-
             }
 
             @Override
@@ -159,6 +161,52 @@ public class BookingFrom extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void goBackServiceList(View view){
+        Intent intent = new Intent(BookingFrom.this, services_list.class);
+        startActivity(intent);
+    }
+
+    public boolean checkCarNo(String carNo) {
+
+        if (!(carNo.length() == 8 || carNo.length() == 7)) {
+            return false;
+            //if car number legnth is not equal to 7 or 8, returns false
+        }
+
+        if (carNo.length() == 8) {
+            for (char c : carNo.substring(0, 3).toCharArray()) {
+                if(!Character.isLetter(c)) {
+                    return false;
+                    //return false id first 3 letters are not letters
+                }
+            }
+        }
+
+        if (carNo.length() == 7) {
+            for (char c : carNo.substring(0, 2).toCharArray()) {
+                if(!Character.isLetter(c)) {
+                    return false;
+                    //return false id first 2 letters are not letters
+                }
+            }
+        }
+
+        if (!carNo.substring(carNo.length() - 5, carNo.length() - 4).equals(" ")) {
+            return false;
+            //if 5th charactr from last, is not equals to space, returns false
+        }
+
+
+        for (char n : carNo.substring(carNo.length() - 4).toCharArray()) {
+            if(!Character.isDigit(n)) {
+                return false;
+            }
+        }
+
+        return true;
+        //if everything checks out, returns true
     }
 
 }

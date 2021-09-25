@@ -7,13 +7,21 @@
     android:background="@drawable/editreqbg"
     tools:context=".AdminBookingReport">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goBackAdminBookings"
+        android:paddingLeft="18dp"
+        android:paddingTop="35dp"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
+
     <TextView
         android:id="@+id/serviceheader"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Finished Bookings"
+        android:text="TODAY'S INCOME"
         android:textColor="@color/white"
         android:textSize="25dp" />
 
@@ -126,7 +134,7 @@
                 android:layout_toLeftOf="@+id/total_"
                 android:padding="13dp"
                 android:paddingRight="15dp"
-                android:text="Todays Bookings Income"
+                android:text="Todays Bookings Income (Rs)"
                 android:textColor="@color/colorWhiteD"
                 android:textSize="20dp" />
 
