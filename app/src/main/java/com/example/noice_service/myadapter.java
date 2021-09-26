@@ -14,7 +14,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,9 +24,6 @@ import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-
 
 public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myviewholder>
 {
@@ -46,6 +42,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
         holder.img.setText(SVCmodel.getTotalTime());
 //       Glide.with(holder.img.getContext()).load(SVCmodel.getImgurl()).into(holder.img);
 
+        //update service
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +98,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
             }
         });
 
-
+        //delete service
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +135,7 @@ public class myadapter extends FirebaseRecyclerAdapter<SVCmodel,myadapter.myview
         return new myviewholder(view);
     }
 
-
+    //view services
     class myviewholder extends RecyclerView.ViewHolder
     {
         //        CircleImageView img;

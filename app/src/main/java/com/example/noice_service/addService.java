@@ -81,8 +81,8 @@ public class addService extends AppCompatActivity
             }
         });
 
-        //equipment select
-        equ= findViewById(R.id.add_equ);
+        //time select
+        totalTime= findViewById(R.id.add_totalTime);
 
         //initialize selected equipments
         selectedTime=new boolean[timeArray.length];
@@ -94,7 +94,7 @@ public class addService extends AppCompatActivity
                         addService.this
                 );
                 //Set title
-                builder.setTitle("Select Resources");
+                builder.setTitle("Select estimated time for this Service");
 
                 //set dialog non cancelable
                 builder.setCancelable(false);
@@ -154,12 +154,10 @@ public class addService extends AppCompatActivity
                             //clear text view value
                             totalTime.setText("");
                         }
-
                     }
                 });
                 //show dialog
                 builder.show();
-
             }
         });
 
@@ -177,7 +175,7 @@ public class addService extends AppCompatActivity
                         addService.this
                 );
                 //Set title
-                builder.setTitle("Select Resources");
+                builder.setTitle("Select Resources and Equipments");
 
                 //set dialog non cancelable
                 builder.setCancelable(false);
@@ -265,7 +263,7 @@ public class addService extends AppCompatActivity
                         price.setText("");
                         totalTime.setText("");
                         equ.setText("");
-                        Toast.makeText(getApplicationContext(),"Inserted Successfully",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Service Added Successfully",Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="5dp"
+    android:layout_width="1000px"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginLeft="16dp"
     android:elevation="5dp"
+    app:cardBackgroundColor="@color/quantum_black_secondary_text"
+    app:cardCornerRadius="5dp"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="233dp"
-        android:background="@drawable/singlebg"
+        android:layout_height="260dp"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="15dp"
+        app:cardCornerRadius="10dp">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="337dp"
+            android:layout_height="183dp"
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -31,7 +34,7 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
-                android:layout_height="130dp"
+                android:layout_height="168dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -50,8 +53,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="This is Service description"
-                    android:textColor="@color/colorWhiteD"
-                    android:textSize="18sp" />
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
 
                 <TextView
@@ -59,34 +62,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="This is Service Price"
-                    android:textColor="@color/colorWhiteD"
-                    android:textSize="18sp" />
+                    android:textColor="@color/colorHeader"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/equtext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="This is Equipments Used"
-                    android:textColor="@color/colorWhiteD"
-                    android:textSize="18sp" />
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:id="@+id/img1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="This is Equipments Used"
-                    android:textColor="@color/colorWhiteD"
-                    android:textSize="18sp" />
+                    android:text="This is Time Used"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="335dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -94,18 +99,15 @@
                 android:id="@+id/editicon"
                 android:layout_width="193dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40px"
                 android:src="@drawable/editsvc" />
 
             <ImageView
                 android:id="@+id/deleteicon"
-                android:layout_width="wrap_content"
+                android:layout_width="143dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40px"
                 android:src="@drawable/cancelsvc" />
         </LinearLayout>
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>
