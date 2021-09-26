@@ -1,7 +1,8 @@
-# _Noice Service Center - Android Mobile App_
+# _Noice Service Center - Android Mobile App (Educational purposes only)_
 ![alt text](https://firebasestorage.googleapis.com/v0/b/shehan-bd94f.appspot.com/o/Picture1.png?alt=media&token=56b169b2-1f2f-485e-ae69-bb91c8e764e6)
 #### _“NOICE SERVICE” is a mobile application which connects a specific service center and the customer_
 Noice Service link: ["Noice Service Commercial"](https://www.linkedin.com/posts/amantha-jayathilake-68a959205_noicedevs-noiceservice-activity-6847558753127026688-ZEHT)
+
 #### By _**{List of contributors}**_
 * _Shavinda Dulshan_
 * _Janudi Ranasinghe_
