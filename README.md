@@ -3,7 +3,7 @@
 #### _“NOICE SERVICE” is a mobile application which connects a specific service center and the customer_
 Noice Service link: ["Noice Service Commercial"](https://www.linkedin.com/posts/amantha-jayathilake-68a959205_noicedevs-noiceservice-activity-6847558753127026688-ZEHT)
 
-#### By _**{List of contributors}**_
+#### By
 * _Dulshan Perera_
 * _Janudi Ranasinghe_
 * _Amantha Jayathilake_
