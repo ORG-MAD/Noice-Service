@@ -1,39 +1,20 @@
-# _{Application Name}_
+# _Noice Service Center - Android Mobile App_
 
-#### _{Brief description of application}_
+#### _{“NOICE SERVICE” is a mobile application which connects a specific service center and the customer}_
 
 #### By _**{List of contributors}**_
-
+* _Shavinda Dulshan_
+* _Janudi Ranasinghe_
+* _Amantha Perera_
+* _Shehan Bartholomeusz_
+* 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _Android Studio_
+* _Java_
+* _Firbase Realtime Database_
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+_{A service station is a place almost everyone has visited. These places carry out a number of tasks (services). Most of the time people would just take their vehicle and go to the service center and see if there is a free slot so that they can get their vehicle serviced. This creates a wastage of time on the customers’ side and this also affects the workflow and customer base of the service center on the service center side. Based on these difficulties faced by both parties, we “NOICE DEVS” created a mobile application called “NOICE SERVICE” to counter the issues we identified.}_
 
-## Setup/Installation Requirements
-
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
-
-## Known Bugs
-
-* _Any known issues_
-* _should go here_
-
-## License
-
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
-
-## Contact Information
-
-_{Add your contact information here.}_
