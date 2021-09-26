@@ -4,9 +4,9 @@
 Noice Service link: ["Noice Service Commercial"](https://www.linkedin.com/posts/amantha-jayathilake-68a959205_noicedevs-noiceservice-activity-6847558753127026688-ZEHT)
 
 #### By _**{List of contributors}**_
-* _Shavinda Perera
+* _Shavinda Perera_
 * _Janudi Ranasinghe_
-* _Amantha Jayathilake
+* _Amantha Jayathilake_
 * _Shehan Bartholomeusz_
 
 ## Technologies Used
