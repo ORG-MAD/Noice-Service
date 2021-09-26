@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noice_service" >
         <activity
-            android:name=".ResCalculate"
+            android:name=".ServiceHome"
             android:exported="true" />
         <activity
             android:name=".AdminBookingReport"
@@ -65,7 +65,7 @@
             android:name=".TotalIncome"
             android:exported="true" />
         <activity
-            android:name=".ServiceHome"
+            android:name=".Services_Admin"
             android:exported="true" />
         <activity
             android:name=".AddServices"
@@ -86,7 +86,7 @@
             android:name=".ViewService"
             android:exported="true" />
         <activity
-            android:name=".Services_Admin"
+            android:name=".ResCalculate"
             android:exported="true" />
         <activity
             android:name=".jLogin_Customer"

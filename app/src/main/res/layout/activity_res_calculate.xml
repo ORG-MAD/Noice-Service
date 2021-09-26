@@ -4,36 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/calcbg"
     tools:context=".ResCalculate">
 
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/recyclerview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginStart="3dp"-->
-<!--        android:layout_marginLeft="3dp"-->
-<!--        android:layout_marginTop="200dp"-->
-<!--        android:foregroundGravity="center_horizontal"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
-
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/recyclerview"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginStart="3dp"-->
+    <!--        android:layout_marginLeft="3dp"-->
+    <!--        android:layout_marginTop="200dp"-->
+    <!--        android:foregroundGravity="center_horizontal"-->
+    <!--        tools:ignore="MissingConstraints" />-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="Estimated Services Values"
+            android:textColor="@color/colorHeader"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Service Title"
             android:layout_marginLeft="10dp"
-            tools:ignore="MissingConstraints"
-            android:textStyle="bold"
+            android:layout_marginTop="70dp"
+            android:text="Service Title"
+            android:textColor="@color/smallText"
             android:textSize="20sp"
-            android:layout_marginTop="60dp"
-            />
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,13 +59,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="70dp"
             android:text="Service Price"
-            tools:ignore="MissingConstraints"
-            android:textStyle="bold"
+            android:textColor="@color/smallText"
             android:textSize="20sp"
-            android:layout_marginTop="60dp"
-            />
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
     </LinearLayout>
 
 
@@ -64,7 +79,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.272" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -79,7 +94,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:text="Total Expenditure(LKR)"
+            android:text="Total Services Value(LKR)"
+            android:textColor="@color/colorYellowD"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -91,16 +107,17 @@
             android:layout_marginLeft="30dp"
             android:layout_toRightOf="@id/totalAmt"
             android:text="10"
+            android:textColor="@color/smallText"
             android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:id="@+id/divider6"
-        android:layout_width="409dp"
+        android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/black"
+        android:background="@color/colorWhite"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/recview"
         app:layout_constraintVertical_bias="1.0"
@@ -120,4 +137,15 @@
         app:menu="@menu/menu_navigation"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/recview"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.523"
+        tools:layout_editor_absoluteX="0dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
