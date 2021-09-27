@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class BookingFrom extends AppCompatActivity {
 
@@ -104,14 +105,14 @@ public class BookingFrom extends AppCompatActivity {
                     carNumberEditText.setError("Please enter Car Number");
                     carNumberEditText.requestFocus();
                 }else if(!checkCarNo(carNo)){
-                    phoneNumberEditText.setError("Please enter like 'ABC 0000' or 'KV 0000'");
-                    phoneNumberEditText.requestFocus();
+                    carNumberEditText.setError("Please enter like 'ABC 0000' or 'KV 0000'");
+                    carNumberEditText.requestFocus();
                 }else if(time_slot.equals("Select time")) {
                     ((TextView)dropdown.getSelectedView()).setError("Please Select time");
                     dropdown.requestFocus();
                 } else {
                     loadingProgressBar.setVisibility(View.VISIBLE);
-                    ProcessBook(phoneNo, carNo, time_slot,s_title,s_description, s_price, tv_day);
+                    ProcessBook(phoneNo, makeCarNoUppercase(carNo), time_slot,s_title,s_description, s_price, tv_day);
                 }
             }
         });
@@ -207,6 +208,16 @@ public class BookingFrom extends AppCompatActivity {
 
         return true;
         //if everything checks out, returns true
+    }
+
+    public String makeCarNoUppercase(String carNo){
+        String result;
+        if (carNo.length() == 7){
+            result = carNo.substring(0, 2).toUpperCase() + carNo.substring(2);
+        } else {
+            result = carNo.substring(0, 3).toUpperCase() + carNo.substring(3);
+        }
+        return result;
     }
 
 }

@@ -41,9 +41,6 @@
             android:name=".AdminBookingExpand"
             android:exported="true" />
         <activity
-            android:name=".booking_list_admin"
-            android:exported="true" />
-        <activity
             android:name=".CalculateReciept"
             android:exported="true" />
         <activity
@@ -105,9 +102,6 @@
         <activity android:name=".Service_Search" />
         <activity
             android:name=".ViewBookings_Admin"
-            android:exported="true" />
-        <activity
-            android:name=".BookingList"
             android:exported="true" />
         <activity
             android:name=".UpdateProfile_Customer"
