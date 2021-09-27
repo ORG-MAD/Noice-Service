@@ -28,7 +28,7 @@ public class CarNumberValidationTest {
     public void CarNumberValidateTest3(){
 
         BookingFrom bookingFrom = new BookingFrom();
-        boolean result = bookingFrom.checkCarNo("KV 1000");
+        boolean result = bookingFrom.checkCarNo("KV00000000");
         assertFalse(result);
     }
 }
