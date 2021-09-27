@@ -55,7 +55,7 @@ public class ResCalculate extends AppCompatActivity
                     Map<String, Object> map = (Map<String,Object>) ds.getValue();
                     Object price = map.get("price");
                     int pValue = Integer.parseInt(String.valueOf(price));
-                    sum += pValue;
+                    sum = calcSumValue(sum, pValue);
 
                     mTotal.setText(String.valueOf(sum));
                 }
@@ -159,6 +159,10 @@ public class ResCalculate extends AppCompatActivity
         adapter.startListening();
         recview.setAdapter(adapter);
 
+    }
+
+    int calcSumValue(int a, int b){
+        return a + b;
     }
 
 }
