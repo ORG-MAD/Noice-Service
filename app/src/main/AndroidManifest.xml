@@ -14,13 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noice_service">
         <activity
+            android:name=".jviewFeedbacks"
+            android:exported="true" />
+        <activity
+            android:name=".jFeedbackForm"
+            android:exported="true" />
+        <activity
             android:name=".AdminBookingReport"
             android:exported="true" />
         <activity
             android:name=".jEditProfile_Customer"
             android:exported="true" />
         <activity
-            android:name=".jMainInterface_Customer"
+            android:name=".jLogin_Customer"
             android:exported="true" />
         <activity
             android:name=".addService"
@@ -86,7 +92,7 @@
             android:name=".Services_Admin"
             android:exported="true" />
         <activity
-            android:name=".jLogin_Customer"
+            android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity android:name=".most_popular_service" />
         <activity android:name=".view_bookings_admin" />

@@ -48,14 +48,12 @@ import com.google.firebase.storage.StorageTask;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -266,6 +264,7 @@ public class jEditProfile_Customer extends AppCompatActivity {
             passwordResetDialog.setMessage("The password should have minimum 8 characters, atleast 1 alphabet, number and special character");
             passwordResetDialog.setView(resetPassword);
 
+
             passwordResetDialog.setPositiveButton("Yes", (dialog, which) -> {
                 //extract the email and send reset link
                 String newPassword = resetPassword.getText().toString();
@@ -322,18 +321,6 @@ public class jEditProfile_Customer extends AppCompatActivity {
                     et_phone.setText(phone);
                     et_date.setText(dob);
                     tv_Country.setText(country);
-//
-//                    SimpleDateFormat format = new SimpleDateFormat("dd, MM, yyyy");
-//                    try {
-//                        date1 = format.parse(regDate);
-//                    } catch (ParseException e) {
-//                        e.printStackTrace();
-//                    }
-                    
-
-//                    long msDiff = Calendar.getInstance().getTimeInMillis() - regDate.getTimeInMillis();
-//                    long daysDiff = TimeUnit.MILLISECONDS.toDays(msDiff);
-//                    tv_days.setText(daysDiff);
 
                     Date c = Calendar.getInstance().getTime();
                     System.out.println("Current time => " + c);
@@ -431,7 +418,9 @@ public class jEditProfile_Customer extends AppCompatActivity {
         }
         else{
             progressDialog.dismiss();
-            Toast.makeText(this, "Image not selected", Toast.LENGTH_SHORT).show();
         }
+    }
+    public long calcDifferenceDates(long difference){
+        return difference/(24 * 60 * 60 * 1000);
     }
 }
