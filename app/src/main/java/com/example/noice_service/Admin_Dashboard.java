@@ -78,4 +78,10 @@ public class Admin_Dashboard extends AppCompatActivity {
         Intent intent = new Intent(Admin_Dashboard.this, BookingsAdmin.class);
         startActivity(intent);
     }
+
+    public void feedback(View view) {
+        Intent intent = new Intent(Admin_Dashboard.this, jviewFeedbacks.class);
+        startActivity(intent);
+    }
 }
+

@@ -32,7 +32,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class jMainInterface_Customer extends AppCompatActivity {
 
     TextView tv_Name;
-    Button btn_myaccount, btn_logout, btn_deleteAcc;
+    Button btn_myaccount, btn_logout, btn_deleteAcc, btn_feedback, btn_services;
     FirebaseAuth mAuth;
     ProgressDialog progressDialog;
 
@@ -52,6 +52,8 @@ public class jMainInterface_Customer extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("User");
         btn_logout = findViewById(R.id.btn_logout);
         btn_deleteAcc = findViewById(R.id.btn_deleteAcc);
+        btn_feedback = findViewById(R.id.btn_feedback);
+        btn_services = findViewById(R.id.btn_services);
         profile_image = findViewById(R.id.profilepic);
 
 
@@ -76,6 +78,15 @@ public class jMainInterface_Customer extends AppCompatActivity {
                 SignOutUser();
             }
         });
+
+        btn_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent profile = new Intent(jMainInterface_Customer.this, jFeedbackForm.class);
+                startActivity(profile);
+            }
+        });
+
 
         getUserInfo();
     }
