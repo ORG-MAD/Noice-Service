@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 public class AdminBookingReport extends AppCompatActivity {
@@ -37,11 +38,43 @@ public class AdminBookingReport extends AppCompatActivity {
         adminbookinglist = findViewById(R.id.admin_booking_report_list);
         tv_total = findViewById(R.id.total_);
 
+        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Initialize variables and assign them
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set Home Selected
+
+
+        //Perform Item Selected Event Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.about:
+                        startActivity(new Intent(getApplicationContext(), About.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        Date date = new Date();
+        String today = getDate(date.toString());
 
         total_ = 0;
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Finished_Bookings");
@@ -58,7 +91,7 @@ public class AdminBookingReport extends AppCompatActivity {
                         String booking_time=ds.child("booking_time").getValue(String.class);
                         String s_price=ds.child("s_price").getValue(String.class);
 
-                        if(getDate((new Date()).toString()).equals(getDate(booking_time))){
+                        if(today.equals(getDate(booking_time))){
 
                             boolean serviceExists = false;
 

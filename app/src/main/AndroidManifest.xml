@@ -17,6 +17,12 @@
             android:name=".ServiceHome"
             android:exported="true" />
         <activity
+            android:name=".jviewFeedbacks"
+            android:exported="true" />
+        <activity
+            android:name=".jFeedbackForm"
+            android:exported="true" />
+        <activity
             android:name=".AdminBookingReport"
             android:exported="true" />
         <activity

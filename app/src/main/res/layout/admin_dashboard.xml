@@ -66,7 +66,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -104,7 +105,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -142,7 +144,8 @@
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -151,6 +154,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"
+            android:onClick="serviceBookings"
             android:layout_rowWeight="1"
             android:layout_column="1"
             android:layout_columnWeight="1"
@@ -176,7 +180,43 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total Income"
+                    android:text="Service Bookings"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="-180dp"
+            android:onClick="feedback"
+            app:cardBackgroundColor="@color/material_on_primary_emphasis_medium"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            tools:ignore="GridLayout">
+
+            <LinearLayout
+                android:layout_width="136dp"
+                android:layout_height="143dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Feedbacks"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="20sp"
