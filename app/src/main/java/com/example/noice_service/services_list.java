@@ -55,7 +55,7 @@ public class services_list extends AppCompatActivity implements ServiceListClick
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), HomeCustomer.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.about:
