@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         HamButton.Builder builder2=new HamButton.Builder();
 
         //Service Management Activity
-        builder.normalImageRes(R.drawable.noice_logo).normalText("Service Management")
+        builder.normalImageRes(R.drawable.noice_logo).normalText("Customer Login")
                 .normalColorRes(R.color.colorYellowD)
                 .normalTextColorRes(R.color.black);
         boomMenuButton.addBuilder(builder);
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 0;
                 Intent intent;
-                intent = new Intent(MainActivity.this, ServiceHome.class);//Service Management Activity
+                intent = new Intent(MainActivity.this, jLogin_Customer.class);//Service Management Activity
                 startActivity(intent);
             }
         });
 
         //Delivery Request Handling Activity
-        builder1.normalImageRes(R.drawable.noice_logo).normalText("Delivery Request Handling")
+        builder1.normalImageRes(R.drawable.noice_logo).normalText("Customer Registration")
                 .normalColorRes(R.color.colorYellowD)
                 .normalTextColorRes(R.color.black);
         boomMenuButton.addBuilder(builder1);
@@ -72,13 +72,13 @@ public class MainActivity extends AppCompatActivity {
             public void onBoomButtonClick(int index) {
                 index = 1;
                 Intent intent;
-                intent = new Intent(MainActivity.this,DeliverRequestCustomer.class);//Delivery Request Handling Activity
+                intent = new Intent(MainActivity.this,J_CustomerRegistration.class);//Delivery Request Handling Activity
                 startActivity(intent);
             }
         });
 
         //Booking Management Activity
-        builder2.normalImageRes(R.drawable.noice_logo).normalText("Booking Management")
+        builder2.normalImageRes(R.drawable.noice_logo).normalText("Admin Login")
                 .normalColorRes(R.color.colorYellowD)
                 .normalTextColorRes(R.color.black);
         boomMenuButton.addBuilder(builder2);
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 index = 2;
                 Intent intent;
 //              intent = new Intent(MainActivity.this,HomeCustomer.class);
-                intent = new Intent(MainActivity.this,BookingsAdmin.class);
+                intent = new Intent(MainActivity.this,jLogin_Admin.class);
                 startActivity(intent);
             }
         });
@@ -105,9 +105,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0, 0);

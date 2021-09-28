@@ -4,20 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/editreqbg"
     tools:context=".BookingsAdmin">
 
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/bookings_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/Bookings"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/bookings_head"
+        android:onClick="seeReport"
+        android:text="TODAY'S INCOME" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/admin_booking_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:cardBackgroundColor="@color/black">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/admin_booking_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp" />
-
-    </androidx.cardview.widget.CardView>
+        android:layout_marginTop="95dp"
+        android:layout_marginBottom="60dp"
+        android:padding="10dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

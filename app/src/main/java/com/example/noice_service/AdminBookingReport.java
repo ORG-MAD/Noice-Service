@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,7 +44,7 @@ public class AdminBookingReport extends AppCompatActivity {
         super.onStart();
 
         total_ = 0;
-        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
+        bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Finished_Bookings");
         services = new ArrayList<>();
 
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
@@ -52,13 +55,13 @@ public class AdminBookingReport extends AppCompatActivity {
                     for(DataSnapshot ds : snapshot.getChildren()){
 
                         String booking_name=ds.child("booking_name").getValue(String.class);
-                        String booking_status=ds.child("booking_status").getValue(String.class);
                         String booking_time=ds.child("booking_time").getValue(String.class);
                         String s_price=ds.child("s_price").getValue(String.class);
 
-                        if (booking_status.equals("Booking Successful")){
+                        if(getDate((new Date()).toString()).equals(getDate(booking_time))){
 
                             boolean serviceExists = false;
+
                             for(ServiceReportModel service : services)
                             {
                                 if (booking_name.equals(service.getName())){
@@ -70,10 +73,9 @@ public class AdminBookingReport extends AppCompatActivity {
                             if(serviceExists == false){
                                 services.add(new ServiceReportModel(booking_name, s_price));
                                 total_ = total_ + Integer.parseInt(s_price);
-
-
                             }
                         }
+
                     }
                     tv_total.setText(Integer.toString(total_) + ".00");
                     AdminBookingReportRecyclerView adminBookingsReportRecyclerView = new AdminBookingReportRecyclerView(services);
@@ -90,5 +92,19 @@ public class AdminBookingReport extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void goBackAdminBookings(View view){
+        Intent intent=new Intent(AdminBookingReport.this, BookingsAdmin.class);
+        startActivity(intent);
+    }
+
+    public static String getDate(String str){
+        int index = str.indexOf(' ');
+        index = str.indexOf(' ', index + 1);
+        index = str.indexOf(' ', index + 1);
+
+        String result = str.substring(0, index);
+        return result;
     }
 }

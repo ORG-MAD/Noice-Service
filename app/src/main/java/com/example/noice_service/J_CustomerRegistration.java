@@ -3,6 +3,7 @@ package com.example.noice_service;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -259,6 +260,8 @@ public class J_CustomerRegistration extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 Toast.makeText(J_CustomerRegistration.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                Intent register = new Intent(J_CustomerRegistration.this, jLogin_Customer.class);
+                                startActivity(register);
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override

@@ -30,12 +30,6 @@ public class Services_Admin extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services_admin);
-//        textView = (TextView) findViewById(R.id.tv_heading);
-//        String text = "NOICE SERVICE";
-//        SpannableString ss = new SpannableString(text);
-//        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
-//        ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//        textView.setText(ss);
         setTitle("Search here..");
 
         recview=(RecyclerView)findViewById(R.id.recview);

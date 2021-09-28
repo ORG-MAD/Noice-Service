@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.StyleSpan;
@@ -21,14 +22,16 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 public class EditSelectedRequest extends AppCompatActivity {
-    TextView viewEmail, viewName, viewContactNo, viewVehicleName, viewLocation, viewStatusD;;
+    TextView viewEmail, viewName, viewContactNo, viewVehicleName, viewLocation, viewStatusD;
     EditText status;
     Button subBtn, delBtn;
     DAORequest dao = new DAORequest();
     AwesomeValidation awesomeValidation;
+    String email, name, price, bID, statusT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +67,18 @@ public class EditSelectedRequest extends AppCompatActivity {
 
         //Set the values obtained form the intent
         if(req != null) {
+            email = req.getCustomerEmail();
+            name = req.getCustomerName();
+            price = req.getS_price();
+            bID = req.getBooking_ID();
+            statusT = req.getStatus();
             viewEmail.setText(req.getCustomerEmail());
             viewName.setText(req.getCustomerName());
             viewContactNo.setText(req.getContactNumber());
             viewVehicleName.setText(req.getVehicleName());
             viewLocation.setText(req.getLocation());
             viewStatusD.setText(req.getStatus());
+
         }
 
 
@@ -121,7 +130,7 @@ public class EditSelectedRequest extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
@@ -138,18 +147,19 @@ public class EditSelectedRequest extends AppCompatActivity {
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
     }
-
-    //Send email function
-    public void sendmail(View view) {
-        String[] TO_EMAILS = {"noice@gmail.com"};
-
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
-        intent.putExtra(Intent.EXTRA_EMAIL, TO_EMAILS);
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Confirmation");
-        intent.putExtra(Intent.EXTRA_TEXT, "Thank you for using Noice Service mobile app");
-
-        startActivity(Intent.createChooser(intent, "Choose your email client"));
+    //Place Delivery Request
+    public void reciept(View view){
+        if(statusT.equals("Approved")) {
+            Intent intent = new Intent(EditSelectedRequest.this, CalculateReciept.class);
+            intent.putExtra("s_price", price);
+            intent.putExtra("user_email", email);
+            intent.putExtra("cus_name", name);
+            intent.putExtra("booking_id", bID);
+            startActivity(intent);
+        }else{
+            Toast.makeText(this, "Set the status to Approved First!", Toast.LENGTH_SHORT).show();
+        }
     }
+
 }
 

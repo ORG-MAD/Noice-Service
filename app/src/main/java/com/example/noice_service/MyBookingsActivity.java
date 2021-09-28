@@ -2,6 +2,7 @@ package com.example.noice_service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,19 +27,24 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
     DatabaseReference UserDatabaseReference;
     FirebaseAuth mAuth;
     String user_email;
+    RecyclerView mybookinglist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
-        RecyclerView mybookinglist = findViewById(R.id.my_booking_list);
+        mybookinglist = findViewById(R.id.my_booking_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
         mAuth = FirebaseAuth.getInstance();
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
 
         getUserEmail();
+        loadData();
 
+    }
+
+    public void loadData(){
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -76,7 +82,6 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
             }
         });
-
     }
 
     public void onClickItem(MyBookings myBooking) {
@@ -89,6 +94,8 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
         intent.putExtra("phone_no",myBooking.getPhone_no());
         intent.putExtra("details",myBooking.getDetails());
         intent.putExtra("includes",myBooking.getTv_day());
+        intent.putExtra("s_price",myBooking.getS_price());
+        intent.putExtra("user_email",user_email);
         startActivity(intent);
     }
 
@@ -113,6 +120,11 @@ public class MyBookingsActivity extends AppCompatActivity implements MyBookingCl
 
             }
         });
+    }
+
+    public void goBackServiceList(View view){
+        Intent intent = new Intent(MyBookingsActivity.this, services_list.class);
+        startActivity(intent);
     }
 
 }

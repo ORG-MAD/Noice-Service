@@ -7,106 +7,140 @@
     android:background="@drawable/bookingbg"
     tools:context=".MyBookingExpand">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:contentPadding="10dp"
-        app:cardBackgroundColor="@color/transparent"
-        >
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goBackMyBookings"
+        android:paddingLeft="18dp"
+        android:paddingTop="35dp"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/mbooking_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="Demo text"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
+    <TextView
+        android:id="@+id/mbooking_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="70dp"
+        android:paddingTop="28dp"
+        android:text="Demo text"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/hyphen1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/mbooking_name"
-                android:textColor="@color/white"
-                android:padding="10dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="28dp"
+                android:paddingRight="10dp"
                 android:text="-"
+                android:textColor="@color/white"
                 android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/time_slot"
-                android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/hyphen1"
-                android:padding="10dp"
-                android:text="10:00AM"
-                android:textSize="25sp" />
+    <TextView
+        android:id="@+id/time_slot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/hyphen1"
+        android:paddingTop="28dp"
+        android:text="10:00AM"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/details"
-                android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mbooking_name"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                android:text="Details"
-                android:textSize="17sp"></TextView>
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mbooking_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Details"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/details"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/colorHeader"
+        app:contentPadding="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/includes"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/details"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
                 android:text="INCLUDES"
-                android:textSize="17sp"></TextView>
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/tv_day"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/details"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@id/includes"
-                android:text="tv_day"
-                android:textSize="17sp"></TextView>
+                android:text="0"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/fee_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/includes"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingLeft="20dp"
+                android:text="FEE (Rs)"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_day"
+                android:layout_marginRight="2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@id/includes"
+                android:text="0"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/carno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_day"
+                android:layout_below="@+id/fee"
                 android:paddingLeft="20dp"
-                android:textColor="@color/white"
                 android:text="CAR NO"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/car_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_below="@+id/tv_day"
+                android:layout_below="@+id/fee"
                 android:layout_toRightOf="@+id/phoneno"
                 android:paddingLeft="20dp"
                 android:text="CAR - 20471"
@@ -116,10 +150,10 @@
                 android:id="@+id/phoneno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:layout_below="@+id/car_no"
                 android:paddingLeft="20dp"
                 android:text="CONTACT NO"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
 
 
@@ -128,19 +162,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/car_no"
-                android:textColor="@color/white"
                 android:layout_toRightOf="@+id/phoneno"
                 android:paddingLeft="20dp"
                 android:text="071256842"
                 android:textSize="15sp" />
 
+            <Button
+                android:id="@+id/btnUpdateBooking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/phone_no"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:onClick="changeDetails"
+                android:text="Change details"
+                app:backgroundTint="@color/buttonD" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
             <TextView
                 android:id="@+id/status1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="120dp"
                 android:layout_marginRight="2dp"
+                android:layout_marginBottom="120dp"
                 android:paddingLeft="10dp"
                 android:text="STATUS"
                 android:textColor="@color/white"
@@ -164,28 +211,28 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="60dp"
-                android:layout_toLeftOf="@+id/btnUpdateBooking"
+                android:layout_toLeftOf="@+id/btn_placeReq"
                 android:onClick="deleteBooking"
                 android:text="Delete"
                 app:backgroundTint="@color/buttonD" />
 
-            <Button
-                android:id="@+id/btnUpdateBooking"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="60dp"
-                app:backgroundTint="@color/buttonD"
-                android:onClick="changeDetails"
-                android:text="Change details" />
+            <!--ViewReciept Button-->
+    <Button
+        android:id="@+id/btn_placeReq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="60dp"
+        android:onClick="placeRequest"
+        android:text="Pickup Request"
+        app:backgroundTint="@color/buttonD" />
 
 
-        </RelativeLayout>
 
-    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

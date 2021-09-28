@@ -4,8 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/editreqbg"
     tools:context=".MyBookingsActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goBackServiceList"
+        android:paddingLeft="18dp"
+        android:paddingTop="35dp"
+        android:src="@drawable/ic_baseline_arrow_back_24" />
 
     <TextView
         android:id="@+id/serviceheader"
@@ -17,20 +25,13 @@
         android:textColor="@color/white"
         android:textSize="25dp" />
 
-
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_booking_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="60dp"
         android:layout_marginTop="80dp"
-        app:cardBackgroundColor="@color/black">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_booking_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp" />
-
-    </androidx.cardview.widget.CardView>
+        android:padding="10dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

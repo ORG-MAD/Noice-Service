@@ -215,18 +215,20 @@
                 android:backgroundTint="@color/white"
                 android:textColor="@color/colorWhiteD"
                 android:textColorHint="@color/colorWhiteD" />
+
             //Email button
             <Button
-                android:id="@+id/btn_email"
+                android:id="@+id/btn_receipt"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="365dp"
                 android:layout_marginRight="30dp"
                 android:backgroundTint="@color/buttonD"
-                android:onClick="sendmail"
-                android:text="@string/btn_email"
+                android:onClick="reciept"
+                android:text="@string/btn_receipt"
                 android:textColor="@color/black" />
+
             //Edit button
             <Button
                 android:id="@+id/btn_edit"
@@ -239,6 +241,7 @@
                 android:text="@string/btn_edit"
                 android:textColor="@color/black" />
             //Delete button
+
             <Button
                 android:id="@+id/btn_delete"
                 android:layout_width="120dp"

@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.Date;
+import java.util.Locale;
 
 public class BookingFrom extends AppCompatActivity {
 
@@ -32,16 +33,31 @@ public class BookingFrom extends AppCompatActivity {
     DatabaseReference UserDatabaseReference;
     FirebaseAuth mAuth;
     String user_email;
+    EditText phoneNumberEditText;
+    EditText carNumberEditText;
+    Button bookConfirm;
+    TextView heading;
+    TextView description;
+    TextView includes;
+    TextView approxTime;
+    TextView price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_from);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
         String s_title = getIntent().getStringExtra("s_title");
         String s_price = getIntent().getStringExtra("s_price");
         String s_description = getIntent().getStringExtra("s_description");
         String tv_day = getIntent().getStringExtra("tv_day");
+        String totalTime = getIntent().getStringExtra("totalTime");
 
         mAuth = FirebaseAuth.getInstance();
         UserDatabaseReference = FirebaseDatabase.getInstance().getReference().child("User");
@@ -49,19 +65,27 @@ public class BookingFrom extends AppCompatActivity {
 
         getUserEmail();
 
-        final EditText phoneNumberEditText = findViewById(R.id.phone_number);
-        final EditText carNumberEditText = findViewById(R.id.car_number);
-        final Button bookConfirm = findViewById(R.id.book_confirm);
+        phoneNumberEditText = findViewById(R.id.phone_number);
+        carNumberEditText = findViewById(R.id.car_number);
+        bookConfirm = findViewById(R.id.book_confirm);
         loadingProgressBar = findViewById(R.id.loading);
-        TextView heading = findViewById(R.id.heading_);
+        heading = findViewById(R.id.heading_);
+        description = findViewById(R.id.description);
+        includes = findViewById(R.id.includes);
+        approxTime = findViewById(R.id.approxTime);
+        price = findViewById(R.id.price);
+
         heading.setText(s_title);
+        description.setText(s_description);
+        includes.setText(tv_day);
+        approxTime.setText(totalTime);
+        price.setText(s_price);
 
         Spinner dropdown = findViewById(R.id.time_slot);
         String[] items = new String[]{"Select time", "08:00 AM","09:00 AM", "10:00 AM", "11:00 PM", "12:00 PM", "01:00 PM", "02:00 PM", "03:00 PM" };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
 
         dropdown.setAdapter(adapter);
-
 
         bookConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,18 +104,21 @@ public class BookingFrom extends AppCompatActivity {
                 }else if(carNo.isEmpty()){
                     carNumberEditText.setError("Please enter Car Number");
                     carNumberEditText.requestFocus();
-                } else if(time_slot.equals("Select time")) {
+                }else if(!checkCarNo(carNo)){
+                    carNumberEditText.setError("Please enter like 'ABC 0000' or 'KV 0000'");
+                    carNumberEditText.requestFocus();
+                }else if(time_slot.equals("Select time")) {
                     ((TextView)dropdown.getSelectedView()).setError("Please Select time");
                     dropdown.requestFocus();
                 } else {
                     loadingProgressBar.setVisibility(View.VISIBLE);
-                    ProcessBook(phoneNo, carNo, time_slot,s_title,s_description, s_price, tv_day);
+                    ProcessBook(phoneNo, makeCarNoUppercase(carNo), time_slot,s_title,s_description, s_price, tv_day);
                 }
             }
         });
     }
 
-    private void ProcessBook(String pNo, String cNo, String timeSlot,String s_title,String s_description, String s_price, String tv_day){
+    private void ProcessBook(String pNo, String cNo, String timeSlot, String s_title, String s_description, String s_price, String tv_day){
 
         Date date = new Date();
         String id = bookingsDatabase.push().getKey();
@@ -128,7 +155,6 @@ public class BookingFrom extends AppCompatActivity {
                     Intent intent = new Intent(BookingFrom.this, jLogin_Customer.class);
                     startActivity(intent);
                 }
-
             }
 
             @Override
@@ -136,6 +162,62 @@ public class BookingFrom extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void goBackServiceList(View view){
+        Intent intent = new Intent(BookingFrom.this, services_list.class);
+        startActivity(intent);
+    }
+
+    public boolean checkCarNo(String carNo) {
+
+        if (!(carNo.length() == 8 || carNo.length() == 7)) {
+            return false;
+            //if car number legnth is not equal to 7 or 8, returns false
+        }
+
+        if (carNo.length() == 8) {
+            for (char c : carNo.substring(0, 3).toCharArray()) {
+                if(!Character.isLetter(c)) {
+                    return false;
+                    //return false id first 3 letters are not letters
+                }
+            }
+        }
+
+        if (carNo.length() == 7) {
+            for (char c : carNo.substring(0, 2).toCharArray()) {
+                if(!Character.isLetter(c)) {
+                    return false;
+                    //return false id first 2 letters are not letters
+                }
+            }
+        }
+
+        if (!carNo.substring(carNo.length() - 5, carNo.length() - 4).equals(" ")) {
+            return false;
+            //if 5th charactr from last, is not equals to space, returns false
+        }
+
+
+        for (char n : carNo.substring(carNo.length() - 4).toCharArray()) {
+            if(!Character.isDigit(n)) {
+                return false;
+            }
+        }
+
+        return true;
+        //if everything checks out, returns true
+    }
+
+    public String makeCarNoUppercase(String carNo){
+        String result;
+        if (carNo.length() == 7){
+            result = carNo.substring(0, 2).toUpperCase() + carNo.substring(2);
+        } else {
+            result = carNo.substring(0, 3).toUpperCase() + carNo.substring(3);
+        }
+        return result;
     }
 
 }

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -23,14 +24,50 @@ public class BookingsAdmin extends AppCompatActivity implements MyBookingClickLi
 
     DatabaseReference bookingsDatabase;
     List<MyBookings> retreivedBooking = new ArrayList<>();
+    RecyclerView adminbookinglist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bookings_admin);
-        RecyclerView adminbookinglist = findViewById(R.id.admin_booking_list);
+        adminbookinglist = findViewById(R.id.admin_booking_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("Bookings");
 
+        loadData();
+
+        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+        //Initialize variables and assign them
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        //Set Home Selected
+
+
+        //Perform Item Selected Event Listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.dashboard:
+                        startActivity(new Intent(getApplicationContext(), Admin_Dashboard.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                    case R.id.about:
+                        startActivity(new Intent(getApplicationContext(), About.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+                }
+                return false;
+            }
+        });
+//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+
+    }
+
+    public void loadData(){
         bookingsDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -58,8 +95,6 @@ public class BookingsAdmin extends AppCompatActivity implements MyBookingClickLi
                     adminbookinglist.setLayoutManager(new LinearLayoutManager(BookingsAdmin.this));
                     adminbookinglist.setAdapter(adminBookingsRecyclerView);
 
-                } else {
-
                 }
             }
 
@@ -68,37 +103,6 @@ public class BookingsAdmin extends AppCompatActivity implements MyBookingClickLi
 
             }
         });
-
-        //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
-        //Initialize variables and assign them
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        //Set Home Selected
-
-
-        //Perform Item Selected Event Listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch(menuItem.getItemId()){
-                    case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.home:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.about:
-                        startActivity(new Intent(getApplicationContext(), About.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                }
-                return false;
-            }
-        });
-//-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
-
     }
 
     public void onClickItem(MyBookings myBooking) {
@@ -109,6 +113,13 @@ public class BookingsAdmin extends AppCompatActivity implements MyBookingClickLi
         intent.putExtra("car_no",myBooking.getCar_no());
         intent.putExtra("phone_no",myBooking.getPhone_no());
         intent.putExtra("details",myBooking.getDetails());
+        intent.putExtra("price",myBooking.getS_price());
+        intent.putExtra("bookingTime",myBooking.getBooking_time());
+        startActivity(intent);
+    }
+
+    public void seeReport(View view){
+        Intent intent = new Intent(BookingsAdmin.this,AdminBookingReport.class);
         startActivity(intent);
     }
 

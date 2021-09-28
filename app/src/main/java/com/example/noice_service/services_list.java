@@ -25,44 +25,18 @@ public class services_list extends AppCompatActivity implements ServiceListClick
 
     DatabaseReference bookingsDatabase;
     List<ServicesModel> servicesModels = new ArrayList<>();
+    RecyclerView serviceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_services_list);
-        RecyclerView serviceList = findViewById(R.id.my_service_list);
+        serviceList = findViewById(R.id.my_service_list);
 
         bookingsDatabase = FirebaseDatabase.getInstance().getReference().child("services");
 
-        bookingsDatabase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+        loadData();
 
-                if(snapshot.exists()){
-                    for(DataSnapshot ds : snapshot.getChildren()){
-                        String s_description=ds.child("description").getValue(String.class);
-                        String tv_day=ds.child("equ").getValue(String.class);
-                        String imgurl=ds.child("imgurl").getValue(String.class);
-                        String s_price=ds.child("price").getValue(String.class);
-                        String s_title=ds.child("title").getValue(String.class);
-
-                        servicesModels.add(new ServicesModel(s_title,s_price,tv_day,s_description));
-                    }
-
-                    ServicesListRecyclerView servicesListRecyclerView = new ServicesListRecyclerView(servicesModels, services_list.this);
-                    serviceList.setLayoutManager(new LinearLayoutManager(services_list.this));
-                    serviceList.setAdapter(servicesListRecyclerView);
-
-                } else {
-
-                }
-            }
-
-            @Override
-            public void onCancelled( DatabaseError error) {
-
-            }
-        });
 
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
         //Initialize variables and assign them
@@ -77,7 +51,7 @@ public class services_list extends AppCompatActivity implements ServiceListClick
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch(menuItem.getItemId()){
                     case R.id.dashboard:
-                        startActivity(new Intent(getApplicationContext(), Dashboard.class));
+                        startActivity(new Intent(getApplicationContext(), jMainInterface_Customer.class));
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.home:
@@ -96,6 +70,39 @@ public class services_list extends AppCompatActivity implements ServiceListClick
 
     }
 
+    public void loadData(){
+        bookingsDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.exists()){
+                    for(DataSnapshot ds : snapshot.getChildren()){
+                        String s_description=ds.child("description").getValue(String.class);
+                        String tv_day=ds.child("equ").getValue(String.class);
+                        String totalTime=ds.child("totalTime").getValue(String.class);
+                        String s_price=ds.child("price").getValue(String.class);
+                        String s_title=ds.child("title").getValue(String.class);
+
+                        ServicesModel servicesModel = new ServicesModel(s_title,s_price,tv_day,s_description);
+                        servicesModel.setTotalTime(totalTime);
+                        servicesModels.add(servicesModel);
+                    }
+
+                    ServicesListRecyclerView servicesListRecyclerView = new ServicesListRecyclerView(servicesModels, services_list.this);
+                    serviceList.setLayoutManager(new LinearLayoutManager(services_list.this));
+                    serviceList.setAdapter(servicesListRecyclerView);
+
+                } else {
+
+                }
+            }
+
+            @Override
+            public void onCancelled( DatabaseError error) {
+
+            }
+        });
+    }
 
     @Override
     public void onClickItem(ServicesModel servicesModel) {
@@ -103,6 +110,7 @@ public class services_list extends AppCompatActivity implements ServiceListClick
         intent.putExtra("s_title",servicesModel.getS_title());
         intent.putExtra("s_price",servicesModel.getS_price());
         intent.putExtra("s_description",servicesModel.getS_description());
+        intent.putExtra("totalTime",servicesModel.getTotalTime());
         intent.putExtra("tv_day",servicesModel.getTv_day());
         startActivity(intent);
     }
