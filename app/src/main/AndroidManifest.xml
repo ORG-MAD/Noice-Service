@@ -41,9 +41,6 @@
             android:name=".AdminBookingExpand"
             android:exported="true" />
         <activity
-            android:name=".CalculateReciept"
-            android:exported="true" />
-        <activity
             android:name=".HomeCustomer"
             android:exported="true" />
         <activity

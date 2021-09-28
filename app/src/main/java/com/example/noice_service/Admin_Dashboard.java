@@ -75,7 +75,7 @@ public class Admin_Dashboard extends AppCompatActivity {
 
     //Navigates to Total Income
     public void totalIncome(View view) {
-        Intent intent = new Intent(Admin_Dashboard.this, ResCalculate.class);
+        Intent intent = new Intent(Admin_Dashboard.this, ViewBookings_Admin.class);
         startActivity(intent);
     }
 }

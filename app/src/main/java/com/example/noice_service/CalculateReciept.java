@@ -63,7 +63,7 @@ public class CalculateReciept extends AppCompatActivity {
                 if(!viewPrice.getText().toString().equals("") && !delFee.getText().toString().equals("")){
                     int temp1 = Integer.parseInt(viewPrice.getText().toString());
                     int temp2 = Integer.parseInt(delFee.getText().toString());
-                    netAmount.setText(String.valueOf(temp1 + temp2));
+                    netAmount.setText(String.valueOf(calcSum(temp1 ,temp2)));
                 }
             }
             @Override
@@ -100,6 +100,10 @@ public class CalculateReciept extends AppCompatActivity {
             }
         });
 //-------------------------------------------------------Bottom App BAR FUNCTION---------------------------------------------
+    }
+
+    public int calcSum(int a, int b){
+        return a+b;
     }
 
     //Send email function
