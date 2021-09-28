@@ -26,6 +26,9 @@
             android:name=".jEditProfile_Customer"
             android:exported="true" />
         <activity
+            android:name=".CalculateReciept"
+            android:exported="true" />
+        <activity
             android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity
