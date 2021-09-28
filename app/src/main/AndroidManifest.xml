@@ -32,7 +32,10 @@
             android:name=".jEditProfile_Customer"
             android:exported="true" />
         <activity
-            android:name=".jLogin_Customer"
+            android:name=".CalculateReciept"
+            android:exported="true" />
+        <activity
+            android:name=".jMainInterface_Customer"
             android:exported="true" />
         <activity
             android:name=".addService"
@@ -92,7 +95,7 @@
             android:name=".ResCalculate"
             android:exported="true" />
         <activity
-            android:name=".jMainInterface_Customer"
+            android:name=".jLogin_Customer"
             android:exported="true" />
         <activity
             android:name=".jLogin_Admin"
@@ -151,7 +154,6 @@
         <activity
             android:name=".MyBookingsActivity"
             android:exported="true" />
-        
         <activity
             android:name=".BookingsAdmin"
             android:exported="true" />
